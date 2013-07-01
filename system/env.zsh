@@ -1,5 +1,7 @@
-# Only set this if we haven't set $EDITOR up somewhere else previously.
-if [[ "$EDITOR" == "" ]] ; then
-  # Use sublime for my editor.
-  export EDITOR='subl'
-fi
+export EDITOR="mvim"
+export VISUAL="mvim"
+
+export JAVA_HOME=`/usr/libexec/java_home`
+export LESSOPEN="| $(brew --prefix)/bin/lesspipe.sh %s"
+export LESSCLOSE="$(brew --prefix)/bin/lesspipe.sh %s %s"
+export PYTHONPATH="$(brew --prefix)/lib/python2.7/site-packages"

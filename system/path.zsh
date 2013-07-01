@@ -1,3 +1,15 @@
-export PATH="./bin:$HOME/.rbenv/shims:/usr/local/bin:/usr/local/sbin:$HOME/.sfs:$ZSH/bin:$PATH"
+source /opt/boxen/env.sh
 
-export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+path_add() {
+  if [ -d "$1" -a -r "$1" ]; then
+    export PATH="$1:$PATH"
+  fi
+}
+
+path_add "~/bin"
+path_add "~/working/android-sdk-macosx/tools"
+path_add "~/working/android-sdk-macosx/platform-tools"
+path_add "~/working/depot_tools"
+path_add "~/working/arcanist/bin"
+
+unset -f path_add
