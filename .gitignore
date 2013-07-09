@@ -1,5 +1,5 @@
 /git/gitconfig.symlink
-/vim/.netrwhist
-/vim/bundle/*
-!/vim/bundle/vundle
-/vim/backups
+/vim.symlink/.netrwhist
+/vim.symlink/bundle/*
+!/vim.symlink/bundle/vundle
+/vim.symlink/backups
