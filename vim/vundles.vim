@@ -36,7 +36,7 @@ Bundle "kchmck/vim-coffee-script"
 "Bundle "slim-template/vim-slim"
 "Bundle "timcharper/textile.vim"
 "Bundle "tpope/vim-haml"
-"Bundle "wavded/vim-stylus"
+Bundle "wavded/vim-stylus"
 
 " Git related...
 Bundle "gregsexton/gitv"
@@ -112,6 +112,8 @@ Bundle "Lokaltog/powerline"
 "Bundle "bogado/file-line"
 "Bundle "tpope/vim-rvm"
 "Bundle "nelstrom/vim-visual-star-search"
+
+Bundle "nono/vim-handlebars"
 
 "Filetype plugin indent on is required by vundle
 filetype plugin indent on
