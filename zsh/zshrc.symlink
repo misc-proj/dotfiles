@@ -20,7 +20,7 @@ fi
 # Customize to your needs...
 
 typeset -U config_files
-config_files=($ZSH/**/*.zsh~$ZSH/zsh/prezto/*~$ZSH/vim/bundle/*~$ZSH/vim/backups/*)
+config_files=($ZSH/**/*.zsh~$ZSH/zsh/zprezto.symlink/*~$ZSH/vim.symlink/bundle/*~$ZSH/vim.symlink/backups/*)
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}; do

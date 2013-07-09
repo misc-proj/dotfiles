@@ -1,4 +1,4 @@
-source /opt/boxen/env.sh
+if [[ "$OSTYPE" == darwin* ]]; then source /opt/boxen/env.sh; fi
 
 force_path_add() {
   export PATH="$1:$PATH"
@@ -8,6 +8,7 @@ path_add() {
   if [[ -d "$1" && -r "$1" ]]; then force_path_add "$@"; fi
 }
 
+path_add "$HOME/.local/bin"
 path_add "$HOME/bin"
 path_add "$HOME/working/android-sdk-macosx/tools"
 path_add "$HOME/working/android-sdk-macosx/platform-tools"
