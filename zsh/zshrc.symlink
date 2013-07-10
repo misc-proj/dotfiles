@@ -8,9 +8,16 @@
 ZSH=$HOME/.dotfiles
 DEFAULT_USER="jrubin"
 
-autoload promptinit
-fpath=($ZSH/zsh/prezto-themes $fpath)
-promptinit
+fpath=($ZSH/zsh/prezto-themes $ZSH/functions $fpath)
+
+typeset -U config_files
+setopt extendedglob
+config_files=($ZSH/**/*.zsh~$ZSH/zsh/zprezto.symlink/*~$ZSH/vim.symlink/bundle/*~$ZSH/vim.symlink/backups/*)
+
+# load the path files
+for file in ${(M)config_files:#*/path.zsh}; do
+  source $file
+done
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -18,14 +25,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-
-typeset -U config_files
-config_files=($ZSH/**/*.zsh~$ZSH/zsh/zprezto.symlink/*~$ZSH/vim.symlink/bundle/*~$ZSH/vim.symlink/backups/*)
-
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}; do
-  source $file
-done
 
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do

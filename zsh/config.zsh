@@ -1,5 +1,3 @@
-fpath=($ZSH/functions $fpath)
-
 autoload -U $ZSH/functions/*(:t)
 
 setopt NO_BG_NICE # don't nice background tasks
