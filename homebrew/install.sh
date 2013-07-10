@@ -22,8 +22,7 @@ brew install \
   git \
   git-flow \
   lesspipe \
-  vim --env-std --override-system-vim --enable-pythoninterp \
-  macvim --env-std --override-system-vim --enable-pythoninterp \
+  macvim --override-system-vim --enable-pythoninterp \
   phantomjs \
   postgresql \
   ipcalc \
