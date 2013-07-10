@@ -46,6 +46,7 @@ brew install \
   dart \
   ext4fuse \
   pstree \
-  grc
+  grc \
+  reattach-to-user-namespace
 
 exit 0
