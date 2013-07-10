@@ -22,17 +22,17 @@ brew install \
   git \
   git-flow \
   lesspipe \
-  macvim \
+  vim --env-std --override-system-vim --enable-pythoninterp \
+  macvim --env-std --override-system-vim --enable-pythoninterp \
   phantomjs \
   postgresql \
   ipcalc \
   nmap \
   gnu-sed --default-names \
   sipcalc \
-  python \
-  python3 \
+  python --framework \
+  python3 --framework \
   zsh \
-  vim \
   tmux \
   sshfs \
   subversion \

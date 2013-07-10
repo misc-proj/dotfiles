@@ -7,7 +7,6 @@ path_add() {
 }
 
 if [[ "$OSTYPE" == darwin* ]]; then
-  path_add "$(brew --prefix)/share/python"
   path_add "$(brew --prefix)/opt/coreutils/libexec/gnubin"
 fi
 

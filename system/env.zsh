@@ -19,7 +19,7 @@ fi
 unset lesspipe
 
 pythonpath="$prefix/lib/python2.7/site-packages"
-if [[ -r $pythonpath ]]; then export PYTHONPATH=$pythonpath; fi
+if [[ -r $pythonpath ]]; then export PYTHONPATH="$pythonpath:$PYTHONPATH"; fi
 unset pythonpath
 
 unset prefix
