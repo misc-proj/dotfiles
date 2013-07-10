@@ -5,14 +5,13 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-ZSH=$HOME/.dotfiles
-DEFAULT_USER="jrubin"
+export ZSH=$HOME/.dotfiles
 
 fpath=($ZSH/zsh/prezto-themes $ZSH/functions $fpath)
 
 typeset -U config_files
 setopt extendedglob
-config_files=($ZSH/**/*.zsh~$ZSH/zsh/zprezto.symlink/*~$ZSH/vim.symlink/bundle/*~$ZSH/vim.symlink/backups/*)
+config_files=($ZSH/**/*.zsh~$ZSH/zsh/zprezto.symlink/*~$ZSH/vim/vim.symlink/bundle/*~$ZSH/vim/vim.symlink/backups/*)
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}; do

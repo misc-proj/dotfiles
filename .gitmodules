@@ -1,6 +1,12 @@
-[submodule "vim.symlink/bundle/vundle"]
-  path = vim.symlink/bundle/vundle
-  url = https://github.com/gmarik/vundle.git
 [submodule "zsh/zprezto.symlink"]
-	path = zsh/zprezto.symlink
-	url = https://github.com/sorin-ionescu/prezto.git
+  path = zsh/zprezto.symlink
+  url = https://github.com/sorin-ionescu/prezto.git
+[submodule "nodenv/nodenv.symlink"]
+  path = nodenv/nodenv.symlink
+  url = git://github.com/OiNutter/nodenv.git
+[submodule "vim/vim.symlink/bundle/vundle"]
+  path = vim/vim.symlink/bundle/vundle
+  url = https://github.com/gmarik/vundle.git
+[submodule "nodenv/node-build"]
+  path = nodenv/node-build
+  url = git://github.com/OiNutter/node-build.git
