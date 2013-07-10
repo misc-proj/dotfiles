@@ -4,8 +4,6 @@ set -g bell-action any
 # Default termtype. If the rcfile sets $TERM, that overrides this value.
 set -g default-terminal screen-256color
 
-#set-option -g default-command "reattach-to-user-namespace -l $SHELL -l"
-
 # Keep your finger on ctrl, or don't
 bind-key ^D detach-client
 
@@ -49,9 +47,6 @@ set -g status-right '#(eval $POWERLINE_COMMAND tmux right -R pane_id=`tmux displ
 set -g status-right-length 150
 set -g window-status-format "#[fg=colour244,bg=colour234]#I #[fg=colour240] #[fg=colour249]#W "
 set -g window-status-current-format "#[fg=colour234,bg=colour31]#[fg=colour117,bg=colour31] #I  #[fg=colour231,bold]#W #[fg=colour31,bg=colour234,nobold]"
-
-# Patch for OS X pbpaste and pbcopy under tmux.
-# set-option -g default-command "reattach-to-user-namespace -l zsh"
 
 # Screen like binding
 unbind C-b
