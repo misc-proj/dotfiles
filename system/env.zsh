@@ -1,5 +1,10 @@
-export EDITOR="mvim"
-export VISUAL="mvim"
+if (( $+commands[mvim] )); then
+  export EDITOR="mvim"
+  export VISUAL="mvim"
+else
+  export EDITOR="vim"
+  export VISUAL="vim"
+fi
 
 java_home="/usr/libexec/java_home"
 if [[ -r $java_home ]]; then export JAVA_HOME=`$java_home`; fi
