@@ -112,7 +112,7 @@ install_configfiles () {
   info 'installing configfiles'
 
   mkdir -p "$HOME/.config"
-  for source in `find $DOTFILES_ROOT/config -depth 1 -type d`; do
+  for source in `find $DOTFILES_ROOT/config -maxdepth 1 -mindepth 1 -type d`; do
     dest="$HOME/.config/`basename \"${source}\"`"
     prompt_link
   done
