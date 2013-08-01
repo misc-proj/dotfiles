@@ -1,0 +1,3 @@
+#!/bin/sh
+
+java -jar $HOME/.dotfiles/data/BrowserStackTunnel.jar $BROWSERSTACK_KEY "$@"
