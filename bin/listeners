@@ -1,2 +1,2 @@
 #!/bin/sh
-lsof -nPi4TCP | grep LISTEN
+lsof -nPiTCP | grep LISTEN
