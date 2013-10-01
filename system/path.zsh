@@ -10,6 +10,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
   path_add "$(brew --prefix)/opt/coreutils/libexec/gnubin"
 fi
 
+path_add "/usr/local/opt/ruby/bin"
 path_add "$ZSH/bin"
 path_add "$HOME/.local/bin"
 path_add "$HOME/bin"
