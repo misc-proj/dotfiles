@@ -5,13 +5,18 @@
 
 cd $ZSH
 git pull
+git submodule update --init --recursive
 
-if (( $+commands[apt-get] )); then
+## NOTE: this has to be bash and zsh compatible as it can be run from the bootstrap script using bash
+
+#if (( $+commands[apt-get] )); then
+if which apt-get > /dev/null 2>&1; then
   sudo apt-get update
   sudo apt-get dist-upgrade
 fi
 
-if (( $+commands[brew] )); then
+#if (( $+commands[brew] )); then
+if which brew > /dev/null 2>&1; then
   # Upgrade homebrew
   brew update
 

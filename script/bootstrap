@@ -26,10 +26,6 @@ fail () {
   exit
 }
 
-init_gitmodules () {
-  git submodule update --init --recursive
-}
-
 setup_gitconfig () {
   if ! [ -f git/gitconfig.symlink ]; then
     info 'setup gitconfig'
@@ -126,11 +122,7 @@ init_vundle () {
   vim +BundleInstall +qall
 }
 
-init_gitmodules
 setup_gitconfig
-install_dotfiles
-install_configfiles
-init_vundle
 
 # If we are on a mac, lets install and setup homebrew
 if [ "$(uname -s)" == "Darwin" ]; then
@@ -141,6 +133,10 @@ if [ "$(uname -s)" == "Darwin" ]; then
     fail "error installing dependencies"
   fi
 fi
+
+install_dotfiles
+install_configfiles
+init_vundle
 
 echo ''
 echo '  All installed!'
