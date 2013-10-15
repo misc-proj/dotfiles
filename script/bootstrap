@@ -122,10 +122,15 @@ install_configfiles () {
   done
 }
 
+init_vundle () {
+  vim +BundleInstall +qall
+}
+
 init_gitmodules
 setup_gitconfig
 install_dotfiles
 install_configfiles
+init_vundle
 
 # If we are on a mac, lets install and setup homebrew
 if [ "$(uname -s)" == "Darwin" ]; then
