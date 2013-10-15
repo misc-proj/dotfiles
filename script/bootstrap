@@ -26,6 +26,10 @@ fail () {
   exit
 }
 
+init_gitmodules () {
+  git submodule update --init --recursive
+}
+
 setup_gitconfig () {
   if ! [ -f git/gitconfig.symlink ]; then
     info 'setup gitconfig'
@@ -118,6 +122,7 @@ install_configfiles () {
   done
 }
 
+init_gitmodules
 setup_gitconfig
 install_dotfiles
 install_configfiles
