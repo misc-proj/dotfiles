@@ -9,4 +9,4 @@
   url = https://github.com/gmarik/vundle.git
 [submodule "nodenv/node-build"]
   path = nodenv/node-build
-  url = git://github.com/OiNutter/node-build.git
+  url = git@github.com:joshuarubin/node-build.git
