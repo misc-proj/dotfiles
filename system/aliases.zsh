@@ -10,7 +10,7 @@ alias v="ls -l"
 alias c="clear"
 alias cdc="cd && clear"
 
-alias less="less -r"
+#alias less="less -r"  ## this was causing problems when less read from stdin
 alias screen="screen -T ${TERM}"
 
 alias egrep="egrep --color=auto"
