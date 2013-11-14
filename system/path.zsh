@@ -14,6 +14,7 @@ path_add "/usr/local/opt/ruby/bin"
 path_add "$ZSH/bin"
 path_add "$HOME/.local/bin"
 path_add "$HOME/bin"
+path_add "/usr/local/go_appengine"
 path_add "$HOME/working/android-sdk-macosx/tools"
 path_add "$HOME/working/android-sdk-macosx/platform-tools"
 
