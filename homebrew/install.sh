@@ -22,6 +22,8 @@ brew install \
   git \
   git-flow \
   lesspipe \
+  python --framework \
+  python3 --framework \
   macvim --override-system-vim --enable-pythoninterp \
   phantomjs \
   postgresql \
@@ -29,8 +31,6 @@ brew install \
   nmap \
   gnu-sed --default-names \
   sipcalc \
-  python --framework \
-  python3 --framework \
   zsh \
   tmux \
   sshfs \

@@ -3,7 +3,12 @@
 # `dot` handles installation, updates, things like that. Run it periodically
 # to make sure you're on the latest and greatest.
 
-cd $ZSH
+BASE=$ZSH
+if [ -z "$BASE" ]; then
+  BASE="$HOME/.dotfiles"
+fi
+
+cd $BASE || exit 1
 git pull
 git submodule update --init --recursive
 
@@ -21,5 +26,5 @@ if which brew > /dev/null 2>&1; then
   brew update
 
   # Install homebrew packages
-  $ZSH/homebrew/install.sh 2>&1
+  $BASE/homebrew/install.sh 2>&1
 fi
