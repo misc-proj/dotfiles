@@ -119,19 +119,21 @@ install_configfiles () {
 }
 
 init_vundle () {
-  vim +BundleInstall +qall
+  if command -v vim > /dev/null 2>&1; then
+    vim +BundleInstall +qall
+  else
+    echo "ERROR: vim is not installed" 1>&2
+  fi
 }
 
 setup_gitconfig
 
-# If we are on a mac, lets install and setup homebrew
-if [ "$(uname -s)" == "Darwin" ]; then
-  info "installing dependencies"
-  if . ./functions/dot > /tmp/dotfiles-dot 2>&1; then
-    success "dependencies installed"
-  else
-    fail "error installing dependencies"
-  fi
+info "installing dependencies"
+echo
+if . ./functions/dot; then
+  success "dependencies installed"
+else
+  fail "error installing dependencies"
 fi
 
 install_dotfiles
