@@ -37,6 +37,8 @@ if command -v apt-get > /dev/null 2>&1; then
     schroot \
     debootstrap \
     pbuilder \
+    build-essential \
+    cmake \
     devscripts
 fi
 
