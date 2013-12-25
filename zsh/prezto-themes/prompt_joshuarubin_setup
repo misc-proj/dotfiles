@@ -55,6 +55,12 @@ function prompt_end() {
 
 # Context: user@hostname (who am I and where am I)
 function prompt_context() {
+  # set variable identifying the chroot you work in (used in the prompt below)
+  if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    local debian_chroot=$(cat /etc/debian_chroot)
+    prompt_segment black default "($debian_chroot)"
+  fi
+
   local user=`whoami`
 
   if [[ "$user" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
