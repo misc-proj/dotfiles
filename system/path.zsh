@@ -17,7 +17,7 @@ path_add "$HOME/bin"
 path_add "/usr/local/go_appengine"
 path_add "$HOME/working/android-sdk-macosx/tools"
 path_add "$HOME/working/android-sdk-macosx/platform-tools"
-path_add "$HOME/working/pebble-dev/PebbleSDK-2.0-BETA2/bin"
+path_add "$HOME/working/pebble-dev/PebbleSDK-2.0-BETA4/bin"
 path_add "$HOME/Library/Python/2.7/bin"
 path_add "/Applications/VMware Fusion.app/Contents/Library"
 
