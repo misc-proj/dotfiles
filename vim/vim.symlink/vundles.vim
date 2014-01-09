@@ -114,6 +114,8 @@ Bundle "Lokaltog/powerline"
 "Bundle "nelstrom/vim-visual-star-search"
 
 Bundle "nono/vim-handlebars"
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
 
 "Filetype plugin indent on is required by vundle
 filetype plugin indent on
