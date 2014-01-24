@@ -29,3 +29,16 @@ if [[ -r $pythonpath ]]; then export PYTHONPATH="$pythonpath:$PYTHONPATH"; fi
 unset pythonpath
 
 unset prefix
+
+if (( $+commands[virtualenvwrapper_lazy.sh] )); then
+  export WORKON_HOME=$HOME/.virtualenvs
+  export PROJECT_HOME=$HOME/working
+  export VIRTUALENVWRAPPER_SCRIPT=$(which virtualenvwrapper.sh)
+  source $(which virtualenvwrapper_lazy.sh)
+fi
+
+if [[ -r /usr/local/opt/autoenv/activate.sh ]]; then
+  source /usr/local/opt/autoenv/activate.sh
+fi
+
+VIRTUAL_ENV_DISABLE_PROMPT=true

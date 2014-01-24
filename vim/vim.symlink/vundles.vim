@@ -116,6 +116,7 @@ Bundle "Lokaltog/powerline"
 Bundle "mustache/vim-mode"
 Bundle "rizzatti/funcoo.vim"
 Bundle "rizzatti/dash.vim"
+Bundle "heartsentwined/vim-emblem"
 
 "Filetype plugin indent on is required by vundle
 filetype plugin indent on

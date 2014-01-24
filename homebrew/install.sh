@@ -14,6 +14,7 @@ fi
 
 # Install homebrew packages
 brew install \
+  autoenv \
   berkeley-db \
   cmake \
   coreutils \
