@@ -38,6 +38,7 @@ if (( $+commands[virtualenvwrapper_lazy.sh] )); then
 fi
 
 if [[ -r /usr/local/opt/autoenv/activate.sh ]]; then
+  unalias cd
   source /usr/local/opt/autoenv/activate.sh
 fi
 
