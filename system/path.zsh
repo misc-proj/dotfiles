@@ -20,6 +20,7 @@ path_add "$HOME/working/android-sdk-macosx/platform-tools"
 path_add "$HOME/working/pebble-dev/PebbleSDK-2.0-BETA4/bin"
 path_add "$HOME/Library/Python/2.7/bin"
 path_add "/Applications/VMware Fusion.app/Contents/Library"
+path_add "$HOME/.gocode/bin"
 
 force_path_add "node_modules/.bin"
 force_path_add "bin"
