@@ -47,3 +47,5 @@ VIRTUAL_ENV_DISABLE_PROMPT=true
 if [[ -x ${HOME}/.gocode ]]; then
   export GOPATH=${HOME}/.gocode
 fi
+
+export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
