@@ -25,7 +25,6 @@ if (( $+commands[go] )); then
   GOVER=`go version | awk '{print $3}' | sed 's/^go\(.*\)$/\1/'`
   path_add "/usr/local/Cellar/go/${GOVER}/libexec/bin"
   unset $GOVER
-  path_add "$HOME/.gocode/bin"
 fi
 
 force_path_add "node_modules/.bin"
