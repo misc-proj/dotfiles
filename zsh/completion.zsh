@@ -12,3 +12,7 @@ if [[ -d $arcanist && -r $arcanist ]]; then
   source ~/working/arcanist/resources/shell/bash-completion
 fi
 unset arcanist
+
+if [[ -r /usr/local/share/zsh/site-functions/go ]]; then
+  source /usr/local/share/zsh/site-functions/go
+fi
