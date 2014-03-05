@@ -24,7 +24,7 @@ path_add "/Applications/VMware Fusion.app/Contents/Library"
 if (( $+commands[go] )); then
   GOVER=`go version | awk '{print $3}' | sed 's/^go\(.*\)$/\1/'`
   path_add "/usr/local/Cellar/go/${GOVER}/libexec/bin"
-  unset $GOVER
+  unset GOVER
 fi
 
 force_path_add "node_modules/.bin"
