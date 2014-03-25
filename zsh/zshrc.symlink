@@ -7,7 +7,7 @@
 
 export ZSH=$HOME/.dotfiles
 
-fpath=($ZSH/zsh/prezto-themes $ZSH/functions $fpath)
+fpath=($ZSH/zsh/prezto-themes $ZSH/functions $HOME/working/gcloud-zsh-completion/src $fpath)
 
 typeset -U config_files
 setopt extendedglob
