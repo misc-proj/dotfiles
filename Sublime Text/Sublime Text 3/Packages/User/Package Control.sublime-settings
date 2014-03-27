@@ -1,0 +1,33 @@
+{
+	"installed_packages":
+	[
+		"Anaconda",
+		"Better CoffeeScript",
+		"Dayle Rees Color Schemes",
+		"Emmet",
+		"Git",
+		"GitGutter",
+		"GoSublime",
+		"Sass",
+		"SideBarEnhancements",
+		"Solarized Color Scheme",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-annotations",
+		"SublimeLinter-coffeelint",
+		"SublimeLinter-contrib-clang",
+		"SublimeLinter-contrib-golint",
+		"SublimeLinter-contrib-govet",
+		"SublimeLinter-contrib-perl",
+		"SublimeLinter-contrib-scss-lint",
+		"SublimeLinter-csslint",
+		"SublimeLinter-html-tidy",
+		"SublimeLinter-javac",
+		"SublimeLinter-jshint",
+		"SublimeLinter-json",
+		"SublimeLinter-lua",
+		"SublimeLinter-php",
+		"SublimeLinter-ruby",
+		"Vintageous"
+	]
+}
