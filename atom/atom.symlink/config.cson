@@ -8,8 +8,8 @@
   'fontSize': 12
 'core':
   'themes': [
-    'atom-light-ui'
-    'solarized-light-syntax'
+    'atom-dark-ui'
+    'monokai'
   ]
   'ignoredNames': [
     '.git'
@@ -19,4 +19,19 @@
   'disabledPackages': [
     'metrics'
     'exception-reporting'
+  ]
+'tree-view': {}
+'markdown-preview':
+  'grammars': [
+    'source.gfm'
+    'source.litcoffee'
+    'text.plain'
+    'text.plain.null-grammar'
+  ]
+'spell-check':
+  'grammars': [
+    'source.gfm'
+    'text.git-commit'
+    'text.plain'
+    'text.plain.null-grammar'
   ]
