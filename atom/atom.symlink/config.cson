@@ -1,7 +1,9 @@
+'exception-reporting': {}
 'release-notes':
   'viewedVersion': '0.78.0'
 'welcome':
   'showOnStartup': false
+'metrics': {}
 'editor':
   'fontSize': 12
 'core':
@@ -13,4 +15,8 @@
     '.git'
     '.svn'
     '.DS_Store'
+  ]
+  'disabledPackages': [
+    'metrics'
+    'exception-reporting'
   ]
