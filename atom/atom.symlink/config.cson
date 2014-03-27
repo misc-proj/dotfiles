@@ -1,6 +1,6 @@
 'exception-reporting': {}
 'release-notes':
-  'viewedVersion': '0.78.0'
+  'viewedVersion': '0.79.0'
 'welcome':
   'showOnStartup': false
 'metrics': {}
@@ -8,8 +8,8 @@
   'fontSize': 12
 'core':
   'themes': [
-    'atom-dark-ui'
-    'monokai'
+    'atom-light-ui'
+    'solarized-light-syntax'
   ]
   'ignoredNames': [
     '.git'

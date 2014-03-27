@@ -3,6 +3,7 @@
 	[
 		"Anaconda",
 		"Better CoffeeScript",
+		"CoffeeScriptHaml",
 		"Dayle Rees Color Schemes",
 		"Emmet",
 		"Git",
@@ -28,6 +29,7 @@
 		"SublimeLinter-lua",
 		"SublimeLinter-php",
 		"SublimeLinter-ruby",
+		"Syntax Highlighting for Sass",
 		"Vintageous"
 	]
 }
