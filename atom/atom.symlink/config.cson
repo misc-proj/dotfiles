@@ -1,6 +1,6 @@
 'exception-reporting': {}
 'release-notes':
-  'viewedVersion': '0.79.0'
+  'viewedVersion': '0.81.0'
 'welcome':
   'showOnStartup': false
 'metrics': {}
@@ -35,3 +35,12 @@
     'text.plain'
     'text.plain.null-grammar'
   ]
+'go-plus':
+  'goExecutablePath': '/usr/local/bin/go'
+  'goPath': '/Users/jrubin/working/gocode'
+  'gofmtPath': '/usr/local/bin/gofmt'
+  'lintOnSave': true
+  'syntaxCheckOnSave': true
+'atom-lint':
+  'gc':
+    'path': '/usr/local/bin/go'
