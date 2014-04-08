@@ -16,17 +16,9 @@ path_add "$HOME/.local/bin"
 path_add "$HOME/bin"
 path_add "$HOME/working/android-sdk-macosx/tools"
 path_add "$HOME/working/android-sdk-macosx/platform-tools"
-path_add "$HOME/working/go_appengine"
-path_add "$HOME/working/pebble-dev/PebbleSDK-2.0-BETA4/bin"
 path_add "$HOME/working/google-cloud-sdk/bin"
 path_add "$HOME/Library/Python/2.7/bin"
 path_add "/Applications/VMware Fusion.app/Contents/Library"
-
-if (( $+commands[go] )); then
-  GOVER=`go version | awk '{print $3}' | sed 's/^go\(.*\)$/\1/'`
-  path_add "/usr/local/Cellar/go/${GOVER}/libexec/bin"
-  unset GOVER
-fi
 
 force_path_add "node_modules/.bin"
 force_path_add "bin"
