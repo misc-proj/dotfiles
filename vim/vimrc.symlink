@@ -356,6 +356,11 @@
     au FileType go nmap <leader>dv <plug>(go-def-vertical)
     au FileType go nmap <leader>dt <plug>(go-def-tab)
   " }
+
+  " minibufexpl.vim {
+    let g:miniBufExplBRSplit = 0
+    let g:miniBufExplBuffersNeeded = 0
+  " }
 " }
 
 " gui {

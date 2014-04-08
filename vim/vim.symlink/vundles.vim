@@ -22,7 +22,6 @@
     Bundle "vim-scripts/sessionman.vim"
     Bundle "matchit.zip"
     Bundle "bling/vim-airline"
-    Bundle "bling/vim-bufferline"
     Bundle "Lokaltog/vim-easymotion"
     Bundle "godlygeek/csapprox"
     Bundle "jistr/vim-nerdtree-tabs"
@@ -34,6 +33,7 @@
     Bundle "justinmk/vim-sneak"
     Bundle "kana/vim-textobj-user"
     Bundle "kana/vim-textobj-indent"
+    Bundle "fholgado/minibufexpl.vim"
   " }
 
   " writing {
