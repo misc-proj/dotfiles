@@ -1,14 +1,15 @@
 'exception-reporting': {}
 'release-notes':
-  'viewedVersion': '0.82.0'
+  'viewedVersion': '0.84.0'
 'welcome':
   'showOnStartup': false
 'metrics': {}
 'editor':
   'fontSize': 12
+  'fontFamily': 'Source Code Pro'
 'core':
   'themes': [
-    'atom-light-ui'
+    'atom-dark-ui'
     'solarized-light-syntax'
   ]
   'ignoredNames': [

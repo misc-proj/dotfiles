@@ -1,123 +1,366 @@
-if has("syntax")
+" basics {
+  set nocompatible " must be the first line
+" }
+
+" vundle {
+  if filereadable(expand("~/.vim/vundles.vim"))
+    source ~/.vim/vundles.vim
+  endif
+" }
+
+" general {
+  set background=dark
   syntax on
-endif
+  set mouse=a    " Enable mouse usage (all modes)
+  set mousehide
+  set clipboard=unnamed
+  set history=1000                "Store lots of :cmdline history
+  set spell
+  set hidden     " Hide buffers when they are abandoned
+  set exrc   " enable per-directory .vimrc files
+  set secure " disable unsafe commands in local .vimrc files
+  set autoread                    "Reload files changed outside vim
 
-set background=light
+  if has("persistent_undo")
+    silent !mkdir ~/.vim/backups > /dev/null 2>&1
+    set undofile
+    set undodir=~/.vim/backups
+  endif
+" }
 
-set showmatch  " Show matching brackets.
-set ignorecase " Do case insensitive matching
-set smartcase  " Do smart case matching
-set incsearch  " Incremental search
-set autowrite  " Automatically save before commands like :next and :make
-set hidden     " Hide buffers when they are abandoned
-"set mouse=a    " Enable mouse usage (all modes)
+" vim ui {
+  let g:solarized_termcolors=256
+  let g:solarized_termtrans=1
+  let g:solarized_contrast="normal"
+  let g:solarized_visibility="normal"
+  color solarized             " Load a colorscheme
 
-set list
-"set listchars=eol:$,tab:>-,trail:-
-set listchars=tab:>-,trail:-
-"set spell
+  set title
+  set visualbell                  "No sounds
+  set showcmd                     "Show incomplete cmds down the bottom
+  set noshowmode
+  set cursorline
 
-"set textwidth=80
-set formatoptions=croqlt
+  set backspace=indent,eol,start  "Allow backspace in insert mode
+  set number                      "Line numbers are good
+  set showmatch  " Show matching brackets.
+  set incsearch  " Incremental search
+  set hlsearch
+  set winminheight=0
+  set ignorecase " Do case insensitive matching
+  set smartcase  " Do smart case matching
+  set wildmenu
+  set wildmode=longest,list:longest,list:full
+  set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+  set sidescrolloff=15
+  set sidescroll=1
+  "set foldenable
+  set list
+  "set listchars=eol:$,tab:>-,trail:-
+  set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+" }
 
-set exrc   " enable per-directory .vimrc files
-set secure " disable unsafe commands in local .vimrc files
+" formatting {
+  set formatoptions=croqlt
+  set linebreak                   "Wrap lines at convenient points
+  set nowrap                      "Don't wrap lines
+  set autoindent
+  set shiftwidth=2
+  set expandtab
+  set tabstop=2
+  set softtabstop=2
+  set nojoinspaces
+  set splitright
+  set splitbelow
+  set smartindent
+  set smarttab
+  set nocopyindent
+  set pastetoggle=<F12>
+" }
 
-let mapleader = ","
-let php_asp_tags = 1
+" key (re)mappings {
+  let mapleader = ","
 
-if filereadable(expand("~/.vim/vundles.vim"))
-  source ~/.vim/vundles.vim
-endif
+  " Code folding options
+  nmap <leader>f0 :set foldlevel=0<CR>
+  nmap <leader>f1 :set foldlevel=1<CR>
+  nmap <leader>f2 :set foldlevel=2<CR>
+  nmap <leader>f3 :set foldlevel=3<CR>
+  nmap <leader>f4 :set foldlevel=4<CR>
+  nmap <leader>f5 :set foldlevel=5<CR>
+  nmap <leader>f6 :set foldlevel=6<CR>
+  nmap <leader>f7 :set foldlevel=7<CR>
+  nmap <leader>f8 :set foldlevel=8<CR>
+  nmap <leader>f9 :set foldlevel=9<CR>
 
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabClosePreviewOnPopupClose = 1
-let g:DisableAutoPHPFolding = 1
-let g:ctrlp_root_markers = ['.root']
-let g:syntastic_coffee_coffeelint_args = "--csv -f ~/.vim/coffeelint.config.json"
-let g:colorizer_auto_filetype="sass,scss,styl,less,css,html"
+  nmap <silent> <leader>n :silent :nohlsearch<CR>
 
-set nocompatible
-set title
-set hlsearch
-nmap <silent> <leader>n :silent :nohlsearch<CR>
+  " find merge conflict markers
+  map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
 
-set number                      "Line numbers are good
-set backspace=indent,eol,start  "Allow backspace in insert mode
-set history=1000                "Store lots of :cmdline history
-set visualbell                  "No sounds
-set showcmd                     "Show incomplete cmds down the bottom
-set autoread                    "Reload files changed outside vim
-set nowrap                      "Don't wrap lines
-set linebreak                   "Wrap lines at convenient points
+  " shortcuts
 
-" ================ Persistent Undo ==================
-" Keep undo history across sessions, by storing in file.
-" Only works all the time.
+  " change working directory to that of the current file
+  cmap cwd lcd %:p:h
+  cmap cd. lcd %:p:h
 
-silent !mkdir ~/.vim/backups > /dev/null 2>&1
+  " visual shifting (does not exit visual mode)
+  vnoremap < <gv
+  vnoremap > >gv
 
-if has('persistent_undo')
-  set undodir=~/.vim/backups
-  set undofile
-endif
+  " allow using the repeat operator with a visual selection (!)
+  " http://stackoverflow.com/a/8064607/127816
+  vnoremap . :normal .<CR>
 
-" ================ Indentation ======================
+  " for when you forget to sudo.. really write the file.
+  cmap w!! w !sudo tee % >/dev/null
 
-set autoindent
-set smartindent
-set smarttab
-set nocopyindent
-set shiftwidth=2
-set tabstop=2
-set expandtab
+  " some helpers to edit mode
+  " http://vimcasts.org/e/14
+  cnoremap %% <C-R>=expand('%:h').'/'<cr>
+  map <leader>ew :e %%
+  map <leader>es :sp %%
+  map <leader>ev :vsp %%
+  map <leader>et :tabe %%
 
-" ================ Completion =======================
+  " Adjust viewports to the same size
+  map <leader>= <C-w>=
 
-au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
-runtime macros/matchit.vim
-set ofu=syntaxcomplete#Complete
-set wildmode=longest,list:longest,list:full
-set wildmenu
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-set wildignore+=*vim/backups*
-set wildignore+=*sass-cache*
-set wildignore+=*DS_Store*
-set wildignore+=vendor/rails/**
-set wildignore+=vendor/cache/**
-set wildignore+=*.gem
-set wildignore+=log/**
-set wildignore+=tmp/**
-set wildignore+=*.png,*.jpg,*.gif
+  " map <leader>ff to display all lines with keyword under cursor
+  " and ask which one to jump to
+  nmap <leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
-" ================ Scrolling ========================
+  " easier horizontal scrolling
+  map zl zL
+  map zh zH
 
-set scrolloff=8         "Start scrolling when we're 8 lines away from margins
-set sidescrolloff=15
-set sidescroll=1
+  " easier formatting
+  nnoremap <silent> <leader>q gwip
+" }
 
-" ================ Colorscheme ======================
+" plugins {
 
-colorscheme solarized
+  " textobj sentence {
+    augroup textobj_sentence
+      autocmd!
+      autocmd FileType markdown call textobj#sentence#init()
+      autocmd FileType textile call textobj#sentence#init()
+      autocmd FileType text call textobj#sentence#init()
+    augroup end
+  " }
 
-" ================ Powerline ========================
+  " textobj quote {
+    augroup textobj_quote
+      autocmd!
+      autocmd FileType markdown call textobj#quote#init()
+      autocmd FileType textile call textobj#quote#init()
+      autocmd FileType text call textobj#quote#init({'educate': 0})
+    augroup end
+  " }
 
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-set laststatus=2
-set noshowmode
+  " piv {
+    let g:DisableAutoPHPFolding = 0
+    let g:PIVAutoClose = 0
+    let php_asp_tags = 1
+  " }
 
-if !has('gui_running')
-  set ttimeoutlen=10
-  augroup FastEscape
-    autocmd!
-    au InsertEnter * set timeoutlen=0
-    au InsertLeave * set timeoutlen=1000
-  augroup END
-endif
+  " misc {
+    let g:NERDShutUp=1
+    let b:match_ignorecase = 1
+  " }
 
-" ================ GUI ==============================
+  " ctags {
+    set tags=./tags;/,~/.vimtags
 
-if has('gui_running')
-  set transparency=1
-  set guifont=Inconsolata\ for\ Powerline:h12
-endif
+    " Make tags placed in .git/tags file available in all levels of a repository
+    let gitroot = substitute(system('git rev-parse --show-toplevel'), '[\n\r]', '', 'g')
+    if gitroot != ''
+      let &tags = &tags . ',' . gitroot . '/.git/tags'
+    endif
+  " }
+
+  " nerdtree {
+    map <C-e> <plug>NERDTreeTabsToggle<CR>
+    map <leader>e :NERDTreeFind<CR>
+    nmap <leader>nt :NERDTreeFind<CR>
+
+    let NERDTreeShowBookmarks=1
+    let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+    let NERDTreeChDirMode=0
+    let NERDTreeQuitOnOpen=1
+    let NERDTreeMouseMode=2
+    let NERDTreeShowHidden=1
+    let NERDTreeKeepTreeInNewTab=1
+    let g:nerdtree_tabs_open_on_gui_startup=0
+  " }
+
+  " tabularize {
+    nmap <leader>a& :Tabularize /&<CR>
+    vmap <leader>a& :Tabularize /&<CR>
+    nmap <leader>a= :Tabularize /=<CR>
+    vmap <leader>a= :Tabularize /=<CR>
+    nmap <leader>a: :Tabularize /:<CR>
+    vmap <leader>a: :Tabularize /:<CR>
+    nmap <leader>a:: :Tabularize /:\zs<CR>
+    vmap <leader>a:: :Tabularize /:\zs<CR>
+    nmap <leader>a, :Tabularize /,<CR>
+    vmap <leader>a, :Tabularize /,<CR>
+    nmap <leader>a,, :Tabularize /,\zs<CR>
+    vmap <leader>a,, :Tabularize /,\zs<CR>
+    nmap <leader>a<Bar> :Tabularize /<Bar><CR>
+    vmap <leader>a<Bar> :Tabularize /<Bar><CR>
+  " }
+
+  " session list {
+    set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
+    nmap <leader>sl :SessionList<CR>
+    nmap <leader>ss :SessionSave<CR>
+    nmap <leader>sc :SessionClose<CR>
+  " }
+
+  " json {
+    nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
+  " }
+
+  " pymode {
+    let g:pymode_lint_checker = "pyflakes"
+    let g:pymode_utils_whitespaces = 0
+    let g:pymode_options = 0
+  " }
+
+  " ctrlp {
+    let g:ctrlp_root_markers = [".root"]
+    let g:ctrlp_working_path_mode = 'ra'
+    nnoremap <silent> <D-t> :CtrlP<CR>
+    nnoremap <silent> <D-r> :CtrlPMRU<CR>
+    let g:ctrlp_custom_ignore = {
+        \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+        \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+
+    let s:ctrlp_fallback = 'find %s -type f'
+    let g:ctrlp_user_command = {
+      \ 'types': {
+        \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+        \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+      \ },
+      \ 'fallback': s:ctrlp_fallback
+    \ }
+  " }
+
+  " tagbar {
+    nnoremap <silent> <leader>tt :TagbarToggle<CR>
+
+    " if using go please install the gotags program using the following
+    " go install github.com/jstemmer/gotags
+    " and make sure gotags is in your path
+    let g:tagbar_type_go = {
+      \ 'ctagstype' : 'go',
+      \ 'kinds'     : [  'p:package', 'i:imports:1', 'c:constants', 'v:variables',
+        \ 't:types',  'n:interfaces', 'w:fields', 'e:embedded', 'm:methods',
+        \ 'r:constructor', 'f:functions' ],
+      \ 'sro' : '.',
+      \ 'kind2scope' : { 't' : 'ctype', 'n' : 'ntype' },
+      \ 'scope2kind' : { 'ctype' : 't', 'ntype' : 'n' },
+      \ 'ctagsbin'  : 'gotags',
+      \ 'ctagsargs' : '-sort -silent'
+      \ }
+  " }
+
+  " pythonmode {
+    " Disable if python support not present
+    if !has('python')
+      let g:pymode = 0
+    endif
+  " }
+
+  " fugitive {
+    nnoremap <silent> <leader>gs :Gstatus<CR>
+    nnoremap <silent> <leader>gd :Gdiff<CR>
+    nnoremap <silent> <leader>gc :Gcommit<CR>
+    nnoremap <silent> <leader>gb :Gblame<CR>
+    nnoremap <silent> <leader>gl :Glog<CR>
+    nnoremap <silent> <leader>gp :Git push<CR>
+    nnoremap <silent> <leader>gr :Gread<CR>
+    nnoremap <silent> <leader>gw :Gwrite<CR>
+    nnoremap <silent> <leader>ge :Gedit<CR>
+    " Mnemonic _i_nteractive
+    nnoremap <silent> <leader>gi :Git add -p %<CR>
+    nnoremap <silent> <leader>gg :SignifyToggle<CR>
+  " }
+
+  " youcompleteme {
+    let g:acp_enableAtStartup = 0
+
+    " enable completion from tags
+    let g:ycm_collect_identifiers_from_tags_files = 1
+
+    " remap ultisnips for compatibility for YCM
+    let g:UltiSnipsExpandTrigger = '<C-j>'
+    let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+    let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+
+    " enable omni completion.
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+    autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+    autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+    " for snippet_complete marker.
+    set conceallevel=2 concealcursor=i
+
+    " disable the neosnippet preview candidate window
+    " when enabled, there can be too much visual noise
+    " especially when splits are used.
+    set completeopt-=preview
+  " }
+
+  " undotree {
+    nnoremap <leader>u :UndotreeToggle<CR>
+
+    " if undotree is opened, it is likely one wants to interact with it.
+    let g:undotree_SetFocusWhenToggle=1
+  " }
+
+  " indent_guides {
+    let g:indent_guides_start_level = 2
+    let g:indent_guides_guide_size = 1
+    let g:indent_guides_enable_on_vim_startup = 1
+  " }
+
+  " vim-airline {
+    set laststatus=2
+    set noshowmode
+    let g:airline_theme = "powerlineish"
+    let g:airline_powerline_fonts=1
+  " }
+
+  " syntastic {
+    let g:syntastic_coffee_coffeelint_args = "--csv -f ~/.vim/coffeelint.config.json"
+  " }
+
+  " colorizer {
+    let g:colorizer_auto_filetype="sass,scss,styl,less,css,html"
+  " }
+
+  " vim-go {
+    au FileType go nmap <leader>d <plug>(go-doc)
+    au FileType go nmap <leader>r <plug>(go-run)
+    au FileType go nmap <leader>b <plug>(go-build)
+    au FileType go nmap <leader>t <plug>(go-test)
+    "au FileType go nmap gd <plug>(go-def)
+    au FileType go nmap gd <plug>(go-def-vertical)
+    au FileType go nmap <leader>ds <plug>(go-def-split)
+    au FileType go nmap <leader>dv <plug>(go-def-vertical)
+    au FileType go nmap <leader>dt <plug>(go-def-tab)
+  " }
+" }
+
+" gui {
+  if has("gui_running")
+    set transparency=1
+    set guifont=Inconsolata\ for\ Powerline:h12
+  endif
+" }
