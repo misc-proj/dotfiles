@@ -359,7 +359,6 @@
 
   " minibufexpl.vim {
     let g:miniBufExplBRSplit = 0
-    let g:miniBufExplBuffersNeeded = 0
   " }
 " }
 
