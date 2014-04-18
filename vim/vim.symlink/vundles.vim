@@ -55,7 +55,9 @@
   " }
 
   " snippets & autocomplete {
-    Bundle "Valloric/YouCompleteMe"
+    if v:version > 703 || (v:version == 703 && has('patch584'))
+      Bundle "Valloric/YouCompleteMe"
+    endif
     Bundle "SirVer/ultisnips"
     Bundle "honza/vim-snippets"
   " }
