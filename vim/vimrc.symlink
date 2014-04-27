@@ -341,6 +341,7 @@
   " }
 
   " syntastic {
+    let g:syntastic_go_checkers = ['go', 'govet', 'golint']
     let g:syntastic_coffee_coffeelint_args = "--csv -f ~/.vim/coffeelint.config.json"
   " }
 
