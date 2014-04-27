@@ -2,4 +2,6 @@ setlocal tabstop=4
 setlocal shiftwidth=4
 setlocal noexpandtab
 setlocal listchars=tab:\ \ ,trail:-
-autocmd BufWritePre <buffer> :GoLint
+
+let g:syntastic_go_checkers = ['go', 'gotype', 'govet', 'golint']
+let g:syntastic_aggregate_errors = 1
