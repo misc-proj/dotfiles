@@ -16,7 +16,7 @@ path_add "$HOME/.local/bin"
 path_add "$HOME/bin"
 path_add "$HOME/working/android-sdk-macosx/tools"
 path_add "$HOME/working/android-sdk-macosx/platform-tools"
-path_add "$HOME/working/google-cloud-sdk/bin"
+path_add "/usr/local/google-cloud-sdk/bin"
 path_add "$HOME/Library/Python/2.7/bin"
 path_add "/Applications/VMware Fusion.app/Contents/Library"
 

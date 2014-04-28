@@ -99,6 +99,7 @@
 
   " golang {
     Bundle "fatih/vim-go"
+    Bundle "roktas/syntastic-more"
   " }
 
   " misc {
