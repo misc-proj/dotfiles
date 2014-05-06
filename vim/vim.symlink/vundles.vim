@@ -16,7 +16,7 @@
     Bundle "scrooloose/nerdtree"
     Bundle "altercation/vim-colors-solarized"
     Bundle "tpope/vim-surround"
-    Bundle "Townk/vim-autoclose"
+    Bundle "spf13/vim-autoclose"
     Bundle "kien/ctrlp.vim"
     Bundle "terryma/vim-multiple-cursors"
     Bundle "vim-scripts/sessionman.vim"
