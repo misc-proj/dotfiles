@@ -9,7 +9,15 @@
 	"ignored_packages":
 	[
 		"Vintage",
-		"Markdown"
+		"Markdown",
+		"Git",
+		"MarkdownEditing",
+		"SideBarEnhancements",
+		"Solarized Color Scheme",
+		"SublimeLinter",
+		"SublimeLinter-json",
+		"Theme - Soda",
+		"Vintageous"
 	],
 	"line_padding_bottom": 0,
 	"line_padding_top": 0,

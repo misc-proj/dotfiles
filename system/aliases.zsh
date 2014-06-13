@@ -16,3 +16,8 @@ alias screen="screen -T ${TERM}"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 alias grep="grep --color=auto"
+
+
+if (( $+commands[gitjk_cmd] )); then
+  alias gitjk="history -n | tail -n 10 | (tac || tail -r) | gitjk_cmd"
+fi
