@@ -17,7 +17,9 @@
 		"SublimeLinter",
 		"SublimeLinter-json",
 		"Theme - Soda",
-		"Vintageous"
+		"Vintageous",
+		"SublimeLinter-annotations",
+		"Theme - Spacegray"
 	],
 	"line_padding_bottom": 0,
 	"line_padding_top": 0,

@@ -2,9 +2,9 @@
   set nocompatible " must be the first line
 " }
 
-" vundle {
-  if filereadable(expand("~/.vim/vundles.vim"))
-    source ~/.vim/vundles.vim
+" neobundle {
+  if filereadable(expand("~/.vim/neobundles.vim"))
+    source ~/.vim/neobundles.vim
   endif
 " }
 

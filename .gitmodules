@@ -4,9 +4,9 @@
 [submodule "nodenv/nodenv.symlink"]
   path = nodenv/nodenv.symlink
   url = git://github.com/OiNutter/nodenv.git
-[submodule "vim/vim.symlink/bundle/vundle"]
-  path = vim/vim.symlink/bundle/vundle
-  url = https://github.com/gmarik/vundle.git
 [submodule "nodenv/node-build"]
   path = nodenv/node-build
   url = git@github.com:joshuarubin/node-build.git
+[submodule "vim/vim.symlink/bundle/neobundle.vim"]
+	path = vim/vim.symlink/bundle/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim

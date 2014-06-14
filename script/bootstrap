@@ -118,9 +118,9 @@ install_configfiles () {
   done
 }
 
-init_vundle () {
+init_neobundle () {
   if command -v vim > /dev/null 2>&1; then
-    vim +BundleInstall +qall
+    vim +NeoBundleInstall +qall
   else
     echo "ERROR: vim is not installed" 1>&2
   fi
@@ -138,7 +138,7 @@ fi
 
 install_dotfiles
 install_configfiles
-init_vundle
+init_neobundle
 
 echo ''
 echo '  All installed!'

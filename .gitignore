@@ -2,6 +2,6 @@
 .DS_Store
 /git/gitconfig.symlink
 /vim/vim.symlink/.netrwhist
-/vim/vim.symlink/bundle/*
-!/vim/vim.symlink/bundle/vundle
-/vim/vim.symlink/backups
+/vim/vim.symlink/bundle/*/
+!/vim/vim.symlink/bundle/neobundle.vim/
+/vim/vim.symlink/backups/
