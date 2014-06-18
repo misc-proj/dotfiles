@@ -1,18 +1,20 @@
 " neobundle setup {
   if has("vim_starting")
-    set nocompatible               " Be iMproved
+    set nocompatible " Be iMproved
 
-    " Required:
+    " required
     set runtimepath+=~/.vim/bundle/neobundle.vim/
   endif
 
   " required
   call neobundle#begin(expand("~/.vim/bundle/"))
 
+  " Let NeoBundle manage NeoBundle, required
   NeoBundleFetch "Shougo/neobundle.vim"
 " }
 
 " vimproc {
+    " interactive command execution, makes NeoBundle use asynchronous update/install, e.g. FAST!
     let vimproc_updcmd = has("win64") ?
       \ "tools\\update-dll-mingw 64": "tools\\update-dll-mingw 32"
 
@@ -29,92 +31,92 @@
 
 " neobundles {
   " deps {
-    NeoBundle "MarcWeber/vim-addon-mw-utils"
-    NeoBundle "tomtom/tlib_vim"
+    NeoBundle "MarcWeber/vim-addon-mw-utils"  " various utils such as caching interpreted contents of files or advanced glob like things
+    NeoBundle "tomtom/tlib_vim"               " some utility functions
   " }
 
   " general {
-    NeoBundle "scrooloose/nerdtree"
-    NeoBundle "altercation/vim-colors-solarized"
-    NeoBundle "tpope/vim-surround"
-    NeoBundle "kien/ctrlp.vim"
-    NeoBundle "terryma/vim-multiple-cursors"
-    NeoBundle "vim-scripts/sessionman.vim"
-    NeoBundle "matchit.zip"
-    NeoBundle "bling/vim-airline"
-    NeoBundle "Lokaltog/vim-easymotion"
-    NeoBundle "godlygeek/csapprox"
-    NeoBundle "jistr/vim-nerdtree-tabs"
-    NeoBundle "mbbill/undotree"
-    NeoBundle "nathanaelkane/vim-indent-guides"
-    NeoBundle "mhinz/vim-signify"
-    NeoBundle "tpope/vim-abolish"
-    NeoBundle "osyo-manga/vim-over"
-    NeoBundle "justinmk/vim-sneak"
-    NeoBundle "kana/vim-textobj-user"
-    NeoBundle "kana/vim-textobj-indent"
-    NeoBundle "fholgado/minibufexpl.vim"
+    NeoBundle "scrooloose/nerdtree"               " a tree explorer plugin
+    NeoBundle "altercation/vim-colors-solarized"  " precision colorscheme (http://ethanschoonover.com/solarized)
+    NeoBundle "tpope/vim-surround"                " quoting/parenthesizing made simple
+    NeoBundle "kien/ctrlp.vim"                    " full path fuzzy file, buffer, mru, tag, ... finder, TODO(jrubin) considering replacing with Shougo/unite.vim
+    NeoBundle "terryma/vim-multiple-cursors"      " true sublime text style multiple selections
+    NeoBundle "vim-scripts/sessionman.vim"        " session manager
+    NeoBundle "matchit.zip"                       " extended % matching for html, latex, and many other languages
+    NeoBundle "bling/vim-airline"                 " lean & mean status/tabline for vim that's light as air, replaced Lokaltog/powerline
+    NeoBundle "Lokaltog/vim-easymotion"           " vim motions on speed!
+    NeoBundle "godlygeek/csapprox"                " make gvim-only colorschemes work transparently in terminal vim
+    NeoBundle "jistr/vim-nerdtree-tabs"           " NERDTree and tabs together, painlessly
+    NeoBundle "mbbill/undotree"                   " display your undo history in a graph
+    NeoBundle "nathanaelkane/vim-indent-guides"   " visually display indent levels in code
+    NeoBundle "mhinz/vim-signify"                 " show a vcs diff using vim's sign column
+    NeoBundle "tpope/vim-abolish"                 " easily search for, substitute, and abbreviate multiple variants of a word
+    NeoBundle "osyo-manga/vim-over"               " :substitute preview
+    NeoBundle "justinmk/vim-sneak"                " motion plugin that jumps to any location specified by two characters
+    NeoBundle "kana/vim-textobj-user"             " painlessly create your own text objects
+    NeoBundle "kana/vim-textobj-indent"           " text objects for indented blocks of lines, depends on kana/vim-textobj-user
+    NeoBundle "fholgado/minibufexpl.vim"          " elegant buffer explorer - takes very little screen space
   " }
 
   " writing {
-    NeoBundle "reedes/vim-litecorrect"
-    NeoBundle "reedes/vim-textobj-sentence"
-    NeoBundle "reedes/vim-textobj-quote"
-    NeoBundle "reedes/vim-wordy"
+    NeoBundle "reedes/vim-litecorrect"       " lightweight auto-correction
+    NeoBundle "reedes/vim-textobj-sentence"  " improving on vim's native sentence text object and motion, depends on kana/vim-textobject-user
+    NeoBundle "reedes/vim-textobj-quote"     " use ‘curly’ quote characters, depends on kana/vim-textobject-user
+    NeoBundle "reedes/vim-wordy"             " uncover usage problems in your writing
   " }
 
   " general programming {
-    NeoBundle "scrooloose/syntastic"
-    NeoBundle "tpope/vim-fugitive"
-    NeoBundle "mattn/webapi-vim"
-    NeoBundle "mattn/gist-vim"
-    NeoBundle "scrooloose/nerdcommenter"
-    NeoBundle "godlygeek/tabular"
-    NeoBundle "majutsushi/tagbar"
-    NeoBundle "AndrewRadev/splitjoin.vim"
+    NeoBundle "scrooloose/syntastic"       " syntax checking
+    NeoBundle "tpope/vim-fugitive"         " a git wrapper so awesome, it should be illegal
+    NeoBundle "mattn/webapi-vim"           " an interface to Web APIs
+    NeoBundle "mattn/gist-vim"             " vimscript for creating gists (http://gist.github.com)
+    NeoBundle "scrooloose/nerdcommenter"   " intensely orgasmic commenting
+    NeoBundle "godlygeek/tabular"          " text filtering and alignment
+    NeoBundle "majutsushi/tagbar"          " displays tags in a window, ordered by scope http://majutsushi.github.com/tagbar/
+    NeoBundle "AndrewRadev/splitjoin.vim"  " simplifies the transition between multi-line and single-line code
   " }
 
   " snippets & autocomplete {
     if v:version > 703 || (v:version == 703 && has("patch584"))
-      NeoBundle "Valloric/YouCompleteMe"
+      NeoBundle "Valloric/YouCompleteMe"  " code-completion engine
     endif
-    NeoBundle "SirVer/ultisnips"
-    NeoBundle "honza/vim-snippets"
+    NeoBundle "SirVer/ultisnips"    " the ultimate snippet solution
+    NeoBundle "honza/vim-snippets"  " contains snippets files for various programming languages
   " }
 
   " language polyglot - collection of language packs {
-    NeoBundle "joshuarubin/vim-polyglot"
+    NeoBundle "joshuarubin/vim-polyglot"  " a collection of language packs for vim, forked from sheerun/vim-polyglot
   " }
 
   " php {
-    NeoBundle "arnaud-lb/vim-php-namespace"
+    NeoBundle "arnaud-lb/vim-php-namespace"  " types 'use' statements for you
   " }
 
   " python {
-    NeoBundle "klen/python-mode"
-    NeoBundle "python.vim"
-    NeoBundle "python_match.vim"
-    NeoBundle "pythoncomplete"
+    NeoBundle "klen/python-mode"  " helps you to create python code very quickly
+    NeoBundle "python.vim"        " enhanced version of the python syntax highlighting script
+    NeoBundle "python_match.vim"  " extend the % motion and define g%, [%, and ]% motions for python files
+    NeoBundle "pythoncomplete"    " python omni completion
   " }
 
   " html {
-    NeoBundle "amirh/HTML-AutoCloseTag"
+    NeoBundle "amirh/HTML-AutoCloseTag"  "automatically closes html tags once you finish typing them
   " }
 
   " ruby {
-    NeoBundle "tpope/vim-rails"
+    NeoBundle "tpope/vim-rails"  " ruby on rails power tools
     let g:rubycomplete_buffer_loading = 1
   " }
 
   " golang {
-    NeoBundle "fatih/vim-go"
-    NeoBundle "roktas/syntastic-more"
+    NeoBundle "fatih/vim-go"           " Full featured Go development environment support for Vim
+    NeoBundle "roktas/syntastic-more"  " Syntastic checker for Go App Engine
   " }
 
   " misc {
-    NeoBundle "spf13/vim-preview"
-    NeoBundle "rizzatti/funcoo.vim"
-    NeoBundle "rizzatti/dash.vim"
+    NeoBundle "spf13/vim-preview"    " preview markup files such as .markdown, .rdoc, .textile and .html in your browser when you are editing them
+    NeoBundle "rizzatti/funcoo.vim"  " functional object oriented viml
+    NeoBundle "rizzatti/dash.vim"    " search for terms using [Dash.app](http://kapeli.com/), making API lookups simple, depends on rizzatti/funcoo.vim
   " }
 " }
 

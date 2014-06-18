@@ -11,15 +11,15 @@
 " general {
   set background=dark
   syntax on
-  set mouse=a    " Enable mouse usage (all modes)
+  set mouse=a            " enable mouse usage (all modes)
   set mousehide
   set clipboard=unnamed
-  set history=1000                "Store lots of :cmdline history
+  set history=1000       " store lots of :cmdline history
   set spell
-  set hidden     " Hide buffers when they are abandoned
-  set exrc   " enable per-directory .vimrc files
-  set secure " disable unsafe commands in local .vimrc files
-  set autoread                    "Reload files changed outside vim
+  set hidden             " hide buffers when they are abandoned
+  set exrc               " enable per-directory .vimrc files
+  set secure             " disable unsafe commands in local .vimrc files
+  set autoread           " reload files changed outside vim
 
   if has("persistent_undo")
     silent !mkdir ~/.vim/backups > /dev/null 2>&1
@@ -33,28 +33,28 @@
   let g:solarized_termtrans=1
   let g:solarized_contrast="normal"
   let g:solarized_visibility="normal"
-  color solarized             " Load a colorscheme
+  color solarized  " load a colorscheme
 
   set title
-  set visualbell                  "No sounds
-  set showcmd                     "Show incomplete cmds down the bottom
+  set visualbell  " no sounds
+  set showcmd     " show incomplete cmds down the bottom
   set noshowmode
   set cursorline
 
-  highlight clear SignColumn      " SignColumn should match background
-  highlight clear LineNr          " Current line number row will have same background color in relative mode
+  highlight clear SignColumn  " signcolumn should match background
+  highlight clear LineNr      " current line number row will have same background color in relative mode
 
-  set backspace=indent,eol,start  "Allow backspace in insert mode
-  set number                      "Line numbers are good
-  set showmatch  " Show matching brackets.
-  set incsearch  " Incremental search
+  set backspace=indent,eol,start  " allow backspace in insert mode
+  set number                      " line numbers are good
+  set showmatch                   " Show matching brackets.
+  set incsearch                   " incremental search
   set hlsearch
   set winminheight=0
-  set ignorecase " Do case insensitive matching
-  set smartcase  " Do smart case matching
+  set ignorecase                  " case insensitive matching
+  set smartcase                   " smart case matching
   set wildmenu
   set wildmode=longest,list:longest,list:full
-  set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+  set scrolloff=8                 " start scrolling when we're 8 lines away from margins
   set sidescrolloff=15
   set sidescroll=1
   "set foldenable
@@ -65,8 +65,8 @@
 
 " formatting {
   set formatoptions=croqlt
-  set linebreak                   "Wrap lines at convenient points
-  set nowrap                      "Don't wrap lines
+  set linebreak              " wrap lines at convenient points
+  set nowrap                 " don't wrap lines
   set autoindent
   set shiftwidth=2
   set expandtab
@@ -175,7 +175,7 @@
   " ctags {
     set tags=./tags;/,~/.vimtags
 
-    " Make tags placed in .git/tags file available in all levels of a repository
+    " make tags placed in .git/tags file available in all levels of a repository
     let gitroot = substitute(system('git rev-parse --show-toplevel'), '[\n\r]', '', 'g')
     if gitroot != ''
       let &tags = &tags . ',' . gitroot . '/.git/tags'
@@ -297,12 +297,12 @@
     " enable completion from tags
     let g:ycm_collect_identifiers_from_tags_files = 1
 
-    " remap ultisnips for compatibility for YCM
+    " remap ultisnips for compatibility for ycm
     let g:UltiSnipsExpandTrigger = '<C-j>'
     let g:UltiSnipsJumpForwardTrigger = '<C-j>'
     let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
-    " enable omni completion.
+    " enable omni completion
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -311,19 +311,19 @@
     autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
     autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
-    " for snippet_complete marker.
+    " for snippet_complete marker
     set conceallevel=2 concealcursor=i
 
     " disable the neosnippet preview candidate window
     " when enabled, there can be too much visual noise
-    " especially when splits are used.
+    " especially when splits are used
     set completeopt-=preview
   " }
 
   " undotree {
     nnoremap <leader>u :UndotreeToggle<CR>
 
-    " if undotree is opened, it is likely one wants to interact with it.
+    " if undotree is opened, it is likely one wants to interact with it
     let g:undotree_SetFocusWhenToggle=1
   " }
 
