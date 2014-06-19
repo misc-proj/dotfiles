@@ -9,7 +9,6 @@
 " }
 
 " general {
-  set background=dark
   syntax on
   set mouse=a            " enable mouse usage (all modes)
   set mousehide
@@ -52,7 +51,7 @@
   set winminheight=0
   set ignorecase                  " case insensitive matching
   set smartcase                   " smart case matching
-  set wildmenu
+  set wildmenu                    " show list for autocomplete
   set wildmode=longest,list:longest,list:full
   set scrolloff=8                 " start scrolling when we're 8 lines away from margins
   set sidescrolloff=15
@@ -61,6 +60,11 @@
   set list
   "set listchars=eol:$,tab:>-,trail:-
   set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+
+  if executable('ag')
+    set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
+    set grepformat=%f:%l:%c:%m
+  endif
 " }
 
 " formatting {
@@ -84,22 +88,27 @@
 " key (re)mappings {
   let mapleader = ","
 
-  " Code folding options
-  nmap <leader>f0 :set foldlevel=0<CR>
-  nmap <leader>f1 :set foldlevel=1<CR>
-  nmap <leader>f2 :set foldlevel=2<CR>
-  nmap <leader>f3 :set foldlevel=3<CR>
-  nmap <leader>f4 :set foldlevel=4<CR>
-  nmap <leader>f5 :set foldlevel=5<CR>
-  nmap <leader>f6 :set foldlevel=6<CR>
-  nmap <leader>f7 :set foldlevel=7<CR>
-  nmap <leader>f8 :set foldlevel=8<CR>
-  nmap <leader>f9 :set foldlevel=9<CR>
 
-  nmap <silent> <leader>n :silent :nohlsearch<CR>
+  nmap     <f1> [unite]h
+  nnoremap <f2> :Startify<cr>
+  nnoremap <f4> :UniteSessionSave
+
+  " Code folding options
+  nmap <leader>f0 :set foldlevel=0<cr>
+  nmap <leader>f1 :set foldlevel=1<cr>
+  nmap <leader>f2 :set foldlevel=2<cr>
+  nmap <leader>f3 :set foldlevel=3<cr>
+  nmap <leader>f4 :set foldlevel=4<cr>
+  nmap <leader>f5 :set foldlevel=5<cr>
+  nmap <leader>f6 :set foldlevel=6<cr>
+  nmap <leader>f7 :set foldlevel=7<cr>
+  nmap <leader>f8 :set foldlevel=8<cr>
+  nmap <leader>f9 :set foldlevel=9<cr>
+
+  nmap <silent> <leader>n :silent :nohlsearch<cr>
 
   " find merge conflict markers
-  map <leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+  map <leader>fc /\v^[<\|=>]{7}( .*\|$)<cr>
 
   " shortcuts
 
@@ -113,25 +122,25 @@
 
   " allow using the repeat operator with a visual selection (!)
   " http://stackoverflow.com/a/8064607/127816
-  vnoremap . :normal .<CR>
+  vnoremap . :normal .<cr>
 
   " for when you forget to sudo.. really write the file.
   cmap w!! w !sudo tee '%' >/dev/null
 
   " some helpers to edit mode
   " http://vimcasts.org/e/14
-  cnoremap %% <C-R>=expand('%:h').'/'<cr>
+  cnoremap %% <c-r>=expand('%:h')."/"<cr>
   map <leader>ew :e %%
   map <leader>es :sp %%
   map <leader>ev :vsp %%
   map <leader>et :tabe %%
 
   " Adjust viewports to the same size
-  map <leader>= <C-w>=
+  map <leader>= <c-w>=
 
   " map <leader>ff to display all lines with keyword under cursor
   " and ask which one to jump to
-  nmap <leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+  nmap <leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<cr>
 
   " easier horizontal scrolling
   map zl zL
@@ -157,7 +166,7 @@
       autocmd!
       autocmd FileType markdown call textobj#quote#init()
       autocmd FileType textile call textobj#quote#init()
-      autocmd FileType text call textobj#quote#init({'educate': 0})
+      autocmd FileType text call textobj#quote#init({"educate": 0})
     augroup end
   " }
 
@@ -176,16 +185,16 @@
     set tags=./tags;/,~/.vimtags
 
     " make tags placed in .git/tags file available in all levels of a repository
-    let gitroot = substitute(system('git rev-parse --show-toplevel'), '[\n\r]', '', 'g')
-    if gitroot != ''
-      let &tags = &tags . ',' . gitroot . '/.git/tags'
+    let gitroot = substitute(system("git rev-parse --show-toplevel"), '[\n\r]', "", "g")
+    if gitroot != ""
+      let &tags = &tags . "," . gitroot . "/.git/tags"
     endif
   " }
 
   " nerdtree {
-    map <C-e> <plug>NERDTreeTabsToggle<CR>
-    map <leader>e :NERDTreeFind<CR>
-    nmap <leader>nt :NERDTreeFind<CR>
+    map <c-e> <plug>NERDTreeTabsToggle<cr>
+    map <leader>e :NERDTreeFind<cr>
+    nmap <leader>nt :NERDTreeFind<cr>
 
     let NERDTreeShowBookmarks=1
     let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
@@ -198,31 +207,24 @@
   " }
 
   " tabularize {
-    nmap <leader>a& :Tabularize /&<CR>
-    vmap <leader>a& :Tabularize /&<CR>
-    nmap <leader>a= :Tabularize /=<CR>
-    vmap <leader>a= :Tabularize /=<CR>
-    nmap <leader>a: :Tabularize /:<CR>
-    vmap <leader>a: :Tabularize /:<CR>
-    nmap <leader>a:: :Tabularize /:\zs<CR>
-    vmap <leader>a:: :Tabularize /:\zs<CR>
-    nmap <leader>a, :Tabularize /,<CR>
-    vmap <leader>a, :Tabularize /,<CR>
-    nmap <leader>a,, :Tabularize /,\zs<CR>
-    vmap <leader>a,, :Tabularize /,\zs<CR>
-    nmap <leader>a<Bar> :Tabularize /<Bar><CR>
-    vmap <leader>a<Bar> :Tabularize /<Bar><CR>
-  " }
-
-  " session list {
-    set sessionoptions=blank,buffers,curdir,folds,tabpages,winsize
-    nmap <leader>sl :SessionList<CR>
-    nmap <leader>ss :SessionSave<CR>
-    nmap <leader>sc :SessionClose<CR>
+    nmap <leader>a&     :Tabularize /&<cr>
+    vmap <leader>a&     :Tabularize /&<cr>
+    nmap <leader>a=     :Tabularize /=<cr>
+    vmap <leader>a=     :Tabularize /=<cr>
+    nmap <leader>a:     :Tabularize /:<cr>
+    vmap <leader>a:     :Tabularize /:<cr>
+    nmap <leader>a::    :Tabularize /:\zs<cr>
+    vmap <leader>a::    :Tabularize /:\zs<cr>
+    nmap <leader>a,     :Tabularize /,<cr>
+    vmap <leader>a,     :Tabularize /,<cr>
+    nmap <leader>a,,    :Tabularize /,\zs<cr>
+    vmap <leader>a,,    :Tabularize /,\zs<cr>
+    nmap <leader>a<Bar> :Tabularize /<Bar><cr>
+    vmap <leader>a<Bar> :Tabularize /<Bar><cr>
   " }
 
   " json {
-    nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
+    nmap <leader>jt <esc>:%!python -m json.tool<cr><esc>:set filetype=json<cr>
   " }
 
   " pymode {
@@ -231,97 +233,81 @@
     let g:pymode_options = 0
   " }
 
-  " ctrlp {
-    let g:ctrlp_root_markers = [".root"]
-    let g:ctrlp_working_path_mode = 'ra'
-    nnoremap <silent> <D-t> :CtrlP<CR>
-    nnoremap <silent> <D-r> :CtrlPMRU<CR>
-    let g:ctrlp_custom_ignore = {
-        \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-        \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
-
-    let s:ctrlp_fallback = 'find %s -type f'
-    let g:ctrlp_user_command = {
-      \ 'types': {
-        \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-        \ 2: ['.hg', 'hg --cwd %s locate -I .'],
-      \ },
-      \ 'fallback': s:ctrlp_fallback
-    \ }
-  " }
-
   " tagbar {
-    nnoremap <silent> <leader>tt :TagbarToggle<CR>
+    nnoremap <silent> <leader>tt :TagbarToggle<cr>
 
     " if using go please install the gotags program using the following
     " go install github.com/jstemmer/gotags
     " and make sure gotags is in your path
     let g:tagbar_type_go = {
-      \ 'ctagstype' : 'go',
-      \ 'kinds'     : [  'p:package', 'i:imports:1', 'c:constants', 'v:variables',
-        \ 't:types',  'n:interfaces', 'w:fields', 'e:embedded', 'm:methods',
-        \ 'r:constructor', 'f:functions' ],
-      \ 'sro' : '.',
-      \ 'kind2scope' : { 't' : 'ctype', 'n' : 'ntype' },
-      \ 'scope2kind' : { 'ctype' : 't', 'ntype' : 'n' },
-      \ 'ctagsbin'  : 'gotags',
-      \ 'ctagsargs' : '-sort -silent'
+      \ "ctagstype" : "go",
+      \ "kinds"     : [  "p:package", "i:imports:1", "c:constants", "v:variables",
+        \ "t:types",  "n:interfaces", "w:fields", "e:embedded", "m:methods",
+        \ "r:constructor", "f:functions" ],
+      \ "sro" : ".",
+      \ "kind2scope" : { "t" : "ctype", "n" : "ntype" },
+      \ "scope2kind" : { "ctype" : "t", "ntype" : "n" },
+      \ "ctagsbin"  : "gotags",
+      \ "ctagsargs" : "-sort -silent"
       \ }
   " }
 
   " pythonmode {
     " Disable if python support not present
-    if !has('python')
+    if !has("python")
       let g:pymode = 0
     endif
   " }
 
   " fugitive {
-    nnoremap <silent> <leader>gs :Gstatus<CR>
-    nnoremap <silent> <leader>gd :Gdiff<CR>
-    nnoremap <silent> <leader>gc :Gcommit<CR>
-    nnoremap <silent> <leader>gb :Gblame<CR>
-    nnoremap <silent> <leader>gl :Glog<CR>
-    nnoremap <silent> <leader>gp :Git push<CR>
-    nnoremap <silent> <leader>gr :Gread<CR>
-    nnoremap <silent> <leader>gw :Gwrite<CR>
-    nnoremap <silent> <leader>ge :Gedit<CR>
+    nnoremap <silent> <leader>gs :Gstatus<cr>
+    nnoremap <silent> <leader>gd :Gdiff<cr>
+    nnoremap <silent> <leader>gc :Gcommit<cr>
+    nnoremap <silent> <leader>gb :Gblame<cr>
+    nnoremap <silent> <leader>gl :Glog<cr>
+    nnoremap <silent> <leader>gp :Git push<cr>
+    nnoremap <silent> <leader>gr :Gread<cr>
+    nnoremap <silent> <leader>gw :Gwrite<cr>
+    nnoremap <silent> <leader>ge :Gedit<cr>
     " Mnemonic _i_nteractive
-    nnoremap <silent> <leader>gi :Git add -p %<CR>
-    nnoremap <silent> <leader>gg :SignifyToggle<CR>
+    nnoremap <silent> <leader>gi :Git add -p %<cr>
+    nnoremap <silent> <leader>gg :SignifyToggle<cr>
+
+    " gitv
+    nnoremap <silent> <leader>gv :Gitv<cr>
+    nnoremap <silent> <leader>gV :Gitv!<cr>
   " }
 
-  " youcompleteme {
+  " neocomplete {
     let g:acp_enableAtStartup = 0
+    let g:neocomplete#enable_at_startup=1
+    let g:neocomplete#data_directory="~/.vim/.cache/neocomplete"
+  " }
 
-    " enable completion from tags
-    let g:ycm_collect_identifiers_from_tags_files = 1
+  " neosnippet {
+    let g:neosnippet#snippets_directory="~/.vim/bundle/vim-snippets/snippets,~/.vim/snippets"
+    let g:neosnippet#enable_snipmate_compatibility=1
 
-    " remap ultisnips for compatibility for ycm
-    let g:UltiSnipsExpandTrigger = '<C-j>'
-    let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-    let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+    imap <expr> <tab> neosnippet#expandable_or_jumpable() ? "\<plug>(neosnippet_expand_or_jump)" : (pumvisible() ? "\<c-n>" : "\<tab>")
+    smap <expr> <tab> neosnippet#expandable_or_jumpable() ? "\<plug>(neosnippet_expand_or_jump)" : "\<tab>"
+    imap <expr> <s-tab> pumvisible() ? "\<c-p>" : ""
+    smap <expr> <s-tab> pumvisible() ? "\<c-p>" : ""
 
     " enable omni completion
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType css           setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-    autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-    autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+    autocmd FileType javascript    setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python        setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
+    autocmd FileType ruby          setlocal omnifunc=rubycomplete#Complete
+    autocmd FileType haskell       setlocal omnifunc=necoghc#omnifunc
 
     " for snippet_complete marker
     set conceallevel=2 concealcursor=i
-
-    " disable the neosnippet preview candidate window
-    " when enabled, there can be too much visual noise
-    " especially when splits are used
-    set completeopt-=preview
   " }
 
   " undotree {
-    nnoremap <leader>u :UndotreeToggle<CR>
+    nnoremap <leader>u :UndotreeToggle<cr>
 
     " if undotree is opened, it is likely one wants to interact with it
     let g:undotree_SetFocusWhenToggle=1
@@ -336,12 +322,13 @@
   " vim-airline {
     set laststatus=2
     set noshowmode
-    let g:airline_theme = "powerlineish"
+    "let g:airline_theme = "powerlineish"
+    let g:airline_theme = "solarized"
     let g:airline_powerline_fonts=1
   " }
 
   " syntastic {
-    let g:syntastic_go_checkers = ['go', 'govet', 'golint']
+    let g:syntastic_go_checkers = ["go", "govet", "golint"]
     let g:syntastic_coffee_coffeelint_args = "--csv -f ~/.vim/coffeelint.config.json"
   " }
 
@@ -360,14 +347,162 @@
     au FileType go nmap <leader>dt <plug>(go-def-tab)
   " }
 
-  " minibufexpl.vim {
-    let g:miniBufExplBRSplit = 0
+  " unite {
+    " Use the fuzzy matcher for everything
+    call unite#filters#matcher_default#use(["matcher_fuzzy"])
+    call unite#filters#sorter_default#use(["sorter_rank"])
+    call unite#set_profile("files", "smartcase", 1)
+
+    let g:unite_data_directory = "~/.vim/.cache/unite"
+    let g:unite_source_history_yank_enable=1     " enable history yank source
+
+    let g:neomru#file_mru_limit = 1000
+    let g:neomru#filename_format = ":~:."
+    let g:neomru#time_format = ""
+
+    if executable("ag")
+      let g:unite_source_grep_command = "ag"
+      let g:unite_source_grep_default_opts = "--noheading --nocolor --nogroup --line-numbers -a -S"
+      let g:unite_source_grep_recursive_opt = ""
+    endif
+
+    let g:unite_source_rec_max_cache_files = 99999
+
+    call unite#custom#profile("default", "context", {
+      \   "start_insert": 1,
+      \   "prompt": "» ",
+      \   "direction": "botright",
+      \   "update_time": 200,
+      \   "cursor_line_highlight": "TabLineSel",
+      \ })
+
+    " Set up some custom ignores
+    call unite#custom_source("file_rec,file_rec/async,file_mru,file,buffer,grep",
+      \ "ignore_pattern", join([
+        \ '\.git/',
+        \ '\.hg/',
+        \ '\.svn/',
+        \ '\.bzr/',
+        \ '\.cdv/',
+        \ '_darcs/',
+        \ 'CVS/',
+        \ 'RCS/',
+        \ 'SCCS/',
+        \ 'tmp/',
+        \ '_build/',
+        \ 'autom4te\.cache/',
+        \ '\.sass-cache/',
+        \ 'node_modules/',
+        \ 'bower_components/',
+        \ 'dist/',
+        \ 'Godeps/',
+        \ '\~$',
+        \ '#.+#$',
+        \ '[._].*\.swp$',
+        \ 'core\.\d+$',
+        \ '\.pyc$',
+        \ '\.exe$',
+        \ '\.so$',
+        \ '\.bak$',
+        \ '\.png$',
+        \ '\.jpg$',
+        \ '\.jpeg$',
+        \ '\.gif$',
+        \ '\.zip$',
+        \ '\.rar$',
+        \ '\.tar$',
+        \ '\.tar\.gz$',
+        \ '\.tar\.bz2$',
+        \ ], '\|')
+    \ )
+
+    " Custom Unite settings
+    autocmd FileType unite call s:unite_settings()
+    function! s:unite_settings()
+      " escape to exit unite window
+      nmap <buffer> <esc> <plug>(unite_exit)
+      imap <buffer> <esc> <plug>(unite_exit)
+
+      imap <buffer> <c-j> <plug>(unite_select_next_line)
+      imap <buffer> <c-k> <plug>(unite_select_previous_line)
+
+      " open file in new window or tab
+      inoremap <buffer> <expr> <c-x> unite#do_action("split")
+      inoremap <buffer> <expr> <c-v> unite#do_action("vsplit")
+      inoremap <buffer> <expr> <c-t> unite#do_action("tabopen")
+    endfunction
+
+    " Map space to the prefix for Unite
+    nnoremap [unite] <Nop>
+    nmap <space> [unite]
+
+    nnoremap <silent> [unite]<space> :Unite -buffer-name=mixed    -toggle -auto-resize      file_rec/async:! buffer file_mru bookmark<cr>
+    nnoremap <silent> [unite]f       :Unite -buffer-name=files    -toggle -auto-resize      file_rec/async:!<cr>
+    nnoremap <silent> [unite]e       :Unite -buffer-name=recent                             file_mru<cr>
+    nnoremap <silent> [unite]y       :Unite -buffer-name=yank                               history/yank<cr>
+    nnoremap <silent> [unite]l       :Unite -buffer-name=line     -auto-resize              line<cr>
+    nnoremap <silent> [unite]b       :Unite -buffer-name=buffers  -auto-resize              buffer<cr>
+    nnoremap <silent> [unite]/       :Unite -buffer-name=search   -no-quit -no-start-insert grep:.<cr>
+    nnoremap <silent> [unite]m       :Unite -buffer-name=mappings -auto-resize              mapping<cr>
+    nnoremap <silent> [unite]s       :Unite -quick-match buffer<cr>
+    "
+    nnoremap <silent> [unite]a       :Unite -buffer-name=airline_themes -winheight=10 -auto-preview airline_themes<cr>
+    nnoremap <silent> [unite]c       :Unite -buffer-name=colorschemes   -winheight=10 -auto-preview colorscheme<cr>
+    nnoremap <silent> [unite]t       :Unite -buffer-name=tag            -auto-resize tag tag/file<cr>
+    nnoremap <silent> [unite]o       :Unite -buffer-name=outline        -auto-resize outline<cr>
+    nnoremap <silent> [unite]h       :Unite -buffer-name=help           -auto-resize help<cr>
+    nnoremap <silent> [unite]j       :Unite -buffer-name=junk           -auto-resize junkfile junkfile/new<cr>
+    nnoremap <silent> [unite]p       :Unite -buffer-name=sessions       session<cr>
+
+    nnoremap <leader>nbu  :Unite neobundle/update     -vertical -no-start-insert<cr>
+    nnoremap <leader>nbua :Unite neobundle/update:all -vertical -no-start-insert<cr>
+
+    " Ctrl-p: Find files
+    nmap <c-p> [unite]f
   " }
+
+  " junkfile {
+    let g:junkfile#directory = "~/.vim/.cache/junk"
+  " }
+
+  " session {
+    let g:unite_source_session_enable_auto_save = 1
+    let g:unite_source_session_path = "~/.vim/.cache/sessions"
+  " }
+
+  " vimshell {
+      if has("gui_running")
+        let g:vimshell_editor_command="mvim"
+      else
+        let g:vimshell_editor_command="vim"
+      endif
+
+      let g:vimshell_right_prompt="getcwd()"
+      let g:vimshell_data_directory="~/.vim/.cache/vimshell"
+      let g:vimshell_vimshrc_path="~/.vim/vimshrc"
+
+      nnoremap <leader>c  :VimShell -split<cr>
+      nnoremap <leader>cc :VimShell -split<cr>
+      nnoremap <leader>cn :VimShellInteractive node<cr>
+      nnoremap <leader>cl :VimShellInteractive lua<cr>
+      nnoremap <leader>cr :VimShellInteractive irb<cr>
+      nnoremap <leader>cp :VimShellInteractive python<cr>
+  " }
+
+  " startify {
+    let g:startify_session_dir = "~/.vim/.cache/sessions"
+    let g:startify_change_to_vcs_root = 1
+    let g:startify_show_sessions = 1
+  " }
+
 " }
 
 " gui {
   if has("gui_running")
+    set background=dark
     set transparency=1
     set guifont=Inconsolata\ for\ Powerline:h12
+  else
+    set background=light
   endif
 " }

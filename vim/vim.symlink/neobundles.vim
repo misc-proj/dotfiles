@@ -39,9 +39,18 @@
     NeoBundle "scrooloose/nerdtree"               " a tree explorer plugin
     NeoBundle "altercation/vim-colors-solarized"  " precision colorscheme (http://ethanschoonover.com/solarized)
     NeoBundle "tpope/vim-surround"                " quoting/parenthesizing made simple
-    NeoBundle "kien/ctrlp.vim"                    " full path fuzzy file, buffer, mru, tag, ... finder, TODO(jrubin) considering replacing with Shougo/unite.vim
+    NeoBundle "Shougo/unite.vim"                  " search and display information from arbitrary sources like files, buffers, recently used files or registers, replaced kien/ctrlp.vim
+    NeoBundle "Shougo/neomru.vim"                 " unite.vim MRU sources, depends on Shougo/unite.vim
+    NeoBundle "osyo-manga/unite-airline_themes"   " unite airline themes, duh
+    NeoBundle "ujihisa/unite-colorscheme"         " unite plugin for changing your colorscheme
+    NeoBundle "tsukkee/unite-tag"                 " unite plugin for selecting tags or selecting files including tags
+    NeoBundle "Shougo/unite-outline"              " unite source which provides the buffer with an outline view
+    NeoBundle "Shougo/unite-help"                 " unite plugin for help
+    NeoBundle "Shougo/unite-session"              " unite source which nominates sessions
+    NeoBundle "thinca/vim-unite-history"          " unite source for history of command/search
+    NeoBundle "Shougo/junkfile.vim"               " creates junk files with filetype
+    NeoBundle "Shougo/vimshell.vim"               " an extreme shell that doesn't depend on external shells but is written completely in pure vim script
     NeoBundle "terryma/vim-multiple-cursors"      " true sublime text style multiple selections
-    NeoBundle "vim-scripts/sessionman.vim"        " session manager
     NeoBundle "matchit.zip"                       " extended % matching for html, latex, and many other languages
     NeoBundle "bling/vim-airline"                 " lean & mean status/tabline for vim that's light as air, replaced Lokaltog/powerline
     NeoBundle "Lokaltog/vim-easymotion"           " vim motions on speed!
@@ -51,11 +60,14 @@
     NeoBundle "nathanaelkane/vim-indent-guides"   " visually display indent levels in code
     NeoBundle "mhinz/vim-signify"                 " show a vcs diff using vim's sign column
     NeoBundle "tpope/vim-abolish"                 " easily search for, substitute, and abbreviate multiple variants of a word
+    NeoBundle "tpope/vim-unimpaired"              " pairs of handy bracket mappings
+    NeoBundle "tpope/vim-repeat"                  " enable repeating supported plugin maps with '.'
     NeoBundle "osyo-manga/vim-over"               " :substitute preview
     NeoBundle "justinmk/vim-sneak"                " motion plugin that jumps to any location specified by two characters
     NeoBundle "kana/vim-textobj-user"             " painlessly create your own text objects
     NeoBundle "kana/vim-textobj-indent"           " text objects for indented blocks of lines, depends on kana/vim-textobj-user
-    NeoBundle "fholgado/minibufexpl.vim"          " elegant buffer explorer - takes very little screen space
+    NeoBundle "lucapette/vim-textobj-underscore"  " underscore text-object
+    NeoBundle "mhinz/vim-startify"                " shows recently used files, bookmarks and sessions
   " }
 
   " writing {
@@ -68,20 +80,20 @@
   " general programming {
     NeoBundle "scrooloose/syntastic"       " syntax checking
     NeoBundle "tpope/vim-fugitive"         " a git wrapper so awesome, it should be illegal
+    NeoBundle "gregsexton/gitv"            " a gitk clone
     NeoBundle "mattn/webapi-vim"           " an interface to Web APIs
     NeoBundle "mattn/gist-vim"             " vimscript for creating gists (http://gist.github.com)
-    NeoBundle "scrooloose/nerdcommenter"   " intensely orgasmic commenting
+    NeoBundle "tomtom/tcomment_vim"        " easy to use, file-type sensible comments
     NeoBundle "godlygeek/tabular"          " text filtering and alignment
     NeoBundle "majutsushi/tagbar"          " displays tags in a window, ordered by scope http://majutsushi.github.com/tagbar/
     NeoBundle "AndrewRadev/splitjoin.vim"  " simplifies the transition between multi-line and single-line code
   " }
 
   " snippets & autocomplete {
-    if v:version > 703 || (v:version == 703 && has("patch584"))
-      NeoBundle "Valloric/YouCompleteMe"  " code-completion engine
-    endif
-    NeoBundle "SirVer/ultisnips"    " the ultimate snippet solution
-    NeoBundle "honza/vim-snippets"  " contains snippets files for various programming languages
+    NeoBundle "Shougo/neocomplete.vim"      " next generation completion framework
+    NeoBundle "Shougo/neosnippet.vim"       " offers functionality similar to snipmate or snippetsemu
+    NeoBundle "Shougo/neosnippet-snippets"  " the standard snippets repository for neosnippet
+    NeoBundle "honza/vim-snippets"          " contains snippets files for various programming languages
   " }
 
   " language polyglot - collection of language packs {
