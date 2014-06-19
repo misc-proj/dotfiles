@@ -36,7 +36,6 @@
   " }
 
   " general {
-    NeoBundle "scrooloose/nerdtree"               " a tree explorer plugin
     NeoBundle "altercation/vim-colors-solarized"  " precision colorscheme (http://ethanschoonover.com/solarized)
     NeoBundle "tpope/vim-surround"                " quoting/parenthesizing made simple
     NeoBundle "Shougo/unite.vim"                  " search and display information from arbitrary sources like files, buffers, recently used files or registers, replaced kien/ctrlp.vim
@@ -47,15 +46,17 @@
     NeoBundle "Shougo/unite-outline"              " unite source which provides the buffer with an outline view
     NeoBundle "Shougo/unite-help"                 " unite plugin for help
     NeoBundle "Shougo/unite-session"              " unite source which nominates sessions
+    NeoBundle "Shougo/neossh.vim"                 " unite source which nominates files over ssh
     NeoBundle "thinca/vim-unite-history"          " unite source for history of command/search
+    NeoBundle "Shougo/vimfiler.vim"               " a powerful file explorer
     NeoBundle "Shougo/junkfile.vim"               " creates junk files with filetype
     NeoBundle "Shougo/vimshell.vim"               " an extreme shell that doesn't depend on external shells but is written completely in pure vim script
+    NeoBundle "terryma/vim-smooth-scroll"         " make scrolling more pleasant
     NeoBundle "terryma/vim-multiple-cursors"      " true sublime text style multiple selections
     NeoBundle "matchit.zip"                       " extended % matching for html, latex, and many other languages
     NeoBundle "bling/vim-airline"                 " lean & mean status/tabline for vim that's light as air, replaced Lokaltog/powerline
     NeoBundle "Lokaltog/vim-easymotion"           " vim motions on speed!
     NeoBundle "godlygeek/csapprox"                " make gvim-only colorschemes work transparently in terminal vim
-    NeoBundle "jistr/vim-nerdtree-tabs"           " NERDTree and tabs together, painlessly
     NeoBundle "mbbill/undotree"                   " display your undo history in a graph
     NeoBundle "nathanaelkane/vim-indent-guides"   " visually display indent levels in code
     NeoBundle "mhinz/vim-signify"                 " show a vcs diff using vim's sign column
@@ -87,6 +88,7 @@
     NeoBundle "godlygeek/tabular"          " text filtering and alignment
     NeoBundle "majutsushi/tagbar"          " displays tags in a window, ordered by scope http://majutsushi.github.com/tagbar/
     NeoBundle "AndrewRadev/splitjoin.vim"  " simplifies the transition between multi-line and single-line code
+    NeoBundle "tpope/vim-dispatch"         " asynchronous build and test dispatcher
   " }
 
   " snippets & autocomplete {

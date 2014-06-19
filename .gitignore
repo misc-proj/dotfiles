@@ -6,3 +6,4 @@
 !/vim/vim.symlink/bundle/neobundle.vim/
 /vim/vim.symlink/backups/
 /vim/vim.symlink/.cache/
+/vim/vim.symlink/spell/
