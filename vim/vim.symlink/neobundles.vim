@@ -50,7 +50,6 @@
     NeoBundle "thinca/vim-unite-history"          " unite source for history of command/search
     NeoBundle "Shougo/vimfiler.vim"               " a powerful file explorer
     NeoBundle "Shougo/junkfile.vim"               " creates junk files with filetype
-    NeoBundle "Shougo/vimshell.vim"               " an extreme shell that doesn't depend on external shells but is written completely in pure vim script
     NeoBundle "terryma/vim-smooth-scroll"         " make scrolling more pleasant
     NeoBundle "terryma/vim-multiple-cursors"      " true sublime text style multiple selections
     NeoBundle "matchit.zip"                       " extended % matching for html, latex, and many other languages
@@ -69,6 +68,15 @@
     NeoBundle "kana/vim-textobj-indent"           " text objects for indented blocks of lines, depends on kana/vim-textobj-user
     NeoBundle "lucapette/vim-textobj-underscore"  " underscore text-object
     NeoBundle "mhinz/vim-startify"                " shows recently used files, bookmarks and sessions
+    NeoBundle "ton/vim-bufsurf"                   " enables surfing through buffers based on viewing history per window
+    NeoBundle "koron/nyancat-vim"                 " nyancat on vim
+    NeoBundle "terryma/vim-expand-region"         " visually select increasingly larger regions of text using the same key combination
+  " }
+
+  " shell {
+    NeoBundle "thinca/vim-quickrun"  " run a command and show its result quickly
+    NeoBundle "Shougo/vimshell.vim"  " an extreme shell that doesn't depend on external shells but is written completely in pure vim script
+    NeoBundle "tpope/vim-dispatch"   " asynchronous build and test dispatcher
   " }
 
   " writing {
@@ -88,7 +96,6 @@
     NeoBundle "godlygeek/tabular"          " text filtering and alignment
     NeoBundle "majutsushi/tagbar"          " displays tags in a window, ordered by scope http://majutsushi.github.com/tagbar/
     NeoBundle "AndrewRadev/splitjoin.vim"  " simplifies the transition between multi-line and single-line code
-    NeoBundle "tpope/vim-dispatch"         " asynchronous build and test dispatcher
   " }
 
   " snippets & autocomplete {
@@ -128,7 +135,6 @@
   " }
 
   " misc {
-    NeoBundle "spf13/vim-preview"    " preview markup files such as .markdown, .rdoc, .textile and .html in your browser when you are editing them
     NeoBundle "rizzatti/funcoo.vim"  " functional object oriented viml
     NeoBundle "rizzatti/dash.vim"    " search for terms using [Dash.app](http://kapeli.com/), making API lookups simple, depends on rizzatti/funcoo.vim
   " }

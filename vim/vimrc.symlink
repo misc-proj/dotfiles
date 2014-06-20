@@ -225,12 +225,15 @@
       nnoremap <silent> <leader>ge :Gedit<cr>
       " mnemonic _i_nteractive
       nnoremap <silent> <leader>gi :Git add -p %<cr>
-      nnoremap <silent> <leader>gg :SignifyToggle<cr>
+    " }
 
-      " gitv {
+    " signify {
+      nnoremap <silent> <leader>gg :SignifyToggle<cr>
+    " }
+
+    " gitv {
       nnoremap <silent> <leader>gv :Gitv<cr>
       nnoremap <silent> <leader>gV :Gitv!<cr>
-      " }
     " }
 
     " undotree {
@@ -310,7 +313,7 @@
     noremap Y J
 
     " U: Redos since 'u' undos
-    nnoremap U :redo<cr>
+    "nnoremap U :redo<cr>
 
     " _ : Quick horizontal splits
     nnoremap _ :sp<cr>
@@ -321,17 +324,17 @@
     " H: Go to beginning of line.
     noremap H ^
 
-    " J: expand-region TODO(jrubin)
-    "map K <Plug>(expand_region_expand)
+    " K: expand-region
+    map K <plug>(expand_region_expand)
 
-    " K: shrink-region TODO(jrubin)
-    "map J <Plug>(expand_region_shrink)
+    " J: shrink-region
+    map J <plug>(expand_region_shrink)
 
     noremap L g_
 
     " :: Remap to ,. After all the remapping, ; goes to command mode, . repeats
     " fFtT, : repeats it backward, and , is the leader
-    noremap : ,
+    "noremap : ,
 
     " Z: Bufsurf back
     nnoremap <silent> Z :BufSurfBack<CR>
@@ -359,9 +362,8 @@
     " ctrl-e: Find (e)verything
     nmap <c-e> [unite]n
 
-    " ctrl-r: Command history using Unite, like bash and zsh
-    silent! nunmap <c-r>
-    nmap <c-r> [unite];
+    " ctrl-d: Command history using Unite
+    nmap <c-d> [unite];
 
     " ctrl-y: Yanks
     nmap <c-y> [unite]y
@@ -495,7 +497,7 @@
     nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
     " ;: Command mode
-    noremap ; :
+    "noremap ; :
 
     " c: Change into the blackhole register to not clobber the last yank
     nnoremap c "_c
@@ -572,6 +574,9 @@
 
     " backspace: Delete selected and go into insert mode
     xnoremap <bs> c
+
+    " space: QuickRun
+    xnoremap <space> :QuickRun<cr>
 
     " <|>: Reselect visual block after indent
     xnoremap < <gv
@@ -722,10 +727,11 @@
   " vim-airline {
     set laststatus=2
     set noshowmode
-    "let g:airline_theme = "powerlineish"
     let g:airline_theme = "solarized"
     let g:airline_powerline_fonts=1
-  " }
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#fnamemod = ':t'
+    " }
 
   " syntastic {
     let g:syntastic_go_checkers = ["go", "govet", "golint"]
@@ -916,6 +922,35 @@
     highlight link EasyMotionTarget WarningMsg
     highlight link EasyMotionShade  Comment
     let g:EasyMotion_do_mapping = 0
+  " }
+
+  " quickrun {
+    let g:quickrun_config = {}
+    let g:quickrun_config.markdown = {
+      \ "outputter": "null",
+      \ "command":   "open",
+      \ "cmdopt":    "-a",
+      \ "args":      "Marked",
+      \ "exec":      "%c %o %a %s",
+      \ }
+  " }
+
+  " expand region {
+    let g:expand_region_use_select_mode = 0
+
+    " extend the global dictionary
+    call expand_region#custom_text_objects({
+      \ 'a]'  :1,
+      \ "ab"  :1,
+      \ "aB"  :1,
+      \ "ii"  :0,
+      \ "ai"  :0,
+      \ })
+
+    " customize it further for html
+    call expand_region#custom_text_objects("html", {
+      \ "it" :1,
+      \ })
   " }
 
 " }
