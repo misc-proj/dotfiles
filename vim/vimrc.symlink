@@ -10,9 +10,11 @@
 
   function! g:CursorPing()  " {{{
     set cursorcolumn
+    set cursorline
     redraw
     sleep 200m
     set nocursorcolumn
+    set nocursorline
   endfunction
   " }}}
 " }
@@ -51,11 +53,13 @@
   let g:solarized_visibility="normal"
   color solarized  " load a colorscheme
 
+  set laststatus=2                 " always show the statusline for airline
   set title
-  set visualbell  " no sounds
-  set showcmd     " show incomplete cmds down the bottom
-  set noshowmode
-  set cursorline
+  set visualbell                   " no sounds
+  set t_vb=
+  set showcmd                      " show incomplete cmds down the bottom
+  set noshowmode                   " no need to show mode with airline
+  set completeopt=longest,menuone  " auto complete setting
 
   highlight clear SignColumn  " signcolumn should match background
   highlight clear LineNr      " current line number row will have same background color in relative mode
@@ -69,14 +73,22 @@
   set ignorecase                  " case insensitive matching
   set smartcase                   " smart case matching
   set wildmenu                    " show list for autocomplete
-  set wildmode=longest,list:longest,list:full
+  set wildmode=list:longest,full
+  set winheight=50                " sensible heights for splits
   set scrolloff=8                 " start scrolling when we're 8 lines away from margins
   set sidescrolloff=15
   set sidescroll=1
-  "set foldenable
+  set scrolljump=3
+  set numberwidth=1
+  set foldmethod=indent
+  set foldlevelstart=99
+  set virtualedit=onemore         " give one virtual space at end of line
   set list
   "set listchars=eol:$,tab:>-,trail:-
   set listchars=tab:›\ ,trail:•,extends:❯,precedes:❮,nbsp:.
+  set showbreak=↪
+
+  set updatetime=1000
 
   if executable('ag')
     set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
@@ -87,8 +99,9 @@
 " formatting {
   set formatoptions=croqlt
   set linebreak              " wrap lines at convenient points
-  let &showbreak="↪ "
+  set textwidth=80
   set nowrap                 " don't wrap lines
+  set whichwrap+=h,l,<,>,[,]
   set autoindent
   set shiftwidth=2
   set expandtab
@@ -725,8 +738,6 @@
   " }
 
   " vim-airline {
-    set laststatus=2
-    set noshowmode
     let g:airline_theme = "solarized"
     let g:airline_powerline_fonts=1
     let g:airline#extensions#tabline#enabled = 1
