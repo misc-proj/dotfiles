@@ -3,12 +3,20 @@
 " }
 
 " functions {
+  let s:cache_dir = "~/.vim/.cache/"
+
   function! s:get_cache_dir(suffix)  " {{{
-    return resolve(expand("~/.vim/.cache/" . a:suffix))
+    return resolve(expand(s:cache_dir . "/" . a:suffix))
   endfunction
   " }}}
 
-  function! g:CursorPing()  " {{{
+  function! EnsureExists(path) "{{{
+    if !isdirectory(expand(a:path))
+      call mkdir(expand(a:path))
+    endif
+  endfunction "}}}
+
+  function! CursorPing()  " {{{
     set cursorcolumn
     set cursorline
     redraw
@@ -27,35 +35,57 @@
 
 " general {
   syntax on
-  set mouse=a            " enable mouse usage (all modes)
+  set mouse=a              " enable mouse usage (all modes)
   set mousehide
-  set clipboard=unnamed
-  set history=1000       " store lots of :cmdline history
-  set spell
-  set hidden             " hide buffers when they are abandoned
-  set exrc               " enable per-directory .vimrc files
-  set secure             " disable unsafe commands in local .vimrc files
-  set autoread           " reload files changed outside vim
-  set ttyfast            " assume fast terminal connection
-  set encoding=utf-8     " set encoding for text
-
-  if has("persistent_undo")
-    silent !mkdir ~/.vim/backups > /dev/null 2>&1
-    set undofile
-    set undodir=~/.vim/backups
+  if exists("$TMUX")
+    set clipboard=
+  else
+    set clipboard=unnamed  " sync with OS clipboard
   endif
+  set history=1000         " store lots of :cmdline history
+  set spell
+  set hidden               " hide buffers when they are abandoned
+  set exrc                 " enable per-directory .vimrc files
+  set secure               " disable unsafe commands in local .vimrc files
+  set autoread             " reload files changed outside vim
+  set fileformats+=mac     " add mac to auto-detection of file format line endings
+  set nrformats-=octal     " always assume decimal numbers
+  set ttyfast              " assume fast terminal connection
+  set encoding=utf-8       " set encoding for text
+" }
+
+" vim file/folder management {
+
+  call EnsureExists(s:cache_dir)
+
+  " persistent undo
+  if has("persistent_undo")
+    set undofile
+    let &undodir=s:get_cache_dir("undo")
+    call EnsureExists(&undodir)
+  endif
+
+  " backups
+  set backup
+  let &backupdir=s:get_cache_dir("backup")
+  call EnsureExists(&backupdir)
+
+  " swap files
+  let &directory=s:get_cache_dir("swap")
+  call EnsureExists(&directory)
+
 " }
 
 " vim ui {
+  color solarized  " load a colorscheme
   let g:solarized_termcolors=256
   let g:solarized_termtrans=1
   let g:solarized_contrast="normal"
   let g:solarized_visibility="normal"
-  color solarized  " load a colorscheme
 
   set laststatus=2                 " always show the statusline for airline
   set title
-  set visualbell                   " no sounds
+  set novisualbell                 " no sounds
   set t_vb=
   set showcmd                      " show incomplete cmds down the bottom
   set noshowmode                   " no need to show mode with airline
@@ -67,30 +97,55 @@
   set backspace=indent,eol,start  " allow backspace in insert mode
   set number                      " line numbers are good
   set showmatch                   " show matching brackets
+  set matchtime=2                 " tens of a second to show matching parentheses
   set incsearch                   " incremental search
   set hlsearch
   set winminheight=0
   set ignorecase                  " case insensitive matching
   set smartcase                   " smart case matching
+
   set wildmenu                    " show list for autocomplete
   set wildmode=list:longest,full
+  set wildignorecase
+
+  " stuff to ignore when tab completing
+  set wildignore+=
+        \*.o,
+        \*.obj,
+        \*~,
+        \log/**,
+        \tmp/**,
+        \*.png,
+        \*.jpg,
+        \*.gif,
+        \*.so,
+        \*.swp,
+        \*.zip,
+        \*.pdf,
+        \*/.Trash/**,
+        \*/.git/**,
+        \*/.hg/**,
+        \*/.svn/**,
+        \*/.idea/**,
+        \*/.DS_Store
+
   set winheight=50                " sensible heights for splits
   set scrolloff=8                 " start scrolling when we're 8 lines away from margins
   set sidescrolloff=15
   set sidescroll=1
   set scrolljump=3
   set numberwidth=1
-  set foldmethod=indent
+  set foldenable
+  set foldmethod=syntax
   set foldlevelstart=99
-  set virtualedit=onemore         " give one virtual space at end of line
   set list
   "set listchars=eol:$,tab:>-,trail:-
   set listchars=tab:›\ ,trail:•,extends:❯,precedes:❮,nbsp:.
-  set showbreak=↪
+  let &showbreak="↪ "
 
   set updatetime=1000
 
-  if executable('ag')
+  if executable("ag")
     set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
     set grepformat=%f:%l:%c:%m
   endif
@@ -101,19 +156,24 @@
   set linebreak              " wrap lines at convenient points
   set textwidth=80
   set nowrap                 " don't wrap lines
-  set whichwrap+=h,l,<,>,[,]
+  set whichwrap+=<,>,[,]
   set autoindent
   set shiftwidth=2
   set expandtab
   set tabstop=2
   set softtabstop=2
+  set shiftround
   set nojoinspaces
   set splitright
   set splitbelow
   set smartindent
   set smarttab
   set nocopyindent
-  set pastetoggle=<F12>
+
+  if has("conceal")
+    set conceallevel=1
+    set listchars+=conceal:Δ
+  endif
 " }
 
 " key (re)mappings {
@@ -123,6 +183,7 @@
       nnoremap <expr><f2> g:MyOpenExplorerCommand()
       nnoremap <f3> :Startify<cr>
       nnoremap <f4> :UniteSessionSave
+      set pastetoggle=<f12>
   " }}}
 
   " leader key mappings {
@@ -148,9 +209,6 @@
 
     " <leader>``: Force quit all
     nnoremap <leader>`` :qa!<cr>
-
-    " <leader>1: Toggle between paste mode
-    nnoremap <silent> <leader>1 :set paste!<cr>
 
     " <leader>0: Run the visually selected code in python and replace it with the output
     vnoremap <silent> <leader>0 :!python<cr>
@@ -515,9 +573,6 @@
     " c: Change into the blackhole register to not clobber the last yank
     nnoremap c "_c
 
-    " n: Next, keep search matches in the middle of the window
-    nnoremap n nzzzv
-
     " up Down Left Right resize splits
     nnoremap <up>    <c-w>+
     nnoremap <down>  <c-w>-
@@ -525,10 +580,10 @@
     nnoremap <right> <c-w>>
 
     " enter: Highlight cursor location
-    nnoremap <silent> <cr> :call g:CursorPing()<cr>
+    nnoremap <silent> <cr> :call CursorPing()<cr>
 
     " tab: Go to matching element
-    nnoremap <Tab> %
+    nnoremap <tab> %
 
     " vim-go {
       autocmd FileType go nmap gd <plug>(go-def-split)
@@ -602,7 +657,7 @@
     xnoremap @ :normal@
 
     " tab: Indent
-    xmap <Tab> >
+    xmap <tab> >
 
     " shift-tab: unindent
     xmap <s-tab> <
@@ -643,6 +698,7 @@
 
   " ctags {
     set tags=./tags;/,~/.vimtags
+    set showfulltag
 
     " make tags placed in .git/tags file available in all levels of a repository
     let gitroot = substitute(system("git rev-parse --show-toplevel"), '[\n\r]', "", "g")
@@ -723,7 +779,7 @@
     autocmd FileType haskell       setlocal omnifunc=necoghc#omnifunc
 
     " for snippet_complete marker
-    set conceallevel=2 concealcursor=i
+    "set conceallevel=2 concealcursor=i
   " }
 
   " undotree {
@@ -741,7 +797,7 @@
     let g:airline_theme = "solarized"
     let g:airline_powerline_fonts=1
     let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#fnamemod = ':t'
+    let g:airline#extensions#tabline#fnamemod = ":t"
     " }
 
   " syntastic {
@@ -973,5 +1029,16 @@
     set guifont=Inconsolata\ for\ Powerline:h12
   else
     set background=light
+
+    if $TERM_PROGRAM == "iTerm.app"
+      " different cursors for insert vs normal mode
+      if exists("$TMUX")
+        let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+        let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+      else
+        let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+        let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+      endif
+    endif
   endif
 " }
