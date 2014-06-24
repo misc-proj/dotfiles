@@ -3,6 +3,7 @@
 " }
 
 " functions {
+
   let s:cache_dir = "~/.vim/.cache/"
 
   function! s:get_cache_dir(suffix)  " {{{
@@ -25,6 +26,23 @@
     set nocursorline
   endfunction
   " }}}
+
+  function! Preserve(command) "{{{
+    " preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " do the business:
+    execute a:command
+    " clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+  endfunction "}}}
+
+  function! StripTrailingWhitespace() "{{{
+    call Preserve("%s/\\s\\+$//e")
+  endfunction "}}}
+
 " }
 
 " neobundle {
@@ -76,12 +94,22 @@
 
 " }
 
+" vim-airline {
+  let g:airline_theme = "hybrid"
+  let g:airline_powerline_fonts=1
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#fnamemod = ":t"
+" }
+
 " vim ui {
-  color solarized  " load a colorscheme
   let g:solarized_termcolors=256
   let g:solarized_termtrans=1
   let g:solarized_contrast="normal"
   let g:solarized_visibility="normal"
+  let g:kolor_underlined=1
+  let g:hybrid_use_iTerm_colors = 1
+  set background=dark
+  colorscheme hybrid               " load a colorscheme
 
   set laststatus=2                 " always show the statusline for airline
   set title
@@ -91,8 +119,8 @@
   set noshowmode                   " no need to show mode with airline
   set completeopt=longest,menuone  " auto complete setting
 
-  highlight clear SignColumn  " signcolumn should match background
-  highlight clear LineNr      " current line number row will have same background color in relative mode
+  highlight clear SignColumn       " signcolumn should match background
+  highlight clear LineNr           " current line number row will have same background color in relative mode
 
   set backspace=indent,eol,start  " allow backspace in insert mode
   set number                      " line numbers are good
@@ -176,15 +204,31 @@
   endif
 " }
 
+" autocmd {
+  " go back to previous position of cursor if any
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \  exe 'normal! g`"zvzz' |
+    \ endif
+
+  autocmd FileType js,scss,css autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+  autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
+  autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<CR>
+  autocmd FileType python setlocal foldmethod=indent
+  autocmd FileType markdown setlocal nolist
+  autocmd FileType vim setlocal foldmethod=indent keywordprg=:help
+" }
+
 " key (re)mappings {
 
-  " function key mappings {{{
+  " function key mappings {
       nmap     <f1> [unite]h
       nnoremap <expr><f2> g:MyOpenExplorerCommand()
       nnoremap <f3> :Startify<cr>
       nnoremap <f4> :UniteSessionSave
+      nmap     <f5> <plug>ToggleGoldenViewAutoResize
       set pastetoggle=<f12>
-  " }}}
+  " }
 
   " leader key mappings {
 
@@ -240,10 +284,10 @@
     nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 
     " <leader>m: Maximize current split
-    nnoremap <leader>m <C-w>_<C-w><Bar>
+    nnoremap <leader>m <c-w>_<c-w><Bar>
 
     " <leader>,: Switch to previous split
-    nnoremap <leader>, <C-w>p
+    nnoremap <leader>, <c-w>p
 
     " some helpers to edit mode
     " http://vimcasts.org/e/14
@@ -257,6 +301,18 @@
 
     " map <leader>ff to display all lines with keyword under cursor and ask which one to jump to
     nmap <leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<cr>
+
+    " formatting shortcuts
+    nmap <leader>fef :call Preserve("normal gg=G")<cr>
+    nmap <leader>f$ :call StripTrailingWhitespace()<cr>
+    vmap <leader>s :sort<cr>
+
+    nnoremap <leader>w :w<cr>
+
+    " shortcuts for windows
+    nnoremap <leader>v <c-w>v<c-w>l
+    nnoremap <leader>s <c-w>s
+    nnoremap <leader>vsa :vert sba<cr>
 
     " tabularize {
       nmap <leader>a&     :Tabularize /&<cr>
@@ -291,7 +347,7 @@
       nnoremap <silent> <leader>gb :Gblame<cr>
       nnoremap <silent> <leader>gl :Glog<cr>
       nnoremap <silent> <leader>gp :Git push<cr>
-      nnoremap <silent> <leader>gr :Gread<cr>
+      nnoremap <silent> <leader>gr :Gremove<cr>
       nnoremap <silent> <leader>gw :Gwrite<cr>
       nnoremap <silent> <leader>ge :Gedit<cr>
       " mnemonic _i_nteractive
@@ -331,6 +387,14 @@
       nnoremap <leader>cl :VimShellInteractive lua<cr>
       nnoremap <leader>cr :VimShellInteractive irb<cr>
       nnoremap <leader>cp :VimShellInteractive python<cr>
+    " }
+
+    " jsbeautify {
+      nnoremap <leader>fjs :call JsBeautify()<cr>
+    " }
+
+    " dispatch {
+      nnoremap <leader>tag :Dispatch ctags -R<cr>
     " }
 
   " }
@@ -474,12 +538,20 @@
     " ctrl-sw: Quickly surround word
     nmap <c-s><c-w> ysiw
 
-    " ctrl-x: Cycle through the splits. I don't ever use enough splits to justify
+    " ctrl-a: Cycle through the splits. I don't ever use enough splits to justify
     " wasting 4 very easy to hit keys for them.
-    nnoremap <c-x> <c-w>w
+    nnoremap <c-a> <c-w>w
 
-    " ctrl-b: Go (b)ack. Go to previously buffer
+    " ctrl-b: Go (b)ack. Go to previous buffer
     nnoremap <c-b> <c-^>
+
+    " unimpaired
+    nmap <c-up> [e
+    nmap <c-down> ]e
+
+    " cycle through buffers with ctrl-f/g
+    nmap <c-f> :bnext<cr>
+    nmap <c-g> :bprev<cr>
 
   " }
 
@@ -518,10 +590,10 @@
     inoremap <c-h> <c-o>b
 
     " ctrl-j: Move cursor up
-    inoremap <expr> <c-j> pumvisible() ? "\<C-e>\<Down>" : "\<Down>"
+    inoremap <expr> <c-j> pumvisible() ? "\<c-e>\<Down>" : "\<Down>"
 
     " ctrl-k: Move cursor up
-    inoremap <expr> <c-k> pumvisible() ? "\<C-e>\<Up>" : "\<Up>"
+    inoremap <expr> <c-k> pumvisible() ? "\<c-e>\<Up>" : "\<Up>"
 
     " ctrl-l: Move word right
     inoremap <c-l> <c-o>w
@@ -550,6 +622,10 @@
 
     " ctrl-f: find with multiplecursors
     vnoremap <c-f> :multiplecursorsfind
+
+    " unimpaired
+    vmap <c-up> [egv
+    vmap <c-down> ]egv
 
   " }
 
@@ -584,6 +660,28 @@
 
     " tab: Go to matching element
     nnoremap <tab> %
+
+    " sane regex {
+      nnoremap / /\v
+      nnoremap ? ?\v
+      "nnoremap :s/ :s/\v
+    " }
+
+    " command-line window {
+      nnoremap q: q:i
+      nnoremap q/ q/i
+      nnoremap q? q?i
+    " }
+
+    " folds {
+      nnoremap zr zr:echo &foldlevel<cr>
+      nnoremap zm zm:echo &foldlevel<cr>
+      nnoremap zR zR:echo &foldlevel<cr>
+      nnoremap zM zM:echo &foldlevel<cr>
+    " }
+
+    " quick buffer open
+    nnoremap gb :ls<cr>:e #
 
     " vim-go {
       autocmd FileType go nmap gd <plug>(go-def-split)
@@ -661,6 +759,11 @@
 
     " shift-tab: unindent
     xmap <s-tab> <
+
+    " sane regex {
+      vnoremap / /\v
+      vnoremap ? ?\v
+    " }
 
   " }
 " }
@@ -788,21 +891,19 @@
   " }
 
   " indent_guides {
-    let g:indent_guides_start_level = 2
+    let g:indent_guides_start_level = 1
     let g:indent_guides_guide_size = 1
     let g:indent_guides_enable_on_vim_startup = 1
+    let g:indent_guides_color_change_percent = 3
   " }
-
-  " vim-airline {
-    let g:airline_theme = "solarized"
-    let g:airline_powerline_fonts=1
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#fnamemod = ":t"
-    " }
 
   " syntastic {
     let g:syntastic_go_checkers = ["go", "govet", "golint"]
     let g:syntastic_coffee_coffeelint_args = "--csv -f ~/.vim/coffeelint.config.json"
+    let g:syntastic_error_symbol = '✗'
+    let g:syntastic_style_error_symbol = '✠'
+    let g:syntastic_warning_symbol = '∆'
+    let g:syntastic_style_warning_symbol = '≈'
   " }
 
   " colorizer {
@@ -835,7 +936,7 @@
       \   "prompt": "» ",
       \   "direction": "botright",
       \   "update_time": 200,
-      \   "cursor_line_highlight": "TabLineSel",
+      \   "cursor_line_highlight": "PmenuSel",
       \ })
 
     " set up some custom ignores
@@ -1020,16 +1121,40 @@
       \ })
   " }
 
+  " python {
+    let g:pymode_rope=0
+    let g:jedi#popup_on_dot=0
+  " }
+
+  " ruby {
+    let g:rubycomplete_buffer_loading = 1
+  " }
+
+  " fugitive {
+    " delete fugitive buffers when they are left
+    autocmd BufReadPost fugitive://* set bufhidden=delete
+  " }
+
+  " sneak {
+    let g:sneak#streak = 1
+  " }
+
+  " gist {
+    let g:gist_post_private = 1
+    let g:gist_show_privates = 1
+  " }
+
+  " goldenview {
+    let g:goldenview__enable_default_mapping = 0
+  " }
+
 " }
 
 " gui {
   if has("gui_running")
-    set background=dark
     set transparency=1
     set guifont=Inconsolata\ for\ Powerline:h12
   else
-    set background=light
-
     if $TERM_PROGRAM == "iTerm.app"
       " different cursors for insert vs normal mode
       if exists("$TMUX")
