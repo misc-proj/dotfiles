@@ -2,10 +2,40 @@
 
 ## Table of Contents
 
-<!--toc-->
+* [Leader Key (`,`) Mappings](#leader-mappings)
+    * [General](#leader-general)
+    * [Spelling](#leader-spelling)
+    * [Edit Helpers (all modes) http://vimcasts.org/e/14](#leader-edit)
+    * [Formatting shortcuts](#leader-formatting)
+    * [Window shortcuts (normal mode)](#leader-window)
+    * [Tabular (normal and visual modes)](#leader-tabular)
+    * [Fugitive (normal mode)](#leader-fugitive)
+    * [Go Filetype (normal mode)](#leader-go)
+    * [CSS, SCSS Filetypes](#leader-css)
+    * [VimShell (normal mode)](#leader-vimshell)
+* [Normal Mode](#normal)
+    * [Function Key Mappings](#normal-function)
+    * [Ctrl Key Mappings](#normal-ctrl)
+    * [Shift Key Mappings](#normal-shift)
+    * [Regular Key Mappings](#normal-regular)
+        * [Resize splits with `<up>` `<down>` `<left>` `<right>`](#normal-resize)
+        * [Go Filetype](#normal-go)
+        * [Unite (`<space>` is the prefix for `unite`)](#normal-unite)
+        * [EasyMotion](#normal-easymotion)
+* [Insert Mode](#insert)
+    * [Ctrl Key Mappings](#insert-ctrl)
+* [Visual Mode](#visual)
+    * [Ctrl Key Mappings](#visual-ctrl)
+* [Command Line Mode](#command)
+* [Unite Window](#unite)
+    * [Insert Mode](#unite-insert)
+    * [Normal Mode](#unite-normal)
+* [VimFiler](#vimfiler)
 
+<a name="leader-mappings"></a>
 ## Leader Key (`,`) Mappings
 
+<a name="leader-general"></a>
 ### General
 
 | Mode     | Key               | Action                                                                         |
@@ -34,6 +64,7 @@
 | `normal` | `<leader>?`       | Quickly open this file (`README.md`)                                           |
 
 
+<a name="leader-spelling"></a>
 ### Spelling
 
 | Mode     | Key               | Action                                                                                 |
@@ -45,6 +76,7 @@
 | `normal` | `<leader>sd`      | Once, for the word under/after the cursor suggest correctly spelled words              |
 | `normal` | `<leader>sf`      | For the word under/after the cursor suggest correctly spelled words                    |
 
+<a name="leader-edit"></a>
 ### Edit Helpers (all modes) [http://vimcasts.org/e/14](http://vimcasts.org/e/14)
 
 | Key          | Action                                                                                                 |
@@ -54,6 +86,7 @@
 | `<leader>ev` | Start command to edit in a new vertical split with the directory of the current buffer pre-populated   |
 | `<leader>et` | Start command to edit in a new tab with the directory of the current buffer pre-populated              |
 
+<a name="leader-formatting"></a>
 ### Formatting shortcuts
 
 | Mode     | Key           | Action                                                                   |
@@ -63,6 +96,7 @@
 | `visual` | `<leader>s`   | Sort selected lines                                                      |
 | `normal` | `<leader>fjs` | Format JavaScript files using [`jsbeautifier`](http://jsbeautifier.org/) |
 
+<a name="leader-window"></a>
 ### Window shortcuts (normal mode)
 
 | Key           | Action                                                   |
@@ -74,6 +108,7 @@
 | `<leader>,`   | Switch to previous split                                 |
 | `<leader>o`   | Make the current window the only one on the screen       |
 
+<a name="leader-tabular"></a>
 ### [Tabular](https://github.com/godlygeek/tabular) (normal and visual modes)
 
 | Key             | Action                                                         |
@@ -87,6 +122,7 @@
 | `<leader>a,,`   | Line up all lines on `,`s, excluding `,` from the search match |
 | `<leader>a<bar> | Line up all lines on spaces                                    |
 
+<a name="leader-fugitive"></a>
 ### [Fugitive](https://github.com/tpope/vim-fugitive) (normal mode)
 
 | Key          | Action                                                                                       |
@@ -105,6 +141,7 @@
 | `<leader>gv` | Open [Gitv](http://www.gregsexton.org/portfolio/gitv/) in browser mode                       |
 | `<leader>gV` | Open [Gitv](http://www.gregsexton.org/portfolio/gitv/) in file mode                          |
 
+<a name="leader-go"></a>
 ### [Go](http://golang.org/)  Filetype (normal mode)
 
 | Key          | Action                                                                    |
@@ -117,12 +154,14 @@
 | `<leader>dv` | Goto declaration/definition, results are shown in a vertical split window |
 | `<leader>dt` | Goto declaration/definition, results are shown in a tab window            |
 
+<a name="leader-css"></a>
 ### CSS, SCSS Filetypes
 
 | Key         | Action                                |
 | :---------- | :------------------------------------ |
 | `<leader>S` | Sort lines within the current bracket |
 
+<a name="leader-vimshell"></a>
 ### [VimShell](https://github.com/Shougo/vimshell.vim) (normal mode)
 
 | Key          | Action                                            |
@@ -134,8 +173,10 @@
 | `<leader>cr` | Runs `irb` (Ruby) in VimShell interpreter         |
 | `<leader>cp` | Runs `python` in VimShell interpreter             |
 
+<a name="normal"></a>
 ## Normal Mode
 
+<a name="normal-function"></a>
 ### Function Key Mappings
 
 | Key   | Action                                                                                                             |
@@ -147,6 +188,7 @@
 | `F5`  | Toggle [`GoldenView`](http://zhaocai.github.io/GoldenView.Vim/) auto resize                                        |
 | `F12` | Toggle paste mode                                                                                                  |
 
+<a name="normal-ctrl"></a>
 ### Ctrl Key Mappings
 
 | Key            | Action                                                                                                                                                        |
@@ -173,6 +215,7 @@
 | `ctrl-f`       | Cycle forward through buffers                                                                                                                                 |
 | `ctrl-g`       | Cycle backward through buffers                                                                                                                                |
 
+<a name="normal-shift"></a>
 ### Shift Key Mappings
 
 | Key | Action                                                                                                       |
@@ -193,6 +236,7 @@
 | `K` | Select and/or expand selected region using [vim-expand-region](https://github.com/terryma/vim-expand-region) |
 | `J` | Shrink selected region using [vim-expand-region](https://github.com/terryma/vim-expand-region)               |
 
+<a name="normal-regular"></a>
 ### Regular Key Mappings
 
 | Key       | Action                                                                    |
@@ -202,6 +246,7 @@
 | `<tab>`   | Go to matching element (like `%`)                                         |
 | `gb`      | Quickly switch buffers using [Unite](https://github.com/Shougo/unite.vim) |
 
+<a name="normal-resize"></a>
 #### Resize splits with `<up>` `<down>` `<left>` `<right>`
 
 | Key       | Action                         |
@@ -211,12 +256,14 @@
 | `<left>`  | Decrease current window width  |
 | `<right>` | Increase current window width  |
 
+<a name="normal-go"></a>
 #### [Go](http://golang.org/) Filetype
 
 | Key  | Action                                                           |
 | :--- | :--------------------------------------------------------------- |
 | `gd` | Goto declaration/definition, results are shown in a split window |
 
+<a name="normal-unite"></a>
 #### [Unite](https://github.com/Shougo/unite.vim) (`<space>` is the prefix for `unite`)
 
 | Key              | Action                                                                                                                                                                                          |
@@ -242,6 +289,7 @@
 | `[unite]j`       | Quick scratch buffer using [Unite](https://github.com/Shougo/unite.vim) and [junkfile](https://github.com/Shougo/junkfile.vim)                                                                  |
 | `[unite]p`       | Load a vim session using  [Unite](https://github.com/Shougo/unite.vim) and [unite-session](https://github.com/Shougo/unite-session)                                                             |
 
+<a name="normal-easymotion"></a>
 #### [EasyMotion](https://github.com/Lokaltog/vim-easymotion)
 
 | Key | Action                     |
@@ -251,8 +299,10 @@
 | `F` | Find `{char}` to the left  |
 | `T` | Till `{char}` to the left  |
 
+<a name="insert"></a>
 ## Insert Mode
 
+<a name="insert-ctrl"></a>
 ### Ctrl Key Mappings
 
 | Key            | Action                                            |
@@ -273,6 +323,7 @@
 | `ctrl-c`       | Inserts line below                                |
 | `ctrl-v`       | Paste                                             |
 
+<a name="visual"></a>
 ## Visual Mode
 
 | Key       | Action                                             |
@@ -280,6 +331,7 @@
 | `<enter>` | Highlight visual selections                        |
 | `<space>` | [QuickRun](https://github.com/thinca/vim-quickrun) |
 
+<a name="visual-ctrl"></a>
 ### Ctrl Key Mappings
 
 | Key            | Action                               |
@@ -288,6 +340,7 @@
 | `ctrl-r`       | Search and replace the selected text |
 | `ctrl-s`       | Quickly start a substitution command |
 
+<a name="command"></a>
 ## Command Line Mode
 
 | Key        | Action                                                                |
@@ -306,8 +359,10 @@
 | `w!!`      | Save buffer using sudo                                                |
 | `%%`       | Expand the directory of the current file anywhere on the command line |
 
+<a name="unite"></a>
 ## [Unite](https://github.com/Shougo/unite.vim) Window
 
+<a name="unite-insert"></a>
 ### Insert Mode
 
 | Key        | Action                                                                        |
@@ -326,6 +381,7 @@
 | `<ctrl-v>` | Unite select and open in vertical split                                       |
 | `<ctrl-\>` | Exit Unite (only in outline, so it closes with the same command that opens it |
 
+<a name="unite-normal"></a>
 ### Normal Mode
 
 | Key           | Action                                                                           |
@@ -342,6 +398,7 @@
 | `n`           | Unite “rename” action, except for `[unite]l` which causes Unite “replace” action |
 | `cd`          | Unite “lcd” action (change local directory)                                      |
 
+<a name="vimfiler"></a>
 ## [VimFiler](https://github.com/Shougo/vimfiler.vim)
 
 | Key | Action      |
