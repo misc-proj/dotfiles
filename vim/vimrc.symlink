@@ -99,6 +99,8 @@
   let g:airline_powerline_fonts=1
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#fnamemod = ":t"
+  let g:airline#extensions#tabline#buffer_nr_show = 1
+  let g:airline#extensions#tabline#buffer_nr_format = "%s "
 " }
 
 " vim ui {
@@ -215,7 +217,6 @@
   autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
   autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<cr>
   autocmd FileType python setlocal foldmethod=indent
-  autocmd FileType markdown setlocal nolist
   autocmd FileType vim setlocal foldmethod=indent keywordprg=:help
 " }
 
@@ -303,6 +304,7 @@
     nmap <leader>ff [I:let nr = input("Which one: ")<bar>exe "normal " . nr ."[\t"<cr>
 
     " formatting shortcuts
+    " TODO(jrubin) use mqHmwgg=G`wzt`q like `R` (Reindent) map?
     nmap <leader>fef :call Preserve("normal gg=G")<cr>
     nmap <leader>f$ :call StripTrailingWhitespace()<cr>
     vmap <leader>s :sort<cr>
@@ -415,8 +417,8 @@
     cnoremap <c-h> <s-left>
     cnoremap <c-l> <s-right>
 
-    " ctrl-Space: Show history
-    cnoremap <c-@> <c-f>
+    " ctrl-space: Show history TODO(jrubin)
+    "cnoremap <c-@> <c-f>
 
     cnoremap <c-j> <down>
     cnoremap <c-k> <up>
@@ -431,7 +433,7 @@
 
     " some helpers to edit mode
     " http://vimcasts.org/e/14
-    cnoremap %% <c-r>=expand('%:h')."/"<cr>
+    cnoremap %% <c-r>=fnameescape(expand("%:h"))."/"<cr>
 
   " }
 
@@ -443,7 +445,7 @@
     " W: Save
     nnoremap W :w<cr>
 
-    " R: Reindent entire file
+    " R: Reindent entire file TODO(jrubin) use Preserve()?
     nnoremap R mqHmwgg=G`wzt`q
 
     " Y: Remove join lines to this, Y looks like a join of two lines into one
@@ -493,11 +495,14 @@
     " ctrl-p: Find files
     nmap <c-p> [unite]f
 
+    " ctrl-n Find files with option to create new
+    nmap <c-n> [unite]n
+
     " ctrl-o: Find MRU and buffers
     nmap <c-o> [unite]b
 
     " ctrl-e: Find (e)verything
-    nmap <c-e> [unite]n
+    nmap <c-e> [unite]<space>
 
     " ctrl-d: Command history using Unite
     nmap <c-d> [unite];
@@ -523,10 +528,10 @@
     " ctrl-c: (C)hange (c)urrent directory
     nmap <c-c> [unite]d
 
-    " ctrl-/: A more powerful '/'
-    nmap <c-_> [unite]l
+    " ctrl-/: A more powerful '/' TODO(jrubin)
+    "nmap <c-_> [unite]l
 
-    " ctrl-Space: Quick scratch buffer
+    " ctrl-space: Quick scratch buffer
     nmap <c-space> [unite]j
 
     " smooth-scroll {
@@ -548,8 +553,8 @@
     nnoremap <c-b> <c-^>
 
     " unimpaired
-    nmap <c-up> [e
-    nmap <c-down> ]e
+    "nmap <c-up> [e
+    "nmap <c-down> ]e
 
     " cycle through buffers with ctrl-f/g
     nmap <c-f> :bnext<cr>
@@ -606,8 +611,8 @@
     " ctrl-v: Paste. For some reason, <c-o> is not creating an undo point in the mapping
     inoremap <c-v> <c-g>u<c-o>gP
 
-    " ctrl-/: Undo
-    inoremap <c-_> <c-o>u
+    " ctrl-/: Undo TODO(jrubin)
+    "inoremap <c-_> <c-o>u
 
   " }
 
@@ -622,12 +627,12 @@
     " ctrl-s: easier substitue
     vnoremap <c-s> :s/\%v//g<left><left><left>
 
-    " ctrl-f: find with multiplecursors
-    vnoremap <c-f> :multiplecursorsfind
+    " ctrl-f: find with multiplecursors TODO(jrubin)
+    "vnoremap <c-f> :MultipleCursorsFind<space>
 
     " unimpaired
-    vmap <c-up> [egv
-    vmap <c-down> ]egv
+    "vmap <c-up> [egv
+    "vmap <c-down> ]egv
 
   " }
 
@@ -651,7 +656,7 @@
     " c: Change into the blackhole register to not clobber the last yank
     nnoremap c "_c
 
-    " up Down Left Right resize splits
+    " Up Down Left Right resize splits
     nnoremap <up>    <c-w>+
     nnoremap <down>  <c-w>-
     nnoremap <left>  <c-w><
@@ -683,7 +688,7 @@
     " }
 
     " quick buffer open
-    nnoremap gb :ls<cr>:e #
+    nmap gb [unite]s
 
     " vim-go {
       autocmd FileType go nmap gd <plug>(go-def-split)
@@ -1027,10 +1032,10 @@
         imap <buffer> <c-\> <plug>(unite_exit)
       endif
 
-      " using Ctrl-/ to trigger line, close it using same keystroke
-      if unite.buffer_name =~# '^search_file'
-        imap <buffer> <c-_> <plug>(unite_exit)
-      endif
+      " using Ctrl-/ to trigger line, close it using same keystroke TODO(jrubin)
+      "if unite.buffer_name =~# '^search_file'
+      "  imap <buffer> <c-_> <plug>(unite_exit)
+      "endif
     endfunction
     " }}}
    " }

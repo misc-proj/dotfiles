@@ -86,7 +86,7 @@
     NeoBundle     "chrisbra/NrrwRgn"                                           " narrow region, like in emacs
     NeoBundle     "tomtom/tcomment_vim"                                        " easy to use, file-type sensible comments
     NeoBundle     "terryma/vim-expand-region"                                  " visually select increasingly larger regions of text using the same key combination
-    NeoBundle     "terryma/vim-multiple-cursors"                               " true sublime text style multiple selections
+    "NeoBundle     "terryma/vim-multiple-cursors"                               " true sublime text style multiple selections
     NeoBundle     "justinmk/vim-sneak"                                         " motion plugin that jumps to any location specified by two characters
     NeoBundleLazy "editorconfig/editorconfig-vim", {"autoload":{"insert":1}}   " editorconfig
     NeoBundleLazy "godlygeek/tabular", {"autoload":{"commands":"Tabularize"}}  " text filtering and alignment
@@ -99,8 +99,8 @@
   " }
 
   " unite {
-    NeoBundle "Shougo/unite.vim"                  " search and display information from arbitrary sources like files, buffers, recently used files or registers, replaced kien/ctrlp.vim
-
+    NeoBundle     "Shougo/unite.vim"                                                                                                       " search and display information from arbitrary sources like files, buffers, recently used files or registers, replaced kien/ctrlp.vim
+    NeoBundle     "thinca/vim-qfreplace",                                                                                                  " perform replacements in quickfix
     NeoBundleLazy "Shougo/neomru.vim",               {"autoload":{"unite_sources":["file_mru","directory_mru"]}}                           " unite.vim MRU sources, depends on Shougo/unite.vim
     NeoBundleLazy "osyo-manga/unite-airline_themes", {"autoload":{"unite_sources":"airline_themes"}}                                       " unite airline themes, duh
     NeoBundleLazy "ujihisa/unite-colorscheme",       {"autoload":{"unite_sources":"colorscheme"}}                                          " unite plugin for changing your colorscheme
