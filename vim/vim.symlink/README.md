@@ -127,7 +127,7 @@
 | `<leader>gs` | Bring up the output of `git-status` in the preview window                                    |
 | `<leader>gd` | Perform a vimdiff against the current file in the version in the index                       |
 | `<leader>gc` | A wrapper around `git-commit`, if there is nothing to commit, `git-status` is called instead |
-| `<leader>gb` | Run `git-blame` on the file and open the results in a scroll bound vertical split              |
+| `<leader>gb` | Run `git-blame` on the file and open the results in a scroll bound vertical split            |
 | `<leader>gl` | Load all previous revisions of the current file into the quickfix list                       |
 | `<leader>gp` | `git push`                                                                                   |
 | `<leader>gr` | Wrapper around `git-rm` that deletes the buffer afterward                                    |
@@ -341,7 +341,7 @@
 ## Command Line Mode
 
 | Key        | Action                                                                |
-| :--------- | :---------------------------------------------------                  |
+| :--------- | :-------------------------------------------------------------------- |
 | `cwd`      | Change working directory to that of the current file                  |
 | `cd.`      | Change working directory to that of the current file                  |
 | `<ctrl-a>` | Go to the beginning of the line, like zsh                             |
