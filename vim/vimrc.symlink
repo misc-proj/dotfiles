@@ -264,6 +264,9 @@
     " <leader>e: Fast editing of the .vimrc
     nnoremap <leader>e :e! ~/.vimrc<cr>
 
+    " <leader>?: Quickly pen the README.md
+    nnoremap <silent> <leader>? :QuickRun -srcfile ~/.vim/README.md -type markdown<cr>
+
     " <leader>o: only
     nnoremap <leader>o :only<cr>
 

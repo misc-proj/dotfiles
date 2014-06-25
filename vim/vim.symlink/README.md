@@ -60,6 +60,9 @@
 | `normal` | `<leader>nbu`     | Install and update configured plugins asynchronously, except for outdated ones |
 | `normal` | `<leader>nbua`    | Install and update all configured plugins asynchronously                       |
 | `normal` | `<leader>tag`     | Use [Dispatch](https://github.com/tpope/vim-dispatch) to run `ctags -R`        |
+| `normal` | `<leader>r`       | [QuickRun](https://github.com/thinca/vim-quickrun) the current file            |
+| `normal` | `<leader>?`       | Quickly open this file (`README.md`)                                           |
+
 
 <a name="leader-spelling"></a>
 ### Spelling
