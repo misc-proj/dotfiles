@@ -213,7 +213,7 @@
 
   autocmd FileType js,scss,css autocmd BufWritePre <buffer> call StripTrailingWhitespace()
   autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
-  autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<CR>
+  autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<cr>
   autocmd FileType python setlocal foldmethod=indent
   autocmd FileType markdown setlocal nolist
   autocmd FileType vim setlocal foldmethod=indent keywordprg=:help
@@ -278,13 +278,13 @@
     nnoremap <leader>sf z=
 
     " <leader>f: Open Quickfix
-    nnoremap <silent> <leader>f :botright copen<CR>
+    nnoremap <silent> <leader>f :botright copen<cr>
 
     " <leader>cd: Switch to the directory of the open buffer
     nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 
     " <leader>m: Maximize current split
-    nnoremap <leader>m <c-w>_<c-w><Bar>
+    nnoremap <leader>m <c-w>_<c-w><bar>
 
     " <leader>,: Switch to previous split
     nnoremap <leader>, <c-w>p
@@ -300,7 +300,7 @@
     map <leader>= <c-w>=
 
     " map <leader>ff to display all lines with keyword under cursor and ask which one to jump to
-    nmap <leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<cr>
+    nmap <leader>ff [I:let nr = input("Which one: ")<bar>exe "normal " . nr ."[\t"<cr>
 
     " formatting shortcuts
     nmap <leader>fef :call Preserve("normal gg=G")<cr>
@@ -310,7 +310,7 @@
     nnoremap <leader>w :w<cr>
 
     " shortcuts for windows
-    nnoremap <leader>v <c-w>v<c-w>l
+    nnoremap <leader>v <c-w>v
     nnoremap <leader>s <c-w>s
     nnoremap <leader>vsa :vert sba<cr>
 
@@ -327,8 +327,10 @@
       vmap <leader>a,     :Tabularize /,<cr>
       nmap <leader>a,,    :Tabularize /,\zs<cr>
       vmap <leader>a,,    :Tabularize /,\zs<cr>
-      nmap <leader>a<Bar> :Tabularize /<Bar><cr>
-      vmap <leader>a<Bar> :Tabularize /<Bar><cr>
+      nmap <leader>a<bar> :Tabularize /<bar><cr>
+      vmap <leader>a<bar> :Tabularize /<bar><cr>
+      nmap <leader>a\|    :Tabularize /\|<cr>
+      vmap <leader>a\|    :Tabularize /\|<cr>
     " }
 
     " json {
@@ -472,10 +474,10 @@
     "noremap : ,
 
     " Z: Bufsurf back
-    nnoremap <silent> Z :BufSurfBack<CR>
+    nnoremap <silent> Z :BufSurfBack<cr>
 
     " X: Bufsurf forward
-    nnoremap <silent> X :BufSurfForward<CR>
+    nnoremap <silent> X :BufSurfForward<cr>
 
     " N: Find next occurrence backward
     nnoremap N Nzzzv
@@ -538,9 +540,9 @@
     " ctrl-sw: Quickly surround word
     nmap <c-s><c-w> ysiw
 
-    " ctrl-a: Cycle through the splits. I don't ever use enough splits to justify
+    " ctrl-z: Cycle through the splits. I don't ever use enough splits to justify
     " wasting 4 very easy to hit keys for them.
-    nnoremap <c-a> <c-w>w
+    nnoremap <c-z> <c-w>w
 
     " ctrl-b: Go (b)ack. Go to previous buffer
     nnoremap <c-b> <c-^>
@@ -632,7 +634,7 @@
   " normal mode key mappings {
 
     " p: Paste
-    nnoremap p gp
+    "nnoremap p gp
 
     " d: Delete into the blackhole register to not clobber the last yank
     nnoremap d "_d
@@ -1058,6 +1060,7 @@
     let g:startify_session_dir = s:get_cache_dir("sessions")
     let g:startify_change_to_vcs_root = 1
     let g:startify_show_sessions = 1
+    autocmd FileType startify setlocal nospell
   " }
 
   " vimfiler {
