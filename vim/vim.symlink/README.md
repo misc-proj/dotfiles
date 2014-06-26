@@ -111,16 +111,16 @@
 <a name="leader-tabular"></a>
 ### [Tabular](https://github.com/godlygeek/tabular) (normal and visual modes)
 
-| Key             | Action                                                         |
-| :-------------- | :------------------------------------------------------------- |
-| `<leader>a&`    | Line up all lines on `&`s                                      |
-| `<leader>a|`    | Line up all lines on `|`s                                      |
-| `<leader>a=`    | Line up all lines on `=`s                                      |
-| `<leader>a:`    | Line up all lines on `:`s                                      |
-| `<leader>a::`   | Line up all lines on `:`s, excluding `:` from the search match |
-| `<leader>a,`    | Line up all lines on `,`s                                      |
-| `<leader>a,,`   | Line up all lines on `,`s, excluding `,` from the search match |
-| `<leader>a<bar> | Line up all lines on spaces                                    |
+| Key              | Action                                                         |
+| :--------------- | :------------------------------------------------------------- |
+| `<leader>a&`     | Line up all lines on `&`s                                      |
+| `<leader>a|`     | Line up all lines on `|`s                                      |
+| `<leader>a=`     | Line up all lines on `=`s                                      |
+| `<leader>a:`     | Line up all lines on `:`s                                      |
+| `<leader>a::`    | Line up all lines on `:`s, excluding `:` from the search match |
+| `<leader>a,`     | Line up all lines on `,`s                                      |
+| `<leader>a,,`    | Line up all lines on `,`s, excluding `,` from the search match |
+| `<leader>a<bar>` | Line up all lines on spaces                                    |
 
 <a name="leader-fugitive"></a>
 ### [Fugitive](https://github.com/tpope/vim-fugitive) (normal mode)
