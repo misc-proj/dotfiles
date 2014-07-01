@@ -62,7 +62,7 @@
   " }
 
   " go {
-    NeoBundleLazy "fatih/vim-go",          {"autoload":{"filetypes":["go"]}}  " full featured go development environment support for vim
+    NeoBundle     "fatih/vim-go",                                             " full featured go development environment support for vim
     NeoBundleLazy "roktas/syntastic-more", {"autoload":{"filetypes":["go"]}}  " syntastic checker for go app engine
   " }
 
