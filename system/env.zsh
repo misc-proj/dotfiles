@@ -37,9 +37,8 @@ if (( $+commands[virtualenvwrapper_lazy.sh] )); then
   source $(which virtualenvwrapper_lazy.sh)
 fi
 
-if [[ -r /usr/local/opt/autoenv/activate.sh ]]; then
-  unalias cd
-  source /usr/local/opt/autoenv/activate.sh
+if (( $+commands[direnv] )); then
+  eval "$(direnv hook zsh)"
 fi
 
 VIRTUAL_ENV_DISABLE_PROMPT=true
