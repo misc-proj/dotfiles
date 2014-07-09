@@ -66,7 +66,6 @@
   set exrc                 " enable per-directory .vimrc files
   set secure               " disable unsafe commands in local .vimrc files
   set autoread             " reload files changed outside vim
-  set fileformats+=mac     " add mac to auto-detection of file format line endings
   set nrformats-=octal     " always assume decimal numbers
   set ttyfast              " assume fast terminal connection
   set encoding=utf-8       " set encoding for text
@@ -222,6 +221,7 @@
   autocmd FileType markdown setlocal colorcolumn=81
   autocmd FileType go setlocal noexpandtab
   autocmd FileType go let g:syntastic_aggregate_errors = 1
+  autocmd FileType go let g:syntastic_go_checkers = ["go", "govet", "golint", "appengine"]
 
   augroup HiglightTODO
     " ensure any instance TODO or FIXME is highlighted as an Error in any filetype
@@ -347,6 +347,8 @@
       vmap <leader>a<bar> :Tabularize /<bar><cr>
       nmap <leader>a\|    :Tabularize /\|<cr>
       vmap <leader>a\|    :Tabularize /\|<cr>
+      nmap <leader>a#     :Tabularize /#<cr>
+      vmap <leader>a#     :Tabularize /#<cr>
     " }
 
     " json {
@@ -882,18 +884,6 @@
     let g:neocomplete#enable_at_startup = 1
     let g:neocomplete#enable_smart_case = 1
     let g:neocomplete#data_directory=s:get_cache_dir("neocomplete")
-  " }
-
-  " neosnippet {
-    let g:neosnippet#data_directory=s:get_cache_dir("neosnippet")
-    let g:neosnippet#snippets_directory="~/.vim/bundle/vim-snippets/snippets,~/.vim/snippets"
-    let g:neosnippet#enable_snipmate_compatibility=1
-
-    " TODO(jrubin) move to mapping section?
-    imap <expr> <tab> neosnippet#expandable_or_jumpable() ? "\<plug>(neosnippet_expand_or_jump)" : (pumvisible() ? "\<c-n>" : "\<tab>")
-    smap <expr> <tab> neosnippet#expandable_or_jumpable() ? "\<plug>(neosnippet_expand_or_jump)" : "\<tab>"
-    imap <expr> <s-tab> pumvisible() ? "\<c-p>" : ""
-    smap <expr> <s-tab> pumvisible() ? "\<c-p>" : ""
 
     " enable omni completion
     autocmd FileType css           setlocal omnifunc=csscomplete#CompleteCSS
@@ -906,6 +896,18 @@
 
     " for snippet_complete marker
     "set conceallevel=2 concealcursor=i
+  " }
+
+  " neosnippet {
+    let g:neosnippet#data_directory=s:get_cache_dir("neosnippet")
+    let g:neosnippet#snippets_directory="~/.vim/bundle/vim-snippets/snippets,~/.vim/snippets"
+    let g:neosnippet#enable_snipmate_compatibility=1
+
+    " TODO(jrubin) move to mapping section?
+    imap <expr> <tab> neosnippet#expandable_or_jumpable() ? "\<plug>(neosnippet_expand_or_jump)" : (pumvisible() ? "\<c-n>" : "\<tab>")
+    smap <expr> <tab> neosnippet#expandable_or_jumpable() ? "\<plug>(neosnippet_expand_or_jump)" : "\<tab>"
+    imap <expr> <s-tab> pumvisible() ? "\<c-p>" : ""
+    smap <expr> <s-tab> pumvisible() ? "\<c-p>" : ""
   " }
 
   " vim-go {
@@ -926,7 +928,6 @@
   " }
 
   " syntastic {
-    let g:syntastic_go_checkers = ["go", "govet", "golint"]
     let g:syntastic_coffee_coffeelint_args = "--csv -f ~/.vim/coffeelint.config.json"
     let g:syntastic_error_symbol = '✗'
     let g:syntastic_style_error_symbol = '✠'
