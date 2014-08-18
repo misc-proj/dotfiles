@@ -150,7 +150,10 @@
   " }
 
   " color schemes {
-    NeoBundle "godlygeek/csapprox"                " make gvim-only colorschemes work transparently in terminal vim
+    if has("gui") || v:version >= 703
+      NeoBundle "godlygeek/csapprox"              " make gvim-only colorschemes work transparently in terminal vim
+    endif
+
     NeoBundle "altercation/vim-colors-solarized"  " precision colorscheme (http://ethanschoonover.com/solarized)
     NeoBundle "nanotech/jellybeans.vim"           " colorful, dark color scheme
     NeoBundle "tomasr/molokai"                    " port of the monokai theme for textmate
