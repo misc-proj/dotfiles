@@ -221,7 +221,11 @@
   autocmd FileType python setlocal foldmethod=indent
   autocmd FileType vim setlocal foldmethod=indent keywordprg=:help
   autocmd FileType js,markdown,python,go setlocal shiftwidth=4 tabstop=4 softtabstop=4
-  autocmd FileType markdown setlocal colorcolumn=81
+
+  if v:version >= 703
+    autocmd FileType markdown setlocal colorcolumn=81
+  endif
+
   autocmd FileType go setlocal noexpandtab
   autocmd FileType go let g:syntastic_aggregate_errors = 1
   autocmd FileType go let g:syntastic_go_checkers = ["go", "govet", "golint", "appengine"]
