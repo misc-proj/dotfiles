@@ -71,6 +71,12 @@
   set encoding=utf-8       " set encoding for text
 " }
 
+" gnome-terminal colors {
+  if &term =~ '^\(xterm\|screen\)$' && $COLORTERM == 'gnome-terminal'
+    set t_Co=256
+  endif
+" }
+
 " vim file/folder management {
 
   call EnsureExists(s:cache_dir)
@@ -109,6 +115,7 @@
   let g:solarized_visibility="normal"
   let g:kolor_underlined=1
   let g:hybrid_use_iTerm_colors = 1
+  let g:hybrid_use_Xresources = 1
   set background=dark
   colorscheme hybrid               " load a colorscheme
 
@@ -950,7 +957,7 @@
     " use the fuzzy matcher for everything
     call unite#filters#matcher_default#use(["matcher_fuzzy"])
     call unite#filters#sorter_default#use(["sorter_rank"])
-    call unite#set_profile("files", "smartcase", 1)
+    call unite#set_profile("files", "context.smartcase", 1)
 
     let g:unite_data_directory=s:get_cache_dir("unite")
     let g:unite_source_history_yank_enable=1     " enable history yank source
@@ -1193,8 +1200,12 @@
 
 " gui {
   if has("gui_running")
-    set transparency=1
-    set guifont=Inconsolata\ for\ Powerline:h12
+    if has("gui_macvim")
+      set transparency=1
+      set guifont=Inconsolata\ for\ Powerline:h12
+    elseif has("gui_gtk")
+      set guifont=Inconsolata\ for\ Powerline\ Medium\ 10
+    endif
   else
     if $TERM_PROGRAM == "iTerm.app"
       " different cursors for insert vs normal mode

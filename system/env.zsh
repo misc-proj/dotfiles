@@ -43,4 +43,6 @@ fi
 
 VIRTUAL_ENV_DISABLE_PROMPT=true
 
-export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
+if [[ "$OSTYPE" == darwin* ]]; then
+  export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
+fi
