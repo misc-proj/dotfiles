@@ -17,7 +17,6 @@ brew install \
   berkeley-db \
   cmake \
   coreutils \
-  ntfs-3g \
   fasd \
   git \
   git-flow \
@@ -25,7 +24,6 @@ brew install \
   python --framework \
   python3 --framework \
   macvim --override-system-vim --enable-pythoninterp \
-  phantomjs \
   postgresql \
   ipcalc \
   nmap \
@@ -33,7 +31,6 @@ brew install \
   sipcalc \
   zsh \
   tmux \
-  sshfs \
   subversion \
   tree \
   watch \
@@ -42,8 +39,6 @@ brew install \
   go \
   lua \
   cppcheck \
-  dart \
-  ext4fuse \
   pstree \
   grc \
   reattach-to-user-namespace
