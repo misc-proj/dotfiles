@@ -31,14 +31,16 @@ bundles =
   , bundle "joshuarubin/zsh-rvm"
   , bundle "joshuarubin/zsh-grc"
   , bundle "joshuarubin/zsh-java"
-  , bundle "joshuarubin/zsh-virtualenvwrapper"
+  , bundle "joshuarubin/zsh-python"
   , bundle "joshuarubin/zsh-direnv"
   , bundle "joshuarubin/zsh-homebrew"
+  , bundle "joshuarubin/zsh-perl"
+  , bundle "joshuarubin/zsh-screen"
+  , bundle "joshuarubin/zsh-dpkg"
   , bundle "Tarrasch/zsh-command-not-found"
   , bundle "Tarrasch/zsh-mcd"
   , bundle "zsh-users/zsh-syntax-highlighting"
   , bundle "zsh-users/zsh-history-substring-search"
-  -- Add your plugins here
   ]
 
 config = AntigenConfiguration bundles

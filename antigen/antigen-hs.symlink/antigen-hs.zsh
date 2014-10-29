@@ -25,9 +25,12 @@ source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLAS
 source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-rvm/rvm.plugin.zsh
 source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-grc/grc.plugin.zsh
 source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-java/java.plugin.zsh
-source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-virtualenvwrapper/virtualenvwrapper.plugin.zsh
+source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-python/python.plugin.zsh
 source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-direnv/direnv.plugin.zsh
 source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-homebrew/homebrew.plugin.zsh
+source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-perl/perl.plugin.zsh
+source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-screen/screen.plugin.zsh
+source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-dpkg/dpkg.plugin.zsh
 source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-Tarrasch-SLASH-zsh-command-not-found/command-not-found.plugin.zsh
 source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-Tarrasch-SLASH-zsh-mcd/mcd.plugin.zsh
 source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
@@ -58,9 +61,12 @@ fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLAS
 fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-rvm
 fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-grc
 fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-java
-fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-virtualenvwrapper
+fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-python
 fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-direnv
 fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-homebrew
+fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-perl
+fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-screen
+fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-dpkg
 fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-Tarrasch-SLASH-zsh-command-not-found
 fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-Tarrasch-SLASH-zsh-mcd
 fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-syntax-highlighting
