@@ -33,6 +33,7 @@ bundles =
   , bundle "joshuarubin/zsh-java"
   , bundle "joshuarubin/zsh-virtualenvwrapper"
   , bundle "joshuarubin/zsh-direnv"
+  , bundle "joshuarubin/zsh-homebrew"
   , bundle "Tarrasch/zsh-command-not-found"
   , bundle "Tarrasch/zsh-mcd"
   , bundle "zsh-users/zsh-syntax-highlighting"
