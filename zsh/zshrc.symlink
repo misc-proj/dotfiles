@@ -1,5 +1,5 @@
 #
-# Executes commands at the start of an interactive session.
+# Executes commands at the start of an interactive session
 #
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
@@ -47,7 +47,7 @@ for file in ${(M)config_files:#*/path.zsh}; do
   tdiff "path:$file"
 done
 
-# Source Prezto.
+# Source Prezto
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
   tdiff "prezto:~/.zprezto/init.zsh"
@@ -69,3 +69,6 @@ done
 
 unset config_files CUR LAST DIFF SHOW_TIMING
 unset -f udate tdiff
+
+# Source Antigen
+source ~/.zsh/antigen-hs/init.zsh
