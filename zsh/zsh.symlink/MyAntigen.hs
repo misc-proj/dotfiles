@@ -34,6 +34,7 @@ bundles =
   , bundle "joshuarubin/zsh-virtualenvwrapper"
   , bundle "joshuarubin/zsh-direnv"
   , bundle "Tarrasch/zsh-command-not-found"
+  , bundle "Tarrasch/zsh-mcd"
   , bundle "zsh-users/zsh-syntax-highlighting"
   , bundle "zsh-users/zsh-history-substring-search"
   -- Add your plugins here

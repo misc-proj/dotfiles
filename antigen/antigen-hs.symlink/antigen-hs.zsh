@@ -28,6 +28,7 @@ source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLAS
 source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-virtualenvwrapper/virtualenvwrapper.plugin.zsh
 source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-direnv/direnv.plugin.zsh
 source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-Tarrasch-SLASH-zsh-command-not-found/command-not-found.plugin.zsh
+source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-Tarrasch-SLASH-zsh-mcd/mcd.plugin.zsh
 source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 source /Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
 
@@ -59,6 +60,7 @@ fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLAS
 fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-virtualenvwrapper
 fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-joshuarubin-SLASH-zsh-direnv
 fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-Tarrasch-SLASH-zsh-command-not-found
+fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-Tarrasch-SLASH-zsh-mcd
 fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-syntax-highlighting
 fpath+=/Users/jrubin/.antigen-hs/repos/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-history-substring-search
 
