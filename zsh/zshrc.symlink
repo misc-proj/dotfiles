@@ -5,70 +5,9 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-SHOW_TIMING=0
+fpath=($ZSH/functions $fpath)
 
-function udate {
-  echo $((`date +%s`*1000+`date +%-N`/1000000))
-}
-
-CUR=`udate`
-
-function tdiff {
-  if [ "$SHOW_TIMING" -eq 0 ]; then
-    return
-  fi
-
-  LAST=$CUR
-  CUR=`udate`
-  DIFF=$(($CUR-$LAST))
-  if (( $(bc <<< "$DIFF > 50") == 1 )); then
-    echo "$1: $DIFF"
-  fi
-}
-
-export ZSH=$HOME/.dotfiles
-
-fpath=($ZSH/zsh/prezto-themes $ZSH/functions $fpath)
-
-if [[ -r $HOME/working/gcloud-zsh-completion/src ]]; then
-  fpath=($HOME/working/gcloud-zsh-completion/src $fpath)
-fi
-
-typeset -U config_files
-setopt extendedglob
-config_files=($(find ~/.dotfiles -maxdepth 2 -name '*.zsh'))
-
-LAST=$CUR
-CUR=`udate`
-
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}; do
-  source $file
-  tdiff "path:$file"
-done
-
-# Source Prezto
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-  tdiff "prezto:~/.zprezto/init.zsh"
-fi
-
-# Customize to your needs...
-
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
-  source $file
-  tdiff $file
-done
-
-# load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}; do
-  source $file
-  tdiff "completion:$file"
-done
-
-unset config_files CUR LAST DIFF SHOW_TIMING
-unset -f udate tdiff
-
-# Source Antigen
+source $ZSH/system/path.zsh
 source ~/.zsh/antigen-hs/init.zsh
+
+autoload -U $ZSH/functions/*(:t)

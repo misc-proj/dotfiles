@@ -1,1 +1,0 @@
-alias grunt="nocorrect grunt"

@@ -7,6 +7,7 @@ import Shelly (shelly)
 
 bundles =
   [ bundle "joshuarubin/zsh-environment"
+  , bundle "joshuarubin/zsh-coreutils"
   , bundle "joshuarubin/zsh-terminal"
   , bundle "joshuarubin/zsh-editor"
   , bundle "joshuarubin/zsh-history"
@@ -23,6 +24,15 @@ bundles =
   , bundle "joshuarubin/zsh-prompt"
   , bundle "joshuarubin/zsh-tmux"
   , bundle "joshuarubin/zsh-rsync"
+  , bundle "joshuarubin/zsh-secrets"
+  , bundle "joshuarubin/zsh-zmv"
+  , bundle "joshuarubin/zsh-gvm"
+  , bundle "joshuarubin/zsh-nodenv"
+  , bundle "joshuarubin/zsh-rvm"
+  , bundle "joshuarubin/zsh-grc"
+  , bundle "joshuarubin/zsh-java"
+  , bundle "joshuarubin/zsh-virtualenvwrapper"
+  , bundle "joshuarubin/zsh-direnv"
   , bundle "Tarrasch/zsh-command-not-found"
   , bundle "zsh-users/zsh-syntax-highlighting"
   , bundle "zsh-users/zsh-history-substring-search"
