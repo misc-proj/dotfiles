@@ -7,13 +7,13 @@ import Shelly (shelly)
 
 bundles =
   [ bundle "joshuarubin/zsh-environment"
-  , bundle "joshuarubin/zsh-coreutils"
   , bundle "joshuarubin/zsh-terminal"
   , bundle "joshuarubin/zsh-editor"
   , bundle "joshuarubin/zsh-history"
   , bundle "joshuarubin/zsh-directory"
   , bundle "joshuarubin/zsh-spectrum"
   , bundle "joshuarubin/zsh-helper"
+  , bundle "joshuarubin/zsh-gnu-utility"
   , bundle "joshuarubin/zsh-utility"
   , bundle "joshuarubin/zsh-completion"
   , bundle "joshuarubin/zsh-archive"
