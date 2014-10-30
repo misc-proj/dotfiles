@@ -8,6 +8,45 @@
 fpath=($ZSH/functions $fpath)
 
 source $ZSH/system/path.zsh
-source ~/.zsh/antigen-hs/init.zsh
+
+bundle_init=$ZSH/zsh/bundle.init
+
+update-bundles() {(
+  local bundles
+  local bundle
+  local files
+  local file
+
+  bundles=("${(@f)$(cat $ZSH/zsh/bundle.list)}")
+
+  cd $ZSH
+
+  for bundle in $bundles; do
+    if [ ! -d "$ZSH/zsh/bundles/$bundle" ]; then
+      git submodule add https://github.com/$bundle zsh/bundles/$bundle
+    fi
+  done
+
+  git submodule update --init --recursive
+  rm -f $bundle_init
+  touch $bundle_init
+
+  for bundle in $bundles; do
+    files=zsh/bundles/$bundle/*.plugin.zsh
+    for file in $~files; do
+      echo source \$ZSH/$file >> $bundle_init
+    done
+  done
+
+  echo >> $bundle_init
+
+  for bundle in $bundles; do
+    echo fpath+=\$ZSH/zsh/bundles/$bundle >> $bundle_init
+  done
+)}
+
+if [ -r "$bundle_init" ]; then
+  source $bundle_init
+fi
 
 autoload -U $ZSH/functions/*(:t)
