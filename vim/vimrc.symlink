@@ -235,7 +235,7 @@
 
   autocmd FileType go setlocal noexpandtab
   autocmd FileType go let g:syntastic_aggregate_errors = 1
-  autocmd FileType go let g:syntastic_go_checkers = ["go", "govet", "golint", "appengine"]
+  autocmd FileType go let g:syntastic_go_checkers = ["go", "govet", "golint"]
 
   augroup HiglightTODO
     " ensure any instance TODO or FIXME is highlighted as an Error in any filetype
