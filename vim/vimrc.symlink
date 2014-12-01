@@ -925,7 +925,8 @@
   " }
 
   " vim-go {
-    "let g:go_snippet_engine = "neosnippet" " this doesn't work...
+    let g:go_snippet_engine = "neosnippet"
+    let g:go_fmt_command = "goimports"
     let g:neosnippet#snippets_directory .= "," . globpath(&rtp, "gosnippets/snippets")
   " }
 
