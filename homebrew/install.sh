@@ -23,7 +23,8 @@ brew install \
   lesspipe \
   python --framework \
   python3 --framework \
-  macvim --override-system-vim --enable-pythoninterp \
+  vim --with-lua --with-luajit --override-system-vi --with-mzscheme --with-tcl \
+  macvim --with-lua --with-luajit \
   postgresql \
   ipcalc \
   nmap \
