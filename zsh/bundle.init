@@ -5,7 +5,6 @@ source $ZSH/zsh/bundles/joshuarubin/zsh-history/history.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-directory/directory.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-spectrum/spectrum.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-helper/helper.plugin.zsh
-source $ZSH/zsh/bundles/joshuarubin/zsh-utility/utility.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-completion/completion.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-archive/archive.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-fasd/fasd.plugin.zsh
@@ -33,6 +32,7 @@ source $ZSH/zsh/bundles/Tarrasch/zsh-mcd/mcd.plugin.zsh
 source $ZSH/zsh/bundles/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 source $ZSH/zsh/bundles/zsh-users/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-gnu-utility/gnu-utility.plugin.zsh
+source $ZSH/zsh/bundles/joshuarubin/zsh-utility/utility.plugin.zsh
 
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-environment
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-terminal
@@ -41,7 +41,6 @@ fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-history
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-directory
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-spectrum
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-helper
-fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-utility
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-completion
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-archive
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-fasd
@@ -69,3 +68,4 @@ fpath+=$ZSH/zsh/bundles/Tarrasch/zsh-mcd
 fpath+=$ZSH/zsh/bundles/zsh-users/zsh-syntax-highlighting
 fpath+=$ZSH/zsh/bundles/zsh-users/zsh-history-substring-search
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-gnu-utility
+fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-utility
