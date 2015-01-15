@@ -61,7 +61,7 @@
     set clipboard=unnamed  " sync with OS clipboard
   endif
   set history=1000         " store lots of :cmdline history
-  set spell
+  set nospell
   set hidden               " hide buffers when they are abandoned
   set exrc                 " enable per-directory .vimrc files
   set secure               " disable unsafe commands in local .vimrc files
