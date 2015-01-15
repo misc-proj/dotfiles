@@ -108,16 +108,6 @@ install_dotfiles () {
   done
 }
 
-install_configfiles () {
-  info 'installing configfiles'
-
-  mkdir -p "$HOME/.config"
-  for source in `find $DOTFILES_ROOT/config -maxdepth 1 -mindepth 1 -type d`; do
-    dest="$HOME/.config/`basename \"${source}\"`"
-    prompt_link
-  done
-}
-
 init_neobundle () {
   if command -v vim > /dev/null 2>&1; then
     vim +NeoBundleInstall +qall
@@ -137,7 +127,6 @@ else
 fi
 
 install_dotfiles
-install_configfiles
 init_neobundle
 
 echo ''
