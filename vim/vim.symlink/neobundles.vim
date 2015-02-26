@@ -34,11 +34,12 @@
   " }
 
   " general programming {
-    NeoBundle "joshuarubin/vim-polyglot"          " a collection of language packs for vim, forked from sheerun/vim-polyglot
-    NeoBundle "AndrewRadev/splitjoin.vim"         " simplifies the transition between multi-line and single-line code
-    NeoBundle "arnaud-lb/vim-php-namespace"       " types 'use' statements for you
-    NeoBundle "nathanaelkane/vim-indent-guides"   " visually display indent levels in code
-    NeoBundle "scrooloose/syntastic"              " syntax checking
+    NeoBundle "joshuarubin/vim-polyglot"                                                              " a collection of language packs for vim, forked from sheerun/vim-polyglot
+    NeoBundle "AndrewRadev/splitjoin.vim"                                                             " simplifies the transition between multi-line and single-line code
+    NeoBundle "arnaud-lb/vim-php-namespace"                                                           " types 'use' statements for you
+    NeoBundle "nathanaelkane/vim-indent-guides"                                                       " visually display indent levels in code
+    NeoBundle "scrooloose/syntastic"                                                                  " syntax checking
+    NeoBundle "google/vim-codefmt", { "depends": [ "google/vim-maktaba", "google/vim-codefmtlib" ] }  " utility for syntax-aware code formatting
   " }
 
   " web {
