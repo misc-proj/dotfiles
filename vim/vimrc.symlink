@@ -174,9 +174,9 @@
   set sidescroll=1
   set scrolljump=3
   set numberwidth=1
-  set foldenable
-  set foldmethod=syntax
-  set foldlevelstart=99
+  " set foldenable
+  " set foldmethod=syntax
+  " set foldlevelstart=99
   set list
   "set listchars=eol:$,tab:>-,trail:-
   set listchars=tab:›\ ,trail:•,extends:❯,precedes:❮,nbsp:.
@@ -223,11 +223,13 @@
     \ endif
 
   autocmd FileType js,scss,css autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-  autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
+  " autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
   autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<cr>
-  autocmd FileType python setlocal foldmethod=indent
-  autocmd FileType vim setlocal foldmethod=indent keywordprg=:help
+  " autocmd FileType python setlocal foldmethod=indent
+  " autocmd FileType vim setlocal foldmethod=indent keywordprg=:help
+  autocmd FileType vim setlocal keywordprg=:help
   autocmd FileType js,markdown,python,go setlocal shiftwidth=4 tabstop=4 softtabstop=4
+  autocmd BufNewFile,BufRead *.ts set filetype=typescript
 
   if v:version >= 703
     autocmd FileType markdown setlocal colorcolumn=81
@@ -847,7 +849,7 @@
   " }
 
   " piv {
-    let g:DisableAutoPHPFolding = 0
+    let g:DisableAutoPHPFolding = 1
     let g:PIVAutoClose = 0
     let php_asp_tags = 1
   " }

@@ -112,3 +112,6 @@
 [submodule "zsh/bundles/zsh-users/zsh-history-substring-search"]
 	path = zsh/bundles/zsh-users/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search
+[submodule "zsh/bundles/joshuarubin/zsh-typescript"]
+	path = zsh/bundles/joshuarubin/zsh-typescript
+	url = https://github.com/joshuarubin/zsh-typescript
