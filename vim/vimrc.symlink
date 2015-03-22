@@ -239,6 +239,7 @@
   autocmd FileType go setlocal noexpandtab
   autocmd FileType go let g:syntastic_aggregate_errors = 1
   autocmd FileType go let g:syntastic_go_checkers = ["go", "govet", "golint"]
+  autocmd FileType typescript let g:syntastic_typescript_checkers = ["tsc", "tslint"]
 
   augroup HiglightTODO
     " ensure any instance TODO or FIXME is highlighted as an Error in any filetype
@@ -967,6 +968,7 @@
   " }
 
   " syntastic {
+    let g:syntastic_typescript_tslint_args = "-c ~/.vim/tslint.config.json"
     let g:syntastic_coffee_coffeelint_args = "--csv -f ~/.vim/coffeelint.config.json"
     let g:syntastic_error_symbol = '✗'
     let g:syntastic_style_error_symbol = '✠'
