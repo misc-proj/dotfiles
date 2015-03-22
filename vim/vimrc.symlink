@@ -222,14 +222,15 @@
     \  exe 'normal! g`"zvzz' |
     \ endif
 
+  autocmd BufNewFile,BufRead *.ts set filetype=typescript
+  autocmd BufNewFile,BufRead *.es6 set filetype=javascript
   autocmd FileType js,scss,css autocmd BufWritePre <buffer> call StripTrailingWhitespace()
   " autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
   autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<cr>
   " autocmd FileType python setlocal foldmethod=indent
   " autocmd FileType vim setlocal foldmethod=indent keywordprg=:help
   autocmd FileType vim setlocal keywordprg=:help
-  autocmd FileType js,markdown,python,go setlocal shiftwidth=4 tabstop=4 softtabstop=4
-  autocmd BufNewFile,BufRead *.ts set filetype=typescript
+  autocmd FileType javascript,typescript,markdown,python,go setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
   if v:version >= 703
     autocmd FileType markdown setlocal colorcolumn=81
