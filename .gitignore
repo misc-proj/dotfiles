@@ -6,3 +6,8 @@
 !/vim/vim.symlink/bundle/neobundle.vim/
 /vim/vim.symlink/.cache/
 /vim/vim.symlink/spell/
+/nvim/nvim.symlink/.netrwhist
+/nvim/nvim.symlink/bundle/*/
+!/nvim/nvim.symlink/bundle/neobundle.vim/
+/nvim/nvim.symlink/.cache/
+/nvim/nvim.symlink/spell/

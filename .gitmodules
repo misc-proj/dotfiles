@@ -115,3 +115,6 @@
 [submodule "zsh/bundles/joshuarubin/zsh-typescript"]
 	path = zsh/bundles/joshuarubin/zsh-typescript
 	url = https://github.com/joshuarubin/zsh-typescript
+[submodule "nvim/nvim.symlink/bundle/neobundle.vim"]
+	path = nvim/nvim.symlink/bundle/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim
