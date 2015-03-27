@@ -179,7 +179,11 @@
   " set foldlevelstart=99
   set list
   "set listchars=eol:$,tab:>-,trail:-
-  set listchars=tab:›\ ,trail:•,extends:❯,precedes:❮,nbsp:.
+  if has("gui_running")
+    set listchars=tab:›\ ,trail:•,extends:❯,precedes:❮,nbsp:.
+  else
+    set listchars=tab:\ \ ,trail:•,extends:❯,precedes:❮,nbsp:.
+  endif
   let &showbreak="↪ "
 
   set updatetime=1000
