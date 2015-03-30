@@ -11,3 +11,5 @@
 !/neovim/nvim.symlink/bundle/neobundle.vim/
 /neovim/nvim.symlink/.cache/
 /neovim/nvim.symlink/spell/
+/vim/vim.symlink/bundle/NeoBundle.lock
+/neovim/nvim.symlink/bundle/NeoBundle.lock
