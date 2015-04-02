@@ -5,10 +5,10 @@
   email = AUTHOREMAIL
 [alias]
   sts = status
-  st = status --ignore-submodules
+  st = status
   ci = commit -s
   am = am -s
-  di = diff --ignore-submodules
+  di = diff
   dis = diff
   co = checkout
   br = branch
