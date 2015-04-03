@@ -142,10 +142,7 @@
 
   set wildmenu                    " show list for autocomplete
   set wildmode=list:longest,full
-
-  if v:version > 703 || (v:version == 704 && has('patch72'))
-    set wildignorecase
-  endif
+  set wildignorecase
 
   " stuff to ignore when tab completing
   set wildignore+=
@@ -235,12 +232,12 @@
   " autocmd FileType vim setlocal foldmethod=indent keywordprg=:help
   autocmd FileType vim setlocal keywordprg=:help
   autocmd FileType javascript,typescript,markdown,python,go setlocal shiftwidth=4 tabstop=4 softtabstop=4
-
-  if v:version >= 703
-    autocmd FileType markdown setlocal colorcolumn=81
-  endif
+  autocmd FileType markdown setlocal colorcolumn=81
 
   autocmd FileType go setlocal noexpandtab
+  autocmd FileType go let g:syntastic_aggregate_errors = 1
+  autocmd FileType go let g:syntastic_go_checkers = ["go", "govet", "golint"]
+  autocmd FileType typescript let g:syntastic_typescript_checkers = ["tsc", "tslint"]
 
   augroup HiglightTODO
     " ensure any instance TODO or FIXME is highlighted as an Error in any filetype
@@ -955,6 +952,16 @@
     let g:indent_guides_color_change_percent = 3
   " }
 
+  " syntastic {
+    let g:syntastic_typescript_tsc_args = "-t ES5"
+    let g:syntastic_typescript_tslint_args = "-c ~/.vim/tslint.config.json"
+    let g:syntastic_coffee_coffeelint_args = "--csv -f ~/.vim/coffeelint.config.json"
+    let g:syntastic_error_symbol = '✗'
+    let g:syntastic_style_error_symbol = '✠'
+    let g:syntastic_warning_symbol = '∆'
+    let g:syntastic_style_warning_symbol = '≈'
+  " }
+
   " colorizer {
     let g:colorizer_auto_filetype="sass,scss,styl,less,css,html"
   " }
@@ -1203,26 +1210,26 @@
   " }
 
   " neomake {
-    autocmd! BufWritePost * Neomake
-
-    let g:neomake_error_sign = {
-        \ 'text': '✗',
-        \ 'texthl': 'ErrorMsg',
-        \ }
-    let g:neomake_warning_sign = {
-        \ 'text': '∆',
-        \ 'texthl': 'Question',
-        \ }
-
-    let g:neomake_go_govet_maker = {
-        \ 'exe': 'go',
-        \ 'args': ['vet'],
-        \ 'errorformat':
-            \ '%Evet: %.%\+: %f:%l:%c: %m,' .
-            \ '%W%f:%l: %m,' .
-            \ '%-G%.%#'
-        \ }
-    let g:neomake_go_enabled_makers = ['go', 'golint', 'govet']
+  "  autocmd! BufWritePost * Neomake
+  "
+  "  let g:neomake_error_sign = {
+  "      \ 'text': '✗',
+  "      \ 'texthl': 'ErrorMsg',
+  "      \ }
+  "  let g:neomake_warning_sign = {
+  "      \ 'text': '∆',
+  "      \ 'texthl': 'Question',
+  "      \ }
+  "
+  "  let g:neomake_go_govet_maker = {
+  "      \ 'exe': 'go',
+  "      \ 'args': ['vet'],
+  "      \ 'errorformat':
+  "          \ '%Evet: %.%\+: %f:%l:%c: %m,' .
+  "          \ '%W%f:%l: %m,' .
+  "          \ '%-G%.%#'
+  "      \ }
+  "  let g:neomake_go_enabled_makers = ['go', 'golint', 'govet']
   " }
 " }
 

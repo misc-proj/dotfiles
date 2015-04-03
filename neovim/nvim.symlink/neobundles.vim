@@ -39,7 +39,8 @@
     NeoBundle "arnaud-lb/vim-php-namespace"                                                           " types 'use' statements for you
     NeoBundle "nathanaelkane/vim-indent-guides"                                                       " visually display indent levels in code
     NeoBundle "google/vim-codefmt", { "depends": [ "google/vim-maktaba", "google/vim-codefmtlib" ] }  " utility for syntax-aware code formatting
-    NeoBundle "benekastah/neomake"
+    "NeoBundle "benekastah/neomake"
+    NeoBundle "scrooloose/syntastic"                                                                  " syntax checking
   " }
 
   " web {
