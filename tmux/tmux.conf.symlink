@@ -8,16 +8,21 @@ set -g default-terminal screen-256color
 bind-key ^D detach-client
 
 # Create splits and vertical splits
-bind-key v split-window -h
-bind-key ^V split-window -h
-bind-key s split-window
-bind-key ^S split-window
+bind-key v split-window -h -c "#{pane_current_path}"
+bind-key ^V split-window -h -c "#{pane_current_path}"
+bind-key s split-window -c "#{pane_current_path}"
+bind-key ^S split-window -c "#{pane_current_path}"
+
+# New window with default path set to last path
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
 
 # Pane resize in all four directions using vi bindings.
 # Can use these raw but I map them to shift-ctrl-<h,j,k,l> in iTerm.
+bind-key H resize-pane -L
 bind-key J resize-pane -D
 bind-key K resize-pane -U
-bind-key H resize-pane -L
 bind-key L resize-pane -R
 
 # Use vi keybindings for tmux commandline input.
@@ -71,3 +76,17 @@ bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 
 # fix clear screen with <prefix> C-l
 bind C-l send-keys 'C-l'
+
+# bind a reload key
+bind R source-file ~/.tmux.conf \; display-message "Config reloaded.."
+
+# s was overridden above, remap it to e
+bind e choose-session
+
+# start selecting text typing 'v' key (once you are in copy mode)
+bind-key -t vi-copy v begin-selection
+
+# New window with default path set to last path
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
