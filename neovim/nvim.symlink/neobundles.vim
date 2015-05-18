@@ -94,6 +94,11 @@
     NeoBundleLazy "godlygeek/tabular", {"autoload":{"commands":"Tabularize"}}  " text filtering and alignment
   " }
 
+  " collaborative editing {
+    NeoBundle "floobits/floobits-neovim"
+    NeoBundle "FredKSchott/CoVim"
+  " }
+
   " navigation {
     NeoBundle     "Shougo/vimfiler.vim"                                            " a powerful file explorer
     NeoBundleLazy "mbbill/undotree",   {"autoload":{"commands":"UndotreeToggle"}}  " display your undo history in a graph

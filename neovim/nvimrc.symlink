@@ -587,8 +587,8 @@
     nmap <c-space> [unite]j
 
     " smooth-scroll {
-      noremap <silent> <c-k> :call smooth_scroll#up(&scroll, 5, 1)<cr>
-      noremap <silent> <c-j> :call smooth_scroll#down(&scroll, 5, 1)<cr>
+      "noremap <silent> <c-k> :call smooth_scroll#up(&scroll, 5, 1)<cr>
+      "noremap <silent> <c-j> :call smooth_scroll#down(&scroll, 5, 1)<cr>
     " }
 
     " ctrl-sr: Easier (s)earch and (r)eplace
@@ -617,12 +617,12 @@
   " insert mode ctrl key mappings {
 
     " ctrl-h: Move word back. Consistent with zsh
-    noremap <c-h> b
-    inoremap <c-h> <c-o>b
+    "noremap <c-h> b
+    "inoremap <c-h> <c-o>b
 
     " ctrl-l: Move word forward. Consistent with zsh
-    noremap <c-l> w
-    inoremap <c-l> <c-o>w
+    "noremap <c-l> w
+    "inoremap <c-l> <c-o>w
 
     " ctrl-w: Delete previous word, create undo point
     inoremap <c-w> <c-g>u<c-w>
@@ -645,17 +645,11 @@
     " ctrl-g: Move cursor right
     inoremap <c-g> <Right>
 
-    " ctrl-h: Move word left
-    inoremap <c-h> <c-o>b
-
     " ctrl-j: Move cursor up
-    inoremap <expr> <c-j> pumvisible() ? "\<c-e>\<Down>" : "\<Down>"
+    "inoremap <expr> <c-j> pumvisible() ? "\<c-e>\<Down>" : "\<Down>"
 
     " ctrl-k: Move cursor up
-    inoremap <expr> <c-k> pumvisible() ? "\<c-e>\<Up>" : "\<Up>"
-
-    " ctrl-l: Move word right
-    inoremap <c-l> <c-o>w
+    "inoremap <expr> <c-k> pumvisible() ? "\<c-e>\<Up>" : "\<Up>"
 
     " ctrl-c: Inserts line below
     inoremap <c-c> <c-o>o
@@ -931,9 +925,9 @@
   " }
 
   " ultisnips {
-    let g:UltiSnipsExpandTrigger = "<C-j>"
-    let g:UltiSnipsJumpForwardTrigger = "<C-j>"
-    let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
+    let g:UltiSnipsExpandTrigger = "<c-j>"
+    let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+    let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
   " }
 
   " vim-go {
