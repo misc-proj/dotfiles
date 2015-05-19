@@ -136,6 +136,7 @@
   colorscheme hybrid               " load a colorscheme
 
   set laststatus=2                 " always show the statusline for airline
+  set ruler
   set title
   set novisualbell                 " no sounds
   set t_vb=
@@ -212,6 +213,11 @@
 
 " formatting {
   set formatoptions=croqlt
+
+  if v:version > 703 || v:version == 703 && has("patch541")
+    set formatoptions+=j " Delete comment character when joining commented lines
+  endif
+
   set linebreak              " wrap lines at convenient points
   set textwidth=80
   set nowrap                 " don't wrap lines

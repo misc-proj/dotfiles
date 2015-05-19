@@ -13,3 +13,7 @@
 /neovim/nvim.symlink/spell/
 /vim/vim.symlink/bundle/NeoBundle.lock
 /neovim/nvim.symlink/bundle/NeoBundle.lock
+/tmux/tmux.symlink/plugins/
+/tmux/tmux.symlink/resurrect/
+/tmux/tmux.symlink/sidebar/
+!/tmux/tmux.symlink/plugins/tpm

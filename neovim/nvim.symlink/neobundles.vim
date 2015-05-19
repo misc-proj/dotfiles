@@ -31,6 +31,7 @@
     NeoBundle "tpope/vim-dispatch"    " asynchronous build and test dispatcher
     NeoBundle "tpope/vim-eunuch"      " sugar for the unix shell commands
     NeoBundle "tpope/vim-unimpaired"  " pairs of handy bracket mappings
+    NeoBundle "tpope/vim-obsession"   " continuously updated session files
   " }
 
   " general programming {
@@ -136,7 +137,8 @@
 
   " misc {
     if exists("$TMUX")
-      NeoBundle "christoomey/vim-tmux-navigator"  " seamless navigation between tmux panes and vim splits
+      NeoBundle "christoomey/vim-tmux-navigator"     " seamless navigation between tmux panes and vim splits
+      NeoBundle "tmux-plugins/vim-tmux-focus-events" " fix FocusGained and FocusLost autocommand events
     endif
 
     NeoBundle     "vimwiki"                                                                                                " personal wiki

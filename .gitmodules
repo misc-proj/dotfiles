@@ -118,3 +118,6 @@
 [submodule "neovim/nvim.symlink/bundle/neobundle.vim"]
 	path = neovim/nvim.symlink/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim
+[submodule "tmux/tmux.symlink/plugins/tpm"]
+	path = tmux/tmux.symlink/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
