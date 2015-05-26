@@ -75,7 +75,11 @@
   syntax on
   set mouse=a              " enable mouse usage (all modes)
   set mousehide
-  set clipboard=unnamed    " sync with OS clipboard
+
+  if has("macunix")
+    set clipboard=unnamed  " sync with OS clipboard
+  endif
+
   set history=1000         " store lots of :cmdline history
   set nospell
   set hidden               " hide buffers when they are abandoned

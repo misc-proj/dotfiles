@@ -3,8 +3,14 @@
 " }
 
   let s:cache_dir = "~/.nvim/.cache/"
-  let g:python_host_prog = "/usr/local/bin/python"
-  let g:python3_host_prog = "/usr/local/bin/python3"
+
+  if has("macunix")
+    let g:python_host_prog = "/usr/local/bin/python"
+    let g:python3_host_prog = "/usr/local/bin/python3"
+  else
+    let g:python_host_prog = "/usr/bin/python"
+    let g:python3_host_prog = "/usr/bin/python3"
+  endif
 
 " functions {
 
@@ -77,7 +83,11 @@
   syntax on
   set mouse=a              " enable mouse usage (all modes)
   set mousehide
-  set clipboard=unnamed    " sync with OS clipboard
+
+  if has("macunix")
+    set clipboard=unnamed  " sync with OS clipboard
+  endif
+
   set history=1000         " store lots of :cmdline history
   set nospell
   set hidden               " hide buffers when they are abandoned
