@@ -2,9 +2,11 @@
   set nocompatible " must be the first line
 " }
 
-" functions {
-
   let s:cache_dir = "~/.nvim/.cache/"
+  let g:python_host_prog = "/usr/local/bin/python"
+  let g:python3_host_prog = "/usr/local/bin/python3"
+
+" functions {
 
   function! s:get_cache_dir(suffix)  " {{{
     return resolve(expand(s:cache_dir . "/" . a:suffix))
