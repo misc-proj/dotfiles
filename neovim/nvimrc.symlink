@@ -633,7 +633,7 @@
 
     " ctrl-z: Cycle through the splits. I don't ever use enough splits to justify
     " wasting 4 very easy to hit keys for them.
-    nnoremap <c-z> <c-w>w
+    "nnoremap <c-z> <c-w>w
 
     " ctrl-b: Go (b)ack. Go to previous buffer
     nnoremap <c-b> <c-^>
