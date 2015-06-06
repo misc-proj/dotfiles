@@ -32,6 +32,7 @@
     NeoBundle "tpope/vim-eunuch"      " sugar for the unix shell commands
     NeoBundle "tpope/vim-unimpaired"  " pairs of handy bracket mappings
     NeoBundle "tpope/vim-obsession"   " continuously updated session files
+    NeoBundle "wikitopian/hardmode"   " disables the arrow keys, the hjkl keys, the page up/down keys, and a handful of other keys which allow one to rely on character-wise navigation
   " }
 
   " general programming {
@@ -86,7 +87,7 @@
     NeoBundle     "tpope/vim-endwise"                                          " wisely add 'end' in ruby, endfunction/endif/more in vim script, etc
     NeoBundle     "tpope/vim-speeddating"                                      " use ctrl-a/ctrl-x to increment dates, times, and more
     NeoBundle     "thinca/vim-visualstar"                                      " search for selection with '*' in visual mode
-    NeoBundle     "chrisbra/NrrwRgn"                                           " narrow region, like in emacs
+    "NeoBundle     "chrisbra/NrrwRgn"                                           " narrow region, like in emacs
     NeoBundle     "tomtom/tcomment_vim"                                        " easy to use, file-type sensible comments
     NeoBundle     "terryma/vim-expand-region"                                  " visually select increasingly larger regions of text using the same key combination
     "NeoBundle     "terryma/vim-multiple-cursors"                               " true sublime text style multiple selections

@@ -329,7 +329,7 @@
     nnoremap <silent> <leader>? :QuickRun -srcfile ~/.nvim/README.md -type markdown<cr>
 
     " <leader>o: only
-    nnoremap <leader>o :only<cr>
+    "nnoremap <leader>o :only<cr>
 
     " <leader>p: Copy the full path of the current file to the clipboard
     nnoremap <silent> <leader>p :let @+=expand("%:p")<cr>:echo "Copied current file \ path '".expand("%:p")."' to clipboard"<cr>
@@ -402,7 +402,7 @@
     " }
 
     " json {
-      nmap <leader>jt <esc>:%!python -m json.tool<cr><esc>:set filetype=json<cr>
+      "nmap <leader>jt <esc>:%!python -m json.tool<cr><esc>:set filetype=json<cr>
     " }
 
     " tagbar {
@@ -447,8 +447,8 @@
       autocmd FileType go nmap <leader>dt <plug>(go-def-tab)
     " }
 
-      nnoremap <leader>nbu  :Unite neobundle/update     -vertical -no-start-insert<cr>
-      nnoremap <leader>nbua :Unite neobundle/update:all -vertical -no-start-insert<cr>
+      "nnoremap <leader>nbu  :Unite neobundle/update     -vertical -no-start-insert<cr>
+      "nnoremap <leader>nbua :Unite neobundle/update:all -vertical -no-start-insert<cr>
 
     " vimshell {
       nnoremap <leader>c  :VimShell -split<cr>
@@ -469,22 +469,22 @@
 
   " vim-codefmt {
     " Format the contents of the buffer using the associated formatter.
-    nnoremap <silent> <leader>hb :FormatCode<cr>
+    "nnoremap <silent> <leader>hb :FormatCode<cr>
 
     " Format over the motion that follows. This is a custom operator.
     " For instance, <PREFIX>i{ will format all lines inside the enclosing curly
     " braces.
-    nnoremap <silent> <leader>h :set opfunc=codefmt#FormatMap<cr>g@
+    "nnoremap <silent> <leader>h :set opfunc=codefmt#FormatMap<cr>g@
 
     ""
     " Format the current line or range using the formatter associated with the
     " current buffer.
-    nnoremap <silent> <leader>h= :FormatLines<cr>
+    "nnoremap <silent> <leader>h= :FormatLines<cr>
 
     ""
     " Format the visually selected region using the formatter associated with the
     " current buffer.
-    vnoremap <silent> <leader>h :FormatLines<cr>
+    "vnoremap <silent> <leader>h :FormatLines<cr>
   " }
 
   " }
@@ -535,7 +535,7 @@
     nnoremap R mqHmwgg=G`wzt`q
 
     " Y: Remove join lines to this, Y looks like a join of two lines into one
-    noremap Y J
+    "noremap Y J
 
     " U: Redos since 'u' undos
     "nnoremap U :redo<cr>
@@ -547,15 +547,15 @@
     nnoremap <bar> :vsp<cr>
 
     " H: Go to beginning of line.
-    noremap H ^
+    "noremap H ^
 
     " K: expand-region
-    map K <plug>(expand_region_expand)
+    "map K <plug>(expand_region_expand)
 
     " J: shrink-region
-    map J <plug>(expand_region_shrink)
+    "map J <plug>(expand_region_shrink)
 
-    noremap L g_
+    "noremap L g_
 
     " :: Remap to ,. After all the remapping, ; goes to command mode, . repeats
     " fFtT, : repeats it backward, and , is the leader
@@ -568,7 +568,7 @@
     nnoremap <silent> X :BufSurfForward<cr>
 
     " N: Find next occurrence backward
-    nnoremap N Nzzzv
+    "nnoremap N Nzzzv
 
     " +/-: Increment number
     nnoremap + <c-a>
@@ -588,13 +588,13 @@
     nmap <c-o> [unite]b
 
     " ctrl-e: Find (e)verything
-    nmap <c-e> [unite]<space>
+    "nmap <c-e> [unite]<space>
 
     " ctrl-d: Command history using Unite
-    nmap <c-d> [unite];
+    "nmap <c-d> [unite];
 
     " ctrl-y: Yanks
-    nmap <c-y> [unite]y
+    "nmap <c-y> [unite]y
 
     " ctrl-\: Quick outline
     nmap <silent> <c-\> [unite]o
@@ -621,8 +621,8 @@
     nmap <c-space> [unite]j
 
     " smooth-scroll {
-      "noremap <silent> <c-k> :call smooth_scroll#up(&scroll, 5, 1)<cr>
-      "noremap <silent> <c-j> :call smooth_scroll#down(&scroll, 5, 1)<cr>
+      noremap <silent> <c-y> :call smooth_scroll#up(&scroll, 5, 1)<cr>
+      noremap <silent> <c-e> :call smooth_scroll#down(&scroll, 5, 1)<cr>
     " }
 
     " ctrl-sr: Easier (s)earch and (r)eplace
@@ -636,15 +636,15 @@
     "nnoremap <c-z> <c-w>w
 
     " ctrl-b: Go (b)ack. Go to previous buffer
-    nnoremap <c-b> <c-^>
+    "nnoremap <c-b> <c-^>
 
     " unimpaired
     "nmap <c-up> [e
     "nmap <c-down> ]e
 
     " cycle through buffers with ctrl-f/g
-    nmap <c-f> :bnext<cr>
-    nmap <c-g> :bprev<cr>
+    "nmap <c-f> :bnext<cr>
+    "nmap <c-g> :bprev<cr>
 
   " }
 
@@ -803,10 +803,25 @@
     " }
 
     " easymotion {
+      highlight link EasyMotionTarget WarningMsg
+      highlight link EasyMotionShade  Comment
+
+      let g:EasyMotion_do_mapping = 0
+      let g:EasyMotion_smartcase = 1
+      let g:EasyMotion_startofline = 0
+      let g:EasyMotion_move_highlight = 0
+
       map f <plug>(easymotion-f)
       map t <plug>(easymotion-t)
       map F <plug>(easymotion-F)
       map T <plug>(easymotion-T)
+      map s <Plug>(easymotion-s)
+      map / <Plug>(easymotion-sn)
+      omap / <Plug>(easymotion-tn)
+      map <leader>l <Plug>(easymotion-lineforward)
+      map <leader>j <plug>(easymotion-j)
+      map <leader>k <plug>(easymotion-k)
+      map <leader>h <Plug>(easymotion-linebackward)
     " }
 
   " }
@@ -1167,12 +1182,6 @@
     " }}}
   " }
 
-  " easymotion {
-    highlight link EasyMotionTarget WarningMsg
-    highlight link EasyMotionShade  Comment
-    let g:EasyMotion_do_mapping = 0
-  " }
-
   " quickrun {
     let g:quickrun_config = {}
     let g:quickrun_config.markdown = {
@@ -1254,6 +1263,11 @@
   "          \ '%-G%.%#'
   "      \ }
   "  let g:neomake_go_enabled_makers = ['go', 'golint', 'govet']
+  " }
+
+  " hardmode {
+    autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+    nnoremap <leader>o <Esc>:call ToggleHardMode()<CR>
   " }
 " }
 
