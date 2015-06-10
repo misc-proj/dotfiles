@@ -92,7 +92,7 @@
     NeoBundle     "tomtom/tcomment_vim"                                        " easy to use, file-type sensible comments
     NeoBundle     "terryma/vim-expand-region"                                  " visually select increasingly larger regions of text using the same key combination
     "NeoBundle     "terryma/vim-multiple-cursors"                               " true sublime text style multiple selections
-    NeoBundle     "justinmk/vim-sneak"                                         " motion plugin that jumps to any location specified by two characters
+    "NeoBundle     "justinmk/vim-sneak"                                         " motion plugin that jumps to any location specified by two characters
     NeoBundleLazy "editorconfig/editorconfig-vim", {"autoload":{"insert":1}}   " editorconfig
     NeoBundleLazy "godlygeek/tabular", {"autoload":{"commands":"Tabularize"}}  " text filtering and alignment
   " }

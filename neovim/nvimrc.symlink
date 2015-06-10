@@ -282,7 +282,7 @@
 
   " function key mappings {
       nmap     <f1> [unite]h
-      nnoremap <expr><f2> g:MyOpenExplorerCommand()
+      " nnoremap <expr><f2> g:MyOpenExplorerCommand()
       nnoremap <f3> :Startify<cr>
       nnoremap <f4> :UniteSessionSave
       nmap     <f5> <plug>ToggleGoldenViewAutoResize
@@ -403,7 +403,7 @@
     " }
 
     " tagbar {
-      nnoremap <silent> <leader>tt :TagbarToggle<cr>
+      " nnoremap <silent> <leader>tt :TagbarToggle<cr>
       nnoremap <silent> <leader>2  :TagbarToggle<cr>
     " }
 
@@ -439,9 +439,9 @@
       autocmd FileType go nmap <leader>r <plug>(go-run)
       autocmd FileType go nmap <leader>b <plug>(go-build)
       autocmd FileType go nmap <leader>t <plug>(go-test)
-      autocmd FileType go nmap <leader>ds <plug>(go-def-split)
-      autocmd FileType go nmap <leader>dv <plug>(go-def-vertical)
-      autocmd FileType go nmap <leader>dt <plug>(go-def-tab)
+      " autocmd FileType go nmap <leader>ds <plug>(go-def-split)
+      " autocmd FileType go nmap <leader>dv <plug>(go-def-vertical)
+      " autocmd FileType go nmap <leader>dt <plug>(go-def-tab)
     " }
 
       "nnoremap <leader>nbu  :Unite neobundle/update     -vertical -no-start-insert<cr>
@@ -461,7 +461,7 @@
     " }
 
     " dispatch {
-      nnoremap <leader>tag :Dispatch ctags -R<cr>
+      " nnoremap <leader>tag :Dispatch ctags -R<cr>
     " }
 
   " vim-codefmt {
@@ -469,7 +469,7 @@
     "nnoremap <silent> <leader>hb :FormatCode<cr>
 
     " Format over the motion that follows. This is a custom operator.
-    " For instance, <PREFIX>i{ will format all lines inside the enclosing curly
+    " For instance, <PREFIX>i  will format all lines inside the enclosing curly
     " braces.
     "nnoremap <silent> <leader>h :set opfunc=codefmt#FormatMap<cr>g@
 
@@ -579,7 +579,7 @@
     nmap <c-p> [unite]f
 
     " ctrl-n Find files with option to create new
-    nmap <c-n> [unite]n
+    " nmap <c-n> [unite]n
 
     " ctrl-o: Find MRU and buffers
     nmap <c-o> [unite]b
@@ -812,15 +812,14 @@
       map t <plug>(easymotion-t)
       map F <plug>(easymotion-F)
       map T <plug>(easymotion-T)
-      map s <Plug>(easymotion-s)
-      map / <Plug>(easymotion-sn)
-      omap / <Plug>(easymotion-tn)
+      "map s <Plug>(easymotion-s)
+      "map / <Plug>(easymotion-sn)
+      "omap / <Plug>(easymotion-tn)
       map <leader>l <Plug>(easymotion-lineforward)
       map <leader>j <plug>(easymotion-j)
       map <leader>k <plug>(easymotion-k)
       map <leader>h <Plug>(easymotion-linebackward)
     " }
-
   " }
 
   " visual mode key mappings {
@@ -864,6 +863,15 @@
       "vnoremap ? ?\v
     " }
 
+  " }
+
+  " simplify help navigation {
+    autocmd FileType help nnoremap <buffer> <cr> <c-]>
+    autocmd FileType help nnoremap <buffer> <bs> <c-t>
+    autocmd FileType help nnoremap <buffer> o /'\l\{2,\}'<cr>
+    autocmd FileType help nnoremap <buffer> O ?'\l\{2,\}'<cr>
+    autocmd FileType help nnoremap <buffer> s /\|\zs\S\+\ze\|<cr>
+    autocmd FileType help nnoremap <buffer> S ?\|\zs\S\+\ze\|<cr>
   " }
 
 " }
@@ -977,8 +985,11 @@
   " }
 
   " vim-go {
+    let g:go_def_mapping_enabled = 0
     let g:go_fmt_command = "goimports"
     let g:go_fmt_fail_silently = 1
+    let g:go_auto_type_info = 1
+    " let g:go_dispatch_enabled = 1
   " }
 
   " undotree {
@@ -1154,12 +1165,19 @@
   " }
 
   " vimfiler {
-    function! g:MyOpenExplorerCommand()  " {{{
-      return printf(":\<c-u>VimFilerBufferDir -buffer-name=%s -split -auto-cd -toggle -no-quit -winwidth=%s\<cr>",
-        \ g:my_vimfiler_explorer_name,
-        \ g:my_vimfiler_winwidth)
-    endfunction
-    " }}}
+    map <c-n> :VimFilerExplorer<cr>
+
+    autocmd FileType vimfiler nmap <buffer> <c-l> :TmuxNavigateRight<cr>
+    autocmd FileType vimfiler nmap <buffer> <c-j> :TmuxNavigateDown<cr>
+    autocmd FileType vimfiler nmap <buffer> <c-r> <Plug>(vimfiler_redraw_screen)
+    autocmd FileType vimfiler nmap <buffer> <c-h> <Plug>(vimfiler_switch_to_history_directory)
+
+    " function! g:MyOpenExplorerCommand()  " {{{
+    "   return printf(":\<c-u>VimFilerBufferDir -buffer-name=%s -split -auto-cd -toggle -no-quit -winwidth=%s\<cr>",
+    "     \ g:my_vimfiler_explorer_name,
+    "     \ g:my_vimfiler_winwidth)
+    " endfunction
+    " " }}}
 
     let g:vimfiler_as_default_explorer = 1
     let g:vimfiler_tree_leaf_icon = ' '
