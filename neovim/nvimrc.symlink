@@ -1262,8 +1262,12 @@
   "  let g:neomake_go_enabled_makers = ['go', 'golint', 'govet']
   " }
 
+  " auto-pairs {
+    let g:AutoPairsCenterLine = 0
+  " }
+
   " hardmode {
-    autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+    "autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
     nnoremap <leader>o <Esc>:call ToggleHardMode()<CR>
   " }
 " }

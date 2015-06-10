@@ -41,6 +41,7 @@
     NeoBundle "arnaud-lb/vim-php-namespace"                                                           " types 'use' statements for you
     NeoBundle "nathanaelkane/vim-indent-guides"                                                       " visually display indent levels in code
     NeoBundle "scrooloose/syntastic"                                                                  " syntax checking
+    NeoBundle "jiangmiao/auto-pairs"                                                                  " insert or delete brackets, parens, quotes in pair
     NeoBundle "google/vim-codefmt", { "depends": [ "google/vim-maktaba", "google/vim-codefmtlib" ] }  " utility for syntax-aware code formatting
   " }
 

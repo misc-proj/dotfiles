@@ -43,6 +43,7 @@
     NeoBundle "google/vim-codefmt", { "depends": [ "google/vim-maktaba", "google/vim-codefmtlib" ] }  " utility for syntax-aware code formatting
     "NeoBundle "benekastah/neomake"
     NeoBundle "scrooloose/syntastic"                                                                  " syntax checking
+    NeoBundle "jiangmiao/auto-pairs"                                                                  " insert or delete brackets, parens, quotes in pair
   " }
 
   " web {
