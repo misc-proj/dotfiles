@@ -171,7 +171,6 @@ set -g @tpm_plugins '              \
   tmux-plugins/tmux-yank           \
   tmux-plugins/tmux-copycat        \
   tmux-plugins/tmux-fpp            \
-  tmux-plugins/tmux-resurrect      \
   tmux-plugins/tmux-continuum      \
   tmux-plugins/tmux-sessionist     \
   tmux-plugins/tmux-logging        \
@@ -179,6 +178,7 @@ set -g @tpm_plugins '              \
   tmux-plugins/tmux-sidebar        \
   tmux-plugins/tmux-open           \
 '
+  #tmux-plugins/tmux-resurrect      \
 
 # Initializes TMUX plugin manager.
 # Keep this line at the very bottom of tmux.conf.
