@@ -16,7 +16,7 @@
   endfunction
   " }}}
 
-  function! EnsureExists(path) "{{{
+  function! s:ensure_exists(path) "{{{
     if !isdirectory(expand(a:path))
       call mkdir(expand(a:path))
     endif
@@ -51,7 +51,7 @@
   " for tmux to automatically set paste and nopaste mode at the time pasting (as
   " happens in VIM UI)
 
-  function! WrapForTmux(s)
+  function! s:wrap_for_tmux(s)
     if !exists('$TMUX')
       return a:s
     endif
@@ -104,23 +104,23 @@
 
 " nvim file/folder management {
 
-  call EnsureExists(s:cache_dir)
+  call s:ensure_exists(s:cache_dir)
 
   " persistent undo
   if has("persistent_undo")
     set undofile
     let &undodir=s:get_cache_dir("undo")
-    call EnsureExists(&undodir)
+    call s:ensure_exists(&undodir)
   endif
 
   " backups
   set backup
   let &backupdir=s:get_cache_dir("backup")
-  call EnsureExists(&backupdir)
+  call s:ensure_exists(&backupdir)
 
   " swap files
   let &directory=s:get_cache_dir("swap")
-  call EnsureExists(&directory)
+  call s:ensure_exists(&directory)
 
 " }
 
@@ -142,7 +142,7 @@
   let g:hybrid_use_iTerm_colors = 1
   let g:hybrid_use_Xresources = 1
   set background=dark
-  colorscheme hybrid               " load a colorscheme
+  colorscheme spacegray            " load a colorscheme
 
   set laststatus=2                 " always show the statusline for airline
   set ruler
@@ -1000,7 +1000,7 @@
   " indent_guides {
     let g:indent_guides_start_level = 1
     let g:indent_guides_guide_size = 1
-    let g:indent_guides_enable_on_vim_startup = 1
+    let g:indent_guides_enable_on_vim_startup = 0
     let g:indent_guides_color_change_percent = 3
   " }
 
@@ -1313,8 +1313,8 @@
 " }
 
 " tmux paste {
-  let &t_SI .= WrapForTmux("\<Esc>[?2004h")
-  let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+  let &t_SI .= s:wrap_for_tmux("\<Esc>[?2004h")
+  let &t_EI .= s:wrap_for_tmux("\<Esc>[?2004l")
 
   inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 " }

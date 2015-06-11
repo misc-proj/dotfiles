@@ -172,6 +172,7 @@
     NeoBundle "w0ng/vim-hybrid"                   " dark color scheme
     NeoBundle "sjl/badwolf"                       " colorscheme pieced together from various colors
     NeoBundle "zeis/vim-kolor"                    " colorful color scheme with 256 color terminal support
+    NeoBundle "ajh17/Spacegray.vim"               " loosely based on the spacegray xcode theme
   " }
 
 " }
