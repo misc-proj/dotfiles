@@ -137,7 +137,7 @@
   let g:hybrid_use_iTerm_colors = 1
   let g:hybrid_use_Xresources = 1
   set background=dark
-  colorscheme spacegray            " load a colorscheme
+  colorscheme hybrid               " load a colorscheme
 
   set laststatus=2                 " always show the statusline for airline
   set ruler
@@ -149,7 +149,7 @@
   set completeopt=longest,menuone  " auto complete setting
 
   highlight clear SignColumn       " signcolumn should match background
-  highlight clear LineNr           " current line number row will have same background color in relative mode
+  " highlight clear LineNr           " current line number row will have same background color in relative mode
 
   set backspace=indent,eol,start  " allow backspace in insert mode
   set number                      " line numbers are good
@@ -547,11 +547,11 @@
     " H: Go to beginning of line.
     "noremap H ^
 
-    " K: expand-region
-    "map K <plug>(expand_region_expand)
+    " +: expand-region
+    vmap + <plug>(expand_region_expand)
 
-    " J: shrink-region
-    "map J <plug>(expand_region_shrink)
+    " -: shrink-region
+    vmap - <plug>(expand_region_shrink)
 
     "noremap L g_
 
@@ -641,8 +641,8 @@
     "nmap <c-down> ]e
 
     " cycle through buffers with ctrl-f/g
-    "nmap <c-f> :bnext<cr>
-    "nmap <c-g> :bprev<cr>
+    nmap <c-f> :bnext<cr>
+    nmap <c-g> :bprev<cr>
 
   " }
 
@@ -1001,7 +1001,7 @@
     let g:go_snippet_engine = "neosnippet"
     let g:go_fmt_command = "goimports"
     let g:neosnippet#snippets_directory .= "," . globpath(&rtp, "gosnippets/snippets")
-    let g:go_auto_type_info = 1
+    " let g:go_auto_type_info = 1
     " let g:go_dispatch_enabled = 1
   " }
 
@@ -1025,6 +1025,12 @@
     let g:syntastic_style_error_symbol = '✠'
     let g:syntastic_warning_symbol = '∆'
     let g:syntastic_style_warning_symbol = '≈'
+    let g:syntastic_always_populate_loc_list = 1
+
+    " highlight link SyntasticError WarningMsg
+    " highlight link SyntasticWarning Question
+    highlight link SyntasticErrorSign WarningMsg
+    highlight link SyntasticWarningSign Question
   " }
 
   " colorizer {
