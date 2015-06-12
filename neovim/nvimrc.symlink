@@ -535,7 +535,7 @@
     "noremap Y J
 
     " U: Redos since 'u' undos
-    "nnoremap U :redo<cr>
+    nnoremap U :redo<cr>
 
     " _ : Quick horizontal splits
     nnoremap _ :sp<cr>
