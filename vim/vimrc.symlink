@@ -354,10 +354,10 @@
 
     " some helpers to edit mode
     " http://vimcasts.org/e/14
-    map <leader>ew :e %%
-    map <leader>es :sp %%
-    map <leader>ev :vsp %%
-    map <leader>et :tabe %%
+    " map <leader>ew :e %%
+    " map <leader>es :sp %%
+    " map <leader>ev :vsp %%
+    " map <leader>et :tabe %%
 
     " adjust viewports to the same size
     map <leader>= <c-w>=
@@ -440,6 +440,7 @@
       autocmd FileType go nmap <leader>r <plug>(go-run)
       autocmd FileType go nmap <leader>b <plug>(go-build)
       autocmd FileType go nmap <leader>t <plug>(go-test)
+
       " autocmd FileType go nmap <leader>ds <plug>(go-def-split)
       " autocmd FileType go nmap <leader>dv <plug>(go-def-vertical)
       " autocmd FileType go nmap <leader>dt <plug>(go-def-tab)
