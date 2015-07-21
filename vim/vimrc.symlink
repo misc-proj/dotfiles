@@ -254,7 +254,7 @@
 
   autocmd BufNewFile,BufRead *.ts set filetype=typescript
   autocmd BufNewFile,BufRead *.es6 set filetype=javascript
-  autocmd FileType js,scss,css autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+  autocmd FileType javascript,typescript,json,scss,css autocmd BufWritePre <buffer> call StripTrailingWhitespace()
   " autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
   autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<cr>
   " autocmd FileType python setlocal foldmethod=indent
@@ -1019,6 +1019,7 @@
   " }
 
   " syntastic {
+    let g:syntastic_javascript_jshint_args = ""
     let g:syntastic_typescript_tsc_args = "-t ES5"
     let g:syntastic_typescript_tslint_args = "-c ~/.vim/tslint.config.json"
     let g:syntastic_coffee_coffeelint_args = "--csv -f ~/.vim/coffeelint.config.json"
@@ -1284,6 +1285,10 @@
 
   " auto-pairs {
     let g:AutoPairsCenterLine = 0
+  " }
+
+  " autoformat {
+    autocmd FileType javascript,typescript,python,json,html,xhtml,xml,ruby,css,scss,cs,cpp,c,objc,java autocmd BufWrite * :Autoformat
   " }
 
  " hardmode {

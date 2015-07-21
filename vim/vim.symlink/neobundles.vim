@@ -42,6 +42,7 @@
     NeoBundle "nathanaelkane/vim-indent-guides"                                                       " visually display indent levels in code
     NeoBundle "scrooloose/syntastic"                                                                  " syntax checking
     NeoBundle "jiangmiao/auto-pairs"                                                                  " insert or delete brackets, parens, quotes in pair
+    NeoBundle "Chiel92/vim-autoformat"                                                                " automatically format code
     NeoBundle "google/vim-codefmt", { "depends": [ "google/vim-maktaba", "google/vim-codefmtlib" ] }  " utility for syntax-aware code formatting
   " }
 

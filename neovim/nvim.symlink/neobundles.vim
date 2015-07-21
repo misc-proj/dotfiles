@@ -44,6 +44,7 @@
     "NeoBundle "benekastah/neomake"
     NeoBundle "scrooloose/syntastic"                                                                  " syntax checking
     NeoBundle "jiangmiao/auto-pairs"                                                                  " insert or delete brackets, parens, quotes in pair
+    NeoBundle "Chiel92/vim-autoformat"                                                                " automatically format code
   " }
 
   " web {
