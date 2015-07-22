@@ -40,7 +40,9 @@
   endfunction "}}}
 
   function! StripTrailingWhitespace() "{{{
-    call Preserve("%s/\\s\\+$//e")
+    if exists('b:stripWhitespace')
+      call Preserve("%s/\\s\\+$//e")
+    endif
   endfunction "}}}
 
   " for tmux to automatically set paste and nopaste mode at the time pasting (as
@@ -254,7 +256,8 @@
 
   autocmd BufNewFile,BufRead *.ts set filetype=typescript
   autocmd BufNewFile,BufRead *.es6 set filetype=javascript
-  autocmd FileType javascript,typescript,json,scss,css autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+  autocmd BufWritePre * call StripTrailingWhitespace()
+  autocmd FileType javascript,typescript,json,scss,css let b:stripWhitespace = 1
   " autocmd FileType css,scss setlocal foldmethod=marker foldmarker={,}
   autocmd FileType css,scss nnoremap <silent> <leader>S vi{:sort<cr>
   " autocmd FileType python setlocal foldmethod=indent
@@ -1288,7 +1291,14 @@
   " }
 
   " autoformat {
-    autocmd FileType javascript,typescript,python,json,html,xhtml,xml,ruby,css,scss,cs,cpp,c,objc,java autocmd BufWrite * :Autoformat
+    function! RunAutoFormat() "{{{
+      if exists('b:runAutoFormat')
+        :Autoformat
+      endif
+    endfunction "}}}
+
+    autocmd BufWritePre * call RunAutoFormat()
+    autocmd FileType javascript,typescript,python,json,ruby,css,scss,cs,cpp,c,objc,java let b:runAutoFormat = 1
   " }
 
  " hardmode {
