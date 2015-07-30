@@ -1,4 +1,4 @@
-set pastetoggle=<f12>
+" set pastetoggle=<f12>
 
 nmap <leader>f0 :set foldlevel=0<cr>
 nmap <leader>f1 :set foldlevel=1<cr>
@@ -26,7 +26,7 @@ nnoremap <leader>`` :qa!<cr>
 nnoremap <leader>q :qa<cr>
 
 " <leader>e: Fast editing of the .vimrc
-execute "nnoremap <leader>e :e!" . $MYVIMRC . "<cr>"
+" execute "nnoremap <leader>e :e!" . fnameescape($MYVIMRC) . "<cr>"
 
 " <leader>o: only
 "nnoremap <leader>o :only<cr>
