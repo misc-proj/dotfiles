@@ -39,6 +39,7 @@ set timeout timeoutlen=3000 ttimeoutlen=100
 set updatetime=1000
 set virtualedit=block
 
+" check timestamp more for 'autoread'
 autocmd MyAutoCmd WinEnter * checktime
 
 " disable paste
@@ -48,15 +49,3 @@ autocmd MyAutoCmd InsertLeave *
 
 " update diff
 autocmd MyAutoCmd InsertLeave * if &l:diff | diffupdate | endif
-
-" make directory automatically
-autocmd MyAutoCmd BufWritePre *
-      \ call s:mkdir_as_necessary(expand('<afile>:p:h'), v:cmdbang)
-
-function! s:mkdir_as_necessary(dir, force)
-  if !isdirectory(a:dir) && &l:buftype == '' &&
-        \ (a:force || input(printf('"%s" does not exist. Create? [y/N]',
-        \              a:dir)) =~? '^y\%[es]$')
-    call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
-  endif
-endfunction

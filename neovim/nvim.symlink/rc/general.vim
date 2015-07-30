@@ -2,14 +2,7 @@ syntax enable
 
 set encoding=utf-8       " set encoding for text
 
-
-
-
-
-
-
-
-" TODO(jrubin)
+" TODO(jrubin) figure out where all of the following belong
 
 set mouse=a              " enable mouse usage (all modes)
 set mousehide
