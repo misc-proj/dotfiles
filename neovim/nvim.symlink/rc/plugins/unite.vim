@@ -102,8 +102,8 @@ nmap <c-o> [unite]b
 " ctrl-\: Quick outline
 nmap <silent> <c-\> [unite]o
 
-" ctrl-sa: Reopen last grep window
-nnoremap <c-s><c-a> :UniteResume -buffer-name=grep<cr>
+" ctrl-sg: Reopen last grep window
+nnoremap <c-s><c-g> :UniteResume -buffer-name=grep<cr>
 
 " ctrl-ss: (S)earch word under cur(s)or in current directory
 nnoremap <c-s><c-s> :Unite -buffer-name=grep grep:.::<c-r><c-w><cr>
@@ -157,7 +157,7 @@ let g:neomru#time_format = ""
 
 if executable("ag")
   let g:unite_source_grep_command = "ag"
-  let g:unite_source_grep_default_opts = "--noheading --nocolor --nogroup --line-numbers -a -S"
+  let g:unite_source_grep_default_opts = "--noheading --nocolor --nogroup --line-numbers -S"
   let g:unite_source_grep_recursive_opt = ""
 endif
 
@@ -178,7 +178,7 @@ function! s:unite_settings()  " {{{
 
   nmap <buffer> <tab>   <plug>(unite_loop_cursor_down)
   nmap <buffer> <s-tab> <plug>(unite_loop_cursor_up)
-  imap <buffer> <c-a>   <plug>(unite_choose_action)
+  " imap <buffer> <e-a>   <plug>(unite_choose_action)
   imap <buffer> <tab>   <plug>(unite_insert_leave)
   imap <buffer> <c-w>   <plug>(unite_delete_backward_word)
   imap <buffer> <c-u>   <plug>(unite_delete_backward_path)

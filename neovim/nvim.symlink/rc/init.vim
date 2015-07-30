@@ -1,6 +1,8 @@
 let g:mapleader = ","
 let s:cache_dir = g:vim_base . "/.cache/"
 
+set encoding=utf-8 " set encoding for text
+
 " prefer locally installed python
 if executable("/usr/local/bin/python")
   let g:python_host_prog = "/usr/local/bin/python"

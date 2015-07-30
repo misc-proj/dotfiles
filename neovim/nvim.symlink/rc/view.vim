@@ -1,0 +1,67 @@
+syntax enable
+
+set list
+
+if has("gui_running")
+  set listchars=tab:›\ ,trail:•,extends:❯,precedes:❮,nbsp:.
+else
+  set listchars=tab:\ \ ,trail:•,extends:❯,precedes:❮,nbsp:.
+endif
+
+set laststatus=2 " always show the statusline
+set title
+set linebreak " wrap lines at convenient points
+let &showbreak="↪ "
+set whichwrap+=<,>,[,]
+
+if exists('+breakindent')
+  set breakindent
+  set wrap
+else
+  set nowrap
+endif
+
+set shortmess+=I
+set t_vb=
+set novisualbell " no sounds
+
+set wildmenu " show list for autocomplete
+set wildmode=list:longest,full
+set wildignorecase
+
+" stuff to ignore when tab completing
+set wildignore+=
+      \*.o,
+      \*.obj,
+      \*~,
+      \log/**,
+      \tmp/**,
+      \*.png,
+      \*.jpg,
+      \*.gif,
+      \*.so,
+      \*.swp,
+      \*.zip,
+      \*.pdf,
+      \*/.Trash/**,
+      \*/.git/**,
+      \*/.hg/**,
+      \*/.svn/**,
+      \*/.idea/**,
+      \*/.DS_Store
+
+set history=1000 " store lots of :cmdline history
+set showfulltag
+set completeopt=longest,menuone " auto complete setting
+set nospell
+set splitright
+set splitbelow
+set winheight=50 " sensible heights for splits
+set winminheight=0
+
+if has("conceal")
+  set conceallevel=1
+  set listchars+=conceal:Δ
+endif
+
+set noshowmode

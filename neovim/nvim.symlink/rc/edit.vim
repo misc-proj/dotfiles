@@ -49,3 +49,5 @@ autocmd MyAutoCmd InsertLeave *
 
 " update diff
 autocmd MyAutoCmd InsertLeave * if &l:diff | diffupdate | endif
+
+set autoindent
