@@ -1,3 +1,6 @@
+" text filtering and alignment
+NeoBundleLazy "godlygeek/tabular", {"autoload":{"commands":"Tabularize"}}
+
 nmap <leader>a&     :Tabularize /&<cr>
 vmap <leader>a&     :Tabularize /&<cr>
 

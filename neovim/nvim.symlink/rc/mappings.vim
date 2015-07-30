@@ -1,5 +1,3 @@
-" set pastetoggle=<f12>
-
 nmap <leader>f0 :set foldlevel=0<cr>
 nmap <leader>f1 :set foldlevel=1<cr>
 nmap <leader>f2 :set foldlevel=2<cr>

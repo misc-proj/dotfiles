@@ -1,3 +1,6 @@
+" syntax checking
+NeoBundle "scrooloose/syntastic"
+
 let g:syntastic_javascript_jshint_args = ""
 let g:syntastic_typescript_tsc_args = "-t ES5 --module commonjs"
 let g:syntastic_typescript_tslint_args = "-c ".g:vim_base."/tslint.config.json"

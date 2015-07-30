@@ -1,4 +1,6 @@
 "  autocmd! BufWritePost * Neomake
+"  TODO(jrubin)
+"  NeoBundle "benekastah/neomake"
 "
 "  let g:neomake_error_sign = {
 "      \ 'text': '✗',

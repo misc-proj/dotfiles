@@ -1,3 +1,6 @@
+" displays tags in a window, ordered by scope http://majutsushi.github.com/tagbar/
+NeoBundleLazy "majutsushi/tagbar", {"autoload":{"commands":"TagbarToggle"}}
+
 " if using go please install the gotags program using the following
 " go install github.com/jstemmer/gotags
 " and make sure gotags is in your path

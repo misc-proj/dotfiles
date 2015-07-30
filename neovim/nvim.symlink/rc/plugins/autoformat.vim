@@ -1,3 +1,6 @@
+" automatically format code
+NeoBundle "Chiel92/vim-autoformat"
+
 function! RunAutoFormat() "{{{
   if exists('b:runAutoFormat')
     :Autoformat

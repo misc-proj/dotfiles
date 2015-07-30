@@ -1,3 +1,6 @@
+" a powerful file explorer
+NeoBundle "Shougo/vimfiler.vim"
+
 map <c-n> :VimFilerExplorer<cr>
 
 let g:vimfiler_as_default_explorer = 1

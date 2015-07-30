@@ -15,13 +15,12 @@ endfunction
 " TODO(jrubin) use MyAutoCmd augroup for all autocmd
 
 call s:source_rc("init")
-call s:source_rc("neobundle")
+call s:source_rc("plugins")
 call s:source_rc("preserve")
 call s:source_rc("tmux")
 call s:source_rc("general")    " TODO(jrubin)
 call s:source_rc("search")
 call s:source_rc("edit")       " TODO(jrubin)
-call s:source_rc("plugins")
 call s:source_rc("colors")     " TODO(jrubin)
 call s:source_rc("ui")         " TODO(jrubin)
 call s:source_rc("formatting") " TODO(jrubin)

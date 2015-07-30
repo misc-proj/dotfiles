@@ -1,3 +1,76 @@
+" search and display information from arbitrary sources like files, buffers, recently used files or registers, replaced kien/ctrlp.vim
+NeoBundle "Shougo/unite.vim"
+
+if neobundle#tap("unite.vim")
+  function! neobundle#hooks.on_source(bundle)
+    " use the fuzzy matcher for everything
+    call unite#filters#matcher_default#use(["matcher_fuzzy"])
+    call unite#filters#sorter_default#use(["sorter_rank"])
+    call unite#set_profile("files", "context.smartcase", 1)
+
+    call unite#custom#profile("default", "context", {
+      \   "start_insert": 1,
+      \   "prompt": "» ",
+      \   "direction": "botright",
+      \   "update_time": 200,
+      \   "cursor_line_highlight": "PmenuSel",
+      \ })
+
+    " set up some custom ignores
+    call unite#custom_source("file_rec,file_rec/async,file_mru,file,buffer,grep",
+      \ "ignore_pattern", join([
+        \ '\.git/',
+        \ '\.hg/',
+        \ '\.svn/',
+        \ '\.bzr/',
+        \ '\.cdv/',
+        \ '_darcs/',
+        \ 'CVS/',
+        \ 'RCS/',
+        \ 'SCCS/',
+        \ 'tmp/',
+        \ '_build/',
+        \ 'autom4te\.cache/',
+        \ '\.sass-cache/',
+        \ 'node_modules/',
+        \ 'bower_components/',
+        \ 'dist/',
+        \ 'Godeps/',
+        \ '\~$',
+        \ '#.+#$',
+        \ '[._].*\.swp$',
+        \ 'core\.\d+$',
+        \ '\.pyc$',
+        \ '\.exe$',
+        \ '\.so$',
+        \ '\.bak$',
+        \ '\.png$',
+        \ '\.jpg$',
+        \ '\.jpeg$',
+        \ '\.gif$',
+        \ '\.zip$',
+        \ '\.rar$',
+        \ '\.tar$',
+        \ '\.tar\.gz$',
+        \ '\.tar\.bz2$',
+        \ ], '\|')
+    \ )
+
+  endfunction
+
+  call neobundle#untap()
+endif
+
+NeoBundleLazy "Shougo/neomru.vim",               {"autoload":{"unite_sources":["file_mru","directory_mru"]}}                          " unite.vim MRU sources, depends on Shougo/unite.vim
+NeoBundleLazy "osyo-manga/unite-airline_themes", {"autoload":{"unite_sources":"airline_themes"}}                                      " unite airline themes, duh
+NeoBundleLazy "ujihisa/unite-colorscheme",       {"autoload":{"unite_sources":"colorscheme"}}                                         " unite plugin for changing your colorscheme
+NeoBundleLazy "tsukkee/unite-tag",               {"autoload":{"unite_sources":["tag","tag/file"]}}                                    " unite plugin for selecting tags or selecting files including tags
+NeoBundleLazy "Shougo/unite-outline",            {"autoload":{"unite_sources":"outline"}}                                             " unite source which provides the buffer with an outline view
+NeoBundleLazy "Shougo/unite-help",               {"autoload":{"unite_sources":"help"}}                                                " unite plugin for help
+NeoBundleLazy "Shougo/unite-session",            {"autoload":{"unite_sources":["session","session/new"]}}                             " unite source which nominates sessions
+NeoBundleLazy "thinca/vim-unite-history",        {"autoload":{"unite_sources":["history/command","history/search","history/yank"]}}   " unite source for history of command/search
+NeoBundleLazy "Shougo/neossh.vim",               {"autoload":{"unite_sources":"ssh"}}                                                 " unite source which nominates files over ssh
+
 " map space to the prefix for Unite
 nnoremap [unite] <nop>
 nmap <space> [unite]
@@ -75,11 +148,6 @@ nnoremap <silent> [unite]h       :Unite -buffer-name=help           -auto-resize
 nnoremap <silent> [unite]j       :Unite -buffer-name=junk           -auto-resize junkfile junkfile/new<cr>
 nnoremap <silent> [unite]p       :Unite -buffer-name=sessions       session<cr>
 
-" use the fuzzy matcher for everything
-call unite#filters#matcher_default#use(["matcher_fuzzy"])
-call unite#filters#sorter_default#use(["sorter_rank"])
-call unite#set_profile("files", "context.smartcase", 1)
-
 let g:unite_data_directory=GetCacheDir("unite")
 let g:unite_source_history_yank_enable=1     " enable history yank source
 
@@ -94,54 +162,6 @@ if executable("ag")
 endif
 
 let g:unite_source_rec_max_cache_files = 99999
-
-call unite#custom#profile("default", "context", {
-  \   "start_insert": 1,
-  \   "prompt": "» ",
-  \   "direction": "botright",
-  \   "update_time": 200,
-  \   "cursor_line_highlight": "PmenuSel",
-  \ })
-
-" set up some custom ignores
-call unite#custom_source("file_rec,file_rec/async,file_mru,file,buffer,grep",
-  \ "ignore_pattern", join([
-    \ '\.git/',
-    \ '\.hg/',
-    \ '\.svn/',
-    \ '\.bzr/',
-    \ '\.cdv/',
-    \ '_darcs/',
-    \ 'CVS/',
-    \ 'RCS/',
-    \ 'SCCS/',
-    \ 'tmp/',
-    \ '_build/',
-    \ 'autom4te\.cache/',
-    \ '\.sass-cache/',
-    \ 'node_modules/',
-    \ 'bower_components/',
-    \ 'dist/',
-    \ 'Godeps/',
-    \ '\~$',
-    \ '#.+#$',
-    \ '[._].*\.swp$',
-    \ 'core\.\d+$',
-    \ '\.pyc$',
-    \ '\.exe$',
-    \ '\.so$',
-    \ '\.bak$',
-    \ '\.png$',
-    \ '\.jpg$',
-    \ '\.jpeg$',
-    \ '\.gif$',
-    \ '\.zip$',
-    \ '\.rar$',
-    \ '\.tar$',
-    \ '\.tar\.gz$',
-    \ '\.tar\.bz2$',
-    \ ], '\|')
-\ )
 
 " custom Unite settings
 autocmd FileType unite call s:unite_settings()
