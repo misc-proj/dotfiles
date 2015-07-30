@@ -26,7 +26,7 @@ nnoremap <leader>`` :qa!<cr>
 nnoremap <leader>q :qa<cr>
 
 " <leader>e: Fast editing of the .vimrc
-execute "nnoremap <leader>e :e!" . g:vim_base . "rc<cr>"
+execute "nnoremap <leader>e :e!" . $MYVIMRC . "<cr>"
 
 " <leader>o: only
 "nnoremap <leader>o :only<cr>

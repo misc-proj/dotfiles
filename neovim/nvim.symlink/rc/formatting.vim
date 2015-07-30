@@ -10,15 +10,12 @@ set nowrap                 " don't wrap lines
 set whichwrap+=<,>,[,]
 set autoindent
 set shiftwidth=2
-set expandtab
 set tabstop=2
 set softtabstop=2
-set shiftround
 set nojoinspaces
 set splitright
 set splitbelow
 set smartindent
-set smarttab
 set nocopyindent
 
 if has("conceal")

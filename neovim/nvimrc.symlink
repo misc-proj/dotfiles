@@ -1,17 +1,24 @@
-set nocompatible " must be the first line
+" Note: Skip initialization for vim-tiny or vim-small.
+if 0 | endif
+
+if &compatible
+  set nocompatible
+endif
 
 let g:vim_base = fnameescape(expand("~/.nvim"))
+let g:editor_command = "nvim"
 
 function! s:source_rc(path)
   execute 'source' fnameescape(expand(g:vim_base . '/rc/' . a:path . ".vim"))
 endfunction
 
-call s:source_rc("vars")
+call s:source_rc("init")
 call s:source_rc("neobundle")
 call s:source_rc("preserve")
-call s:source_rc("dirs")
 call s:source_rc("tmux")
 call s:source_rc("general")    " TODO(jrubin)
+call s:source_rc("search")
+call s:source_rc("edit")       " TODO(jrubin)
 call s:source_rc("plugins")
 call s:source_rc("colors")     " TODO(jrubin)
 call s:source_rc("ui")         " TODO(jrubin)

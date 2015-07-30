@@ -4,15 +4,8 @@ set novisualbell                " no sounds
 set t_vb=
 set showcmd                     " show incomplete cmds down the bottom
 set completeopt=longest,menuone " auto complete setting
-set backspace=indent,eol,start  " allow backspace in insert mode
 set number                      " line numbers are good
-set showmatch                   " show matching brackets
-set matchtime=2                 " tens of a second to show matching parentheses
-set incsearch                   " incremental search
-set hlsearch
 set winminheight=0
-set ignorecase                  " case insensitive matching
-set smartcase                   " smart case matching
 
 set wildmenu                    " show list for autocomplete
 set wildmode=list:longest,full
@@ -45,9 +38,6 @@ set sidescrolloff=15
 set sidescroll=1
 set scrolljump=3
 set numberwidth=1
-" set foldenable
-" set foldmethod=syntax
-" set foldlevelstart=99
 set list
 "set listchars=eol:$,tab:>-,trail:-
 
@@ -58,5 +48,3 @@ else
 endif
 
 let &showbreak="↪ "
-
-set updatetime=1000

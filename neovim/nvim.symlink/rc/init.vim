@@ -1,5 +1,17 @@
+let g:mapleader = ","
+let s:cache_dir = g:vim_base . "/.cache/"
+
+" prefer locally installed python
+if executable("/usr/local/bin/python")
+  let g:python_host_prog = "/usr/local/bin/python"
+endif
+
+if executable("/usr/local/bin/python3")
+  let g:python3_host_prog = "/usr/local/bin/python3"
+endif
+
 function! GetCacheDir(suffix)
-  return resolve(expand(g:cache_dir . a:suffix))
+  return resolve(expand(s:cache_dir . a:suffix))
 endfunction
 
 function! s:ensure_exists(path)
@@ -8,7 +20,7 @@ function! s:ensure_exists(path)
   endif
 endfunction
 
-call s:ensure_exists(g:cache_dir)
+call s:ensure_exists(s:cache_dir)
 
 " persistent undo
 if has("persistent_undo")
@@ -25,3 +37,7 @@ call s:ensure_exists(&backupdir)
 " swap files
 let &directory=GetCacheDir("swap")
 call s:ensure_exists(&directory)
+
+augroup MyAutoCmd
+  autocmd!
+augroup END
