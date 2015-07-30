@@ -3,11 +3,11 @@
     set nocompatible " Be iMproved
 
     " required
-    set runtimepath+=~/.nvim/bundle/neobundle.vim/
+    let &runtimepath .= ',' . g:vim_base . "/bundle/neobundle.vim/"
   endif
 
   " required
-  call neobundle#begin(expand("~/.nvim/bundle/"))
+  call neobundle#begin(expand(g:vim_base . "/bundle/"))
 
   " Let NeoBundle manage NeoBundle, required
   NeoBundleFetch "Shougo/neobundle.vim"
