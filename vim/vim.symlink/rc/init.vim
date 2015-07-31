@@ -1,5 +1,5 @@
 let g:mapleader = ","
-let s:cache_dir = g:vim_base . "/.cache/"
+let s:cache_dir = "~/.vim/.cache/"
 
 set encoding=utf-8 " set encoding for text
 

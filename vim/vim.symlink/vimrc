@@ -5,11 +5,8 @@ if &compatible
   set nocompatible
 endif
 
-let g:vim_base = fnameescape(expand("~/.vim"))
-let g:editor_command = "vim"
-
 function! s:source_rc(path)
-  execute 'source' fnameescape(expand(g:vim_base . '/rc/' . a:path . ".vim"))
+  execute 'source' fnameescape(expand("~/.vim/rc/" . a:path . ".vim"))
 endfunction
 
 call s:source_rc("init")

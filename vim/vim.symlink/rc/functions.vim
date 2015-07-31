@@ -40,7 +40,7 @@ autocmd MyAutoCmd BufReadPost *
   \  execute 'normal! g`"zvzz' |
   \ endif
 
-let &tags="./tags;/,".g:vim_base."tags"
+set tags=./tags;/,~/.vimtags
 
 " make tags placed in .git/tags file available in all levels of a repository
 let gitroot = substitute(system("git rev-parse --show-toplevel"), '[\n\r]', "", "g")

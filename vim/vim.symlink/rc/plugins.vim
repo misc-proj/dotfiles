@@ -1,8 +1,8 @@
 if has("vim_starting")
-  let &runtimepath .= ',' . g:vim_base . "/bundle/neobundle.vim/"
+  let &runtimepath .= ",~/.vim/bundle/neobundle.vim/"
 endif
 
-call neobundle#begin(expand(g:vim_base . "/bundle/"))
+call neobundle#begin(expand("~/.vim/bundle/"))
 
 " Let NeoBundle manage NeoBundle, required
 NeoBundleFetch "Shougo/neobundle.vim"
@@ -17,7 +17,7 @@ NeoBundle 'Shougo/vimproc.vim', {
   \    }
   \ }
 
-for f in split(glob(g:vim_base . "/rc/plugins/*.vim"), "\n")
+for f in split(glob("~/.vim/rc/plugins/*.vim"), "\n")
   execute "source" fnameescape(f)
 endfor
 

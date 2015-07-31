@@ -1,10 +1,10 @@
 " an extreme shell that doesn't depend on external shells but is written completely in pure vim script
 NeoBundleLazy "Shougo/vimshell.vim", {"autoload":{"commands":[ "VimShell", "VimShellInteractive" ]}}
 
-let g:vimshell_editor_command=g:editor_command
+let g:vimshell_editor_command="vim"
 let g:vimshell_right_prompt="getcwd()"
 let g:vimshell_data_directory= GetCacheDir("vimshell")
-let g:vimshell_vimshrc_path=expand(g:vim_base."/vimshrc")
+let g:vimshell_vimshrc_path="~/.vim/vimshrc"
 
 nnoremap <leader>c  :VimShell -split<cr>
 nnoremap <leader>cc :VimShell -split<cr>
