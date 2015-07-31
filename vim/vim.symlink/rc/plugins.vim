@@ -55,7 +55,10 @@ NeoBundleLazy "editorconfig/editorconfig-vim", {"autoload":{"insert":1}} " edito
 
 " collaborative editing
 NeoBundle "floobits/floobits-neovim"
-NeoBundle "FredKSchott/CoVim"
+
+if has("nvim")
+  NeoBundle "FredKSchott/CoVim"
+endif
 
 NeoBundle "thinca/vim-qfreplace" " perform replacements in quickfix
 

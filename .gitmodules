@@ -4,9 +4,6 @@
 [submodule "nodenv/node-build"]
   path = nodenv/node-build
   url = git@github.com:joshuarubin/node-build.git
-[submodule "vim/vim.symlink/bundle/neobundle.vim"]
-	path = vim/vim.symlink/bundle/neobundle.vim
-	url = https://github.com/Shougo/neobundle.vim
 [submodule "zsh/bundles/joshuarubin/zsh-environment"]
 	path = zsh/bundles/joshuarubin/zsh-environment
 	url = https://github.com/joshuarubin/zsh-environment
@@ -115,8 +112,8 @@
 [submodule "zsh/bundles/joshuarubin/zsh-typescript"]
 	path = zsh/bundles/joshuarubin/zsh-typescript
 	url = https://github.com/joshuarubin/zsh-typescript
-[submodule "neovim/nvim.symlink/bundle/neobundle.vim"]
-	path = neovim/nvim.symlink/bundle/neobundle.vim
+[submodule "vim/vim.symlink/bundle/neobundle.vim"]
+	path = vim/vim.symlink/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim
 [submodule "tmux/tmux.symlink/plugins/tpm"]
 	path = tmux/tmux.symlink/plugins/tpm

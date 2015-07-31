@@ -6,13 +6,7 @@
 !/vim/vim.symlink/bundle/neobundle.vim/
 /vim/vim.symlink/.cache/
 /vim/vim.symlink/spell/
-/neovim/nvim.symlink/.netrwhist
-/neovim/nvim.symlink/bundle/*/
-!/neovim/nvim.symlink/bundle/neobundle.vim/
-/neovim/nvim.symlink/.cache/
-/neovim/nvim.symlink/spell/
 /vim/vim.symlink/bundle/NeoBundle.lock
-/neovim/nvim.symlink/bundle/NeoBundle.lock
 /tmux/tmux.symlink/plugins/
 /tmux/tmux.symlink/resurrect/
 /tmux/tmux.symlink/sidebar/
