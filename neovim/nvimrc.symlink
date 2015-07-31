@@ -12,23 +12,14 @@ function! s:source_rc(path)
   execute 'source' fnameescape(expand(g:vim_base . '/rc/' . a:path . ".vim"))
 endfunction
 
-" TODO(jrubin) use MyAutoCmd augroup for all autocmd
-
 call s:source_rc("init")
 call s:source_rc("plugins")
-call s:source_rc("preserve")
-call s:source_rc("tmux")
-call s:source_rc("general")    " TODO(jrubin)
+call s:source_rc("functions")
 call s:source_rc("search")
 call s:source_rc("edit")
 call s:source_rc("view")
-call s:source_rc("colors")     " TODO(jrubin)
-call s:source_rc("ui")         " TODO(jrubin)
-call s:source_rc("formatting") " TODO(jrubin)
-call s:source_rc("mappings")   " TODO(jrubin)
-call s:source_rc("whitespace")
-call s:source_rc("mkdir")
-call s:source_rc("cursorping")
-call s:source_rc("restore-cursor")
-call s:source_rc("ctags")
+call s:source_rc("mappings") " TODO(jrubin)
 call s:source_rc("gui")
+
+set exrc   " enable per-directory .vimrc files
+set secure " disable unsafe commands in local .vimrc files

@@ -15,12 +15,12 @@ let g:vimfiler_data_directory = GetCacheDir("vimfiler")
 let g:vimfiler_quick_look_command = "qlmanage -p"
 
 " make enter expand the directory like NERDTree
-autocmd FileType vimfiler nmap <silent><buffer><expr> <CR> vimfiler#smart_cursor_map(
+autocmd MyAutoCmd FileType vimfiler nmap <silent><buffer><expr> <CR> vimfiler#smart_cursor_map(
   \ "\<Plug>(vimfiler_expand_tree)",
   \ "\<Plug>(vimfiler_edit_file)")
 
-autocmd FileType vimfiler nmap <buffer> <c-r> <Plug>(vimfiler_redraw_screen)
-autocmd FileType vimfiler nmap <buffer> <c-h> <Plug>(vimfiler_switch_to_history_directory)
+autocmd MyAutoCmd FileType vimfiler nmap <buffer> <c-r> <Plug>(vimfiler_redraw_screen)
+autocmd MyAutoCmd FileType vimfiler nmap <buffer> <c-h> <Plug>(vimfiler_switch_to_history_directory)
 
 " nnoremap <expr><f2> g:MyOpenExplorerCommand()
 " function! g:MyOpenExplorerCommand()  " {{{

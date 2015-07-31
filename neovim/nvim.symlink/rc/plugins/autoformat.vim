@@ -7,5 +7,5 @@ function! RunAutoFormat() "{{{
   endif
 endfunction "}}}
 
-autocmd BufWritePre * call RunAutoFormat()
-autocmd FileType javascript,typescript,python,json,ruby,css,scss,cs,cpp,c,objc,java let b:runAutoFormat = 1
+autocmd MyAutoCmd BufWritePre * call RunAutoFormat()
+autocmd MyAutoCmd FileType javascript,typescript,python,json,ruby,css,scss,cs,cpp,c,objc,java let b:runAutoFormat = 1

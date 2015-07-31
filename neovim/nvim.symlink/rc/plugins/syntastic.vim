@@ -17,8 +17,8 @@ highlight link SyntasticErrorSign WarningMsg
 highlight link SyntasticWarningSign Question
 
 " show errors from all checkers
-autocmd FileType go let g:syntastic_aggregate_errors = 1
-autocmd FileType typescript let g:syntastic_aggregate_errors = 1
+autocmd MyAutoCmd FileType go let g:syntastic_aggregate_errors = 1
+autocmd MyAutoCmd FileType typescript let g:syntastic_aggregate_errors = 1
 
-autocmd FileType go let g:syntastic_go_checkers = ["go", "govet", "golint"]
-autocmd FileType typescript let g:syntastic_typescript_checkers = ["tsc", "tslint"]
+autocmd MyAutoCmd FileType go let g:syntastic_go_checkers = ["go", "govet", "golint"]
+autocmd MyAutoCmd FileType typescript let g:syntastic_typescript_checkers = ["tsc", "tslint"]

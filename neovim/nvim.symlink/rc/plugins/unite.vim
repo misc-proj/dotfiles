@@ -164,7 +164,7 @@ endif
 let g:unite_source_rec_max_cache_files = 99999
 
 " custom Unite settings
-autocmd FileType unite call s:unite_settings()
+autocmd MyAutoCmd FileType unite call s:unite_settings()
 function! s:unite_settings()  " {{{
   " escape to exit unite window
   nmap <buffer> <esc> <plug>(unite_exit)

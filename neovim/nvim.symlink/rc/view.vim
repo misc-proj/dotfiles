@@ -58,6 +58,7 @@ set splitright
 set splitbelow
 set winheight=50 " sensible heights for splits
 set winminheight=0
+set ttyfast " assume fast terminal connection
 
 if has("conceal")
   set conceallevel=1
@@ -65,3 +66,12 @@ if has("conceal")
 endif
 
 set noshowmode
+
+set ruler
+set showcmd                     " show incomplete cmds down the bottom
+set number                      " line numbers are good
+set scrolloff=8                 " start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1
+set scrolljump=3
+set numberwidth=1

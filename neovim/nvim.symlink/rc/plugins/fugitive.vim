@@ -14,4 +14,4 @@ nnoremap <silent> <leader>ge :Gedit<cr>
 nnoremap <silent> <leader>gi :Git add -p %<cr>
 
 " delete fugitive buffers when they are left
-autocmd BufReadPost fugitive://* set bufhidden=delete
+autocmd MyAutoCmd BufReadPost fugitive://* set bufhidden=delete
