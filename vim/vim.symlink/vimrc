@@ -12,7 +12,6 @@ endfunction
 call s:source_rc("init")
 call s:source_rc("plugins")
 call s:source_rc("functions")
-call s:source_rc("search")
 call s:source_rc("edit")
 call s:source_rc("view")
 call s:source_rc("mappings")

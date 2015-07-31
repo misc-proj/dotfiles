@@ -66,3 +66,10 @@ set softtabstop=2
 set nojoinspaces
 set smartindent
 set nocopyindent
+
+" search
+set ignorecase " case insensitive matching
+set smartcase  " smart case matching
+set incsearch  " incremental search
+set hlsearch
+set wrapscan

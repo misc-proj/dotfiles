@@ -17,6 +17,7 @@ NeoBundle 'Shougo/vimproc.vim', {
   \    }
   \ }
 
+" load plugins with extra configuration
 for f in split(glob("~/.vim/rc/plugins/*.vim"), "\n")
   execute "source" fnameescape(f)
 endfor
