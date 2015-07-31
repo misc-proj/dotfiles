@@ -18,7 +18,7 @@ call s:source_rc("functions")
 call s:source_rc("search")
 call s:source_rc("edit")
 call s:source_rc("view")
-call s:source_rc("mappings") " TODO(jrubin)
+call s:source_rc("mappings")
 call s:source_rc("gui")
 
 set exrc   " enable per-directory .vimrc files
