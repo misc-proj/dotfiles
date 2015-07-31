@@ -3,7 +3,7 @@ if $GOPATH != ""
 
   let g:go_def_mapping_enabled = 0
   let g:go_fmt_command = "goimports"
-  let g:go_fmt_fail_silently = 0
+  let g:go_fmt_fail_silently = 1
   " let g:go_auto_type_info = 1
   " let g:go_dispatch_enabled = 1
 

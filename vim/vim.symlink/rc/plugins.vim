@@ -51,7 +51,6 @@ NeoBundle     "tpope/vim-endwise"                                        " wisel
 NeoBundle     "tpope/vim-speeddating"                                    " use ctrl-a/ctrl-x to increment dates, times, and more
 NeoBundle     "thinca/vim-visualstar"                                    " search for selection with '*' in visual mode
 NeoBundle     "tomtom/tcomment_vim"                                      " easy to use, file-type sensible comments
-NeoBundle     "terryma/vim-expand-region"                                " visually select increasingly larger regions of text using the same key combination
 NeoBundleLazy "editorconfig/editorconfig-vim", {"autoload":{"insert":1}} " editorconfig
 
 " collaborative editing
