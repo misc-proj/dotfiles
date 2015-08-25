@@ -82,7 +82,7 @@ nnoremap <f4> :UniteSessionSave
 " nnoremap <leader>nbua :Unite neobundle/update:all -vertical -no-start-insert<cr>
 
 " ctrl-p: Find files
-nmap <c-p> [unite]f
+" nmap <c-p> [unite]f
 
 " ctrl-n Find files with option to create new
 " nmap <c-n> [unite]n
