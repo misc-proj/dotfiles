@@ -72,12 +72,16 @@ endfunction
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
-function! StripTrailingWhitespace()
-  if exists('b:stripWhitespace')
+function! AutoStripTrailingWhitespace()
+  if exists('b:auto_strip_trailing_whitespace')
     call Preserve("%s/\\s\\+$//e")
   endif
 endfunction
 
+function! StripTrailingWhitespace()
+  call Preserve("%s/\\s\\+$//e")
+endfunction
+
 " automatically strip whitespace trailing on save for these files (add "let
-" b:stripWhitespace = 1" in ftplugin files to enable)
-autocmd MyAutoCmd BufWritePre * call StripTrailingWhitespace()
+" b:auto_strip_trailing_whitespace = 1" in ftplugin files to enable)
+autocmd MyAutoCmd BufWritePre * call AutoStripTrailingWhitespace()
