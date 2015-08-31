@@ -73,3 +73,5 @@ zle -N zle-line-init
 
 # accept autosuggestions without leaving insert mode
 bindkey '^f' vi-forward-blank-word
+
+AUTOSUGGESTION_ACCEPT_RIGHT_ARROW=1
