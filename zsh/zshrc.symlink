@@ -76,5 +76,5 @@ bindkey '^f' vi-forward-blank-word
 
 AUTOSUGGESTION_ACCEPT_RIGHT_ARROW=1
 
-# enable zcalc
-autoload -U zcalc
+autoload -U zcalc zsh-mime-setup
+zsh-mime-setup
