@@ -103,9 +103,6 @@
 [submodule "zsh/bundles/Tarrasch/zsh-mcd"]
 	path = zsh/bundles/Tarrasch/zsh-mcd
 	url = https://github.com/Tarrasch/zsh-mcd
-[submodule "zsh/bundles/zsh-users/zsh-syntax-highlighting"]
-	path = zsh/bundles/zsh-users/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting
 [submodule "zsh/bundles/zsh-users/zsh-history-substring-search"]
 	path = zsh/bundles/zsh-users/zsh-history-substring-search
 	url = https://github.com/zsh-users/zsh-history-substring-search
@@ -121,3 +118,9 @@
 [submodule "zsh/bundles/joshuarubin/zsh-linuxbrew"]
 	path = zsh/bundles/joshuarubin/zsh-linuxbrew
 	url = https://github.com/joshuarubin/zsh-linuxbrew
+[submodule "zsh/bundles/tarruda/zsh-autosuggestions"]
+	path = zsh/bundles/tarruda/zsh-autosuggestions
+	url = https://github.com/tarruda/zsh-autosuggestions
+[submodule "zsh/bundles/jimmijj/zsh-syntax-highlighting"]
+	path = zsh/bundles/jimmijj/zsh-syntax-highlighting
+	url = https://github.com/jimmijj/zsh-syntax-highlighting
