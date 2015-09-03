@@ -36,6 +36,7 @@ if neobundle#tap("unite.vim")
         \ 'bower_components/',
         \ 'dist/',
         \ 'Godeps/',
+        \ 'vendor/',
         \ '\~$',
         \ '#.+#$',
         \ '[._].*\.swp$',

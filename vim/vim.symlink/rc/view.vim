@@ -36,6 +36,7 @@ set wildignore+=
       \*~,
       \*/log/*,
       \*/tmp/*,
+      \*/vendor/*,
       \*/Godeps/*,
       \*/node_modules/*,
       \*/bower_components/*,
