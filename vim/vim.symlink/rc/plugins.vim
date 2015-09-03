@@ -94,6 +94,9 @@ NeoBundle "tomasr/molokai"                   " port of the monokai theme for tex
 NeoBundle "chriskempson/vim-tomorrow-theme"  " a bright theme with pastel colours and sensible syntax highlighting
 NeoBundle "sjl/badwolf"                      " colorscheme pieced together from various colors
 NeoBundle "ajh17/Spacegray.vim"              " loosely based on the spacegray xcode theme
+NeoBundle "romainl/Apprentice"               " a dark, low-contrast, colorscheme
+NeoBundle "jnurmine/Zenburn"                 " a low-contrast colorscheme
+NeoBundle "morhetz/gruvbox"                  " a bright theme with pastel 'retro groove' colors
 
 " neobundle tear down
 call neobundle#end()

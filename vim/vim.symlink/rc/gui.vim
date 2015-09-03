@@ -1,5 +1,5 @@
 set background=dark
-colorscheme solarized
+colorscheme apprentice
 
 set mouse=a " enable mouse usage (all modes)
 set mousehide
