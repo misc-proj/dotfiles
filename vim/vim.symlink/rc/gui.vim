@@ -1,7 +1,5 @@
 set background=dark
-colorscheme hybrid         " load a colorscheme
-highlight clear SignColumn " signcolumn should match background
-" highlight clear LineNr     " current line number row will have same background color in relative mode
+colorscheme solarized
 
 set mouse=a " enable mouse usage (all modes)
 set mousehide

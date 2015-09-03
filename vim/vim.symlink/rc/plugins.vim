@@ -85,14 +85,13 @@ NeoBundle     "osyo-manga/vim-over"                                             
 NeoBundleLazy "guns/xterm-color-table.vim", {"autoload":{"commands":"XtermColorTable"}}                               " all 256 xterm colors with their rgb equivalents
 
 " color schemes
-if has("gui") || v:version >= 703
-  NeoBundle "godlygeek/csapprox" " make gvim-only colorschemes work transparently in terminal vim
-endif
+" if has("gui") || v:version >= 703
+"   NeoBundle "godlygeek/csapprox" " make gvim-only colorschemes work transparently in terminal vim
+" endif
 
 NeoBundle "nanotech/jellybeans.vim"          " colorful, dark color scheme
 NeoBundle "tomasr/molokai"                   " port of the monokai theme for textmate
 NeoBundle "chriskempson/vim-tomorrow-theme"  " a bright theme with pastel colours and sensible syntax highlighting
-NeoBundle "chriskempson/base16-vim"          " color schemes for hackers
 NeoBundle "sjl/badwolf"                      " colorscheme pieced together from various colors
 NeoBundle "ajh17/Spacegray.vim"              " loosely based on the spacegray xcode theme
 

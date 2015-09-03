@@ -56,7 +56,7 @@ autoload -U $ZSH/functions/*(:t)
 # Enables terminal application mode and updates editor information.
 function zle-line-init {
   # enable zsh-autosuggestions
-  zle autosuggest-start
+  # zle autosuggest-start
 
   # The terminal must be in application mode when ZLE is active for $terminfo
   # values to be valid.

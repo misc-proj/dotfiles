@@ -35,8 +35,6 @@ source $ZSH/zsh/bundles/zsh-users/zsh-history-substring-search/zsh-history-subst
 source $ZSH/zsh/bundles/joshuarubin/zsh-gnu-utility/gnu-utility.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-utility/utility.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-linuxbrew/linuxbrew.plugin.zsh
-source $ZSH/zsh/bundles/tarruda/zsh-autosuggestions/autosuggestions.plugin.zsh
-source $ZSH/zsh/bundles/tarruda/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-environment
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-terminal
@@ -75,4 +73,3 @@ fpath+=$ZSH/zsh/bundles/zsh-users/zsh-history-substring-search
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-gnu-utility
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-utility
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-linuxbrew
-fpath+=$ZSH/zsh/bundles/tarruda/zsh-autosuggestions
