@@ -10,6 +10,7 @@ let g:syntastic_style_error_symbol = '✠'
 let g:syntastic_warning_symbol = '∆'
 let g:syntastic_style_warning_symbol = '≈'
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_go_gometalinter_args='--cyclo-over=10 -D gotype -t'
 
 " highlight link SyntasticError WarningMsg
 " highlight link SyntasticWarning Question
@@ -20,5 +21,6 @@ highlight link SyntasticWarningSign Question
 autocmd MyAutoCmd FileType go let g:syntastic_aggregate_errors = 1
 autocmd MyAutoCmd FileType typescript let g:syntastic_aggregate_errors = 1
 
-autocmd MyAutoCmd FileType go let g:syntastic_go_checkers = ["go", "govet", "golint"]
+" autocmd MyAutoCmd FileType go let g:syntastic_go_checkers = ['go', 'govet', 'golint']
+autocmd MyAutoCmd FileType go let g:syntastic_go_checkers = ['go', 'gometalinter']
 autocmd MyAutoCmd FileType typescript let g:syntastic_typescript_checkers = ["tsc", "tslint"]
