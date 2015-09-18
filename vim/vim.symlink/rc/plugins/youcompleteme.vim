@@ -1,4 +1,8 @@
-NeoBundle "Valloric/YouCompleteMe"
+NeoBundle "Valloric/YouCompleteMe", {
+  \ 'build' : {
+  \     'others': './install.py --gocode-completer --clang-completer',
+  \    }
+  \ }
 
 let g:acp_enableAtStartup = 0
 let g:ycm_collect_identifiers_from_tags_files = 1
