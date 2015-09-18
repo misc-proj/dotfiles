@@ -1,0 +1,36 @@
+{
+    "BinarySkip": true,
+    "BinaryAsText": false,
+    "Color": "auto",
+    "IncludeDirs": null,
+    "ExcludeDirs": [
+        ".git",
+        ".hg",
+        ".svn",
+        "vendor",
+        "Godeps",
+        "node_modules",
+        "bower_components"
+    ],
+    "IncludeExtensions": "",
+    "ExcludeExtensions": "bak,swp",
+    "IncludeFiles": null,
+    "ExcludeFiles": [
+      "*~"
+    ],
+    "IncludePath": "",
+    "ExcludePath": "",
+    "IncludeTypes": "",
+    "ExcludeTypes": "",
+    "FilesWithMatches": false,
+    "FilesWithoutMatch": false,
+    "IgnoreCase": false,
+    "Limit": 0,
+    "Multiline": false,
+    "OutputLimit": 0,
+    "Recursive": true,
+    "ShowFilename": "auto",
+    "ShowLineNumbers": true,
+    "Stats": false,
+    "Zip": true
+}

@@ -22,7 +22,10 @@ set infercase " ignore case on insert completion
 " set foldmethod=syntax
 " set foldlevelstart=99
 
-if executable("ag")
+if executable("sift")
+  set grepprg=sift\ --line-number\ --no-color\ --ignore-case\ --filename
+  set grepformat=%f:%l:%m
+elseif executable("ag")
   set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
   set grepformat=%f:%l:%c:%m
 else
