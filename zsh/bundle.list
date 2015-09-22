@@ -10,11 +10,11 @@ joshuarubin/zsh-archive
 joshuarubin/zsh-fasd
 joshuarubin/zsh-git
 joshuarubin/zsh-osx
+joshuarubin/zsh-secrets
 joshuarubin/zsh-ssh
 joshuarubin/zsh-prompt
 joshuarubin/zsh-tmux
 joshuarubin/zsh-rsync
-joshuarubin/zsh-secrets
 joshuarubin/zsh-zmv
 joshuarubin/zsh-gvm
 joshuarubin/zsh-nodenv

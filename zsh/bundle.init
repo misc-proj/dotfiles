@@ -10,11 +10,11 @@ source $ZSH/zsh/bundles/joshuarubin/zsh-archive/archive.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-fasd/fasd.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-git/git.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-osx/osx.plugin.zsh
+source $ZSH/zsh/bundles/joshuarubin/zsh-secrets/secrets.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-ssh/ssh.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-prompt/prompt.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-tmux/tmux.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-rsync/rsync.plugin.zsh
-source $ZSH/zsh/bundles/joshuarubin/zsh-secrets/secrets.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-zmv/zmv.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-gvm/gvm.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-nodenv/nodenv.plugin.zsh
@@ -48,11 +48,11 @@ fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-archive
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-fasd
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-git
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-osx
+fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-secrets
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-ssh
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-prompt
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-tmux
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-rsync
-fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-secrets
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-zmv
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-gvm
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-nodenv
