@@ -1,8 +1,13 @@
 NeoBundle "Valloric/YouCompleteMe", {
+  \ 'vim_version': '7.3.598',
   \ 'build' : {
   \     'others': './install.py --gocode-completer --clang-completer',
   \    }
   \ }
+
+if v:version < 703 || v:version == 703 && !has("patch598")
+  finish
+endif
 
 let g:acp_enableAtStartup = 0
 let g:ycm_collect_identifiers_from_tags_files = 1

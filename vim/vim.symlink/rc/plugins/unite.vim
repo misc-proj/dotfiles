@@ -1,5 +1,9 @@
 " search and display information from arbitrary sources like files, buffers, recently used files or registers, replaced kien/ctrlp.vim
-NeoBundle "Shougo/unite.vim"
+NeoBundle "Shougo/unite.vim", {"vim_version": "7.3"}
+
+if v:version < 703
+  finish
+endif
 
 if neobundle#tap("unite.vim")
   function! neobundle#hooks.on_source(bundle)

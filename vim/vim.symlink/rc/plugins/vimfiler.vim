@@ -1,5 +1,9 @@
 " a powerful file explorer
-NeoBundle "Shougo/vimfiler.vim"
+NeoBundle "Shougo/vimfiler.vim", {"vim_version": "7.3"}
+
+if v:version < 703
+  finish
+endif
 
 map <c-n> :VimFilerExplorer<cr>
 
