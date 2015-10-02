@@ -15,3 +15,9 @@ nnoremap <silent> <leader>gi :Git add -p %<cr>
 
 " delete fugitive buffers when they are left
 autocmd MyAutoCmd BufReadPost fugitive://* set bufhidden=delete
+
+" map .. to go to the parent directory
+autocmd MyAutoCmd User fugitive
+  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+  \   nnoremap <silent> <buffer> .. :edit %:h<cr> |
+  \ endif
