@@ -215,9 +215,6 @@ vnoremap <c-r> "hy:%s/<c-r>h//gc<left><left><left>
 " ctrl-s: easier substitue
 vnoremap <c-s> :s/\%v//g<left><left><left>
 
-" // search for visually selected text
-vnoremap // y/<C-R>"<cr>
-
 " p: Paste
 "nnoremap p gp
 
