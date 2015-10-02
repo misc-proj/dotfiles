@@ -19,7 +19,6 @@ source $ZSH/zsh/bundles/joshuarubin/zsh-zmv/zmv.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-gvm/gvm.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-nodenv/nodenv.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-rvm/rvm.plugin.zsh
-source $ZSH/zsh/bundles/joshuarubin/zsh-grc/grc.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-java/java.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-python/python.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-direnv/direnv.plugin.zsh
@@ -34,6 +33,7 @@ source $ZSH/zsh/bundles/jimmijj/zsh-syntax-highlighting/zsh-syntax-highlighting.
 source $ZSH/zsh/bundles/zsh-users/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-gnu-utility/gnu-utility.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-utility/utility.plugin.zsh
+source $ZSH/zsh/bundles/joshuarubin/zsh-grc/grc.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-linuxbrew/linuxbrew.plugin.zsh
 
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-environment
@@ -57,7 +57,6 @@ fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-zmv
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-gvm
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-nodenv
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-rvm
-fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-grc
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-java
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-python
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-direnv
@@ -72,4 +71,5 @@ fpath+=$ZSH/zsh/bundles/jimmijj/zsh-syntax-highlighting
 fpath+=$ZSH/zsh/bundles/zsh-users/zsh-history-substring-search
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-gnu-utility
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-utility
+fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-grc
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-linuxbrew
