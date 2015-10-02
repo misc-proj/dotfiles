@@ -9,4 +9,7 @@ else
   nmap <silent> <c-j> :wincmd j<cr>
   nmap <silent> <c-k> :wincmd k<cr>
   nmap <silent> <c-l> :wincmd l<cr>
+
+  autocmd MyAutoCmd FileType vimfiler nmap <buffer> <c-l> :wincmd l<cr>
+  autocmd MyAutoCmd FileType vimfiler nmap <buffer> <c-j> :wincmd j<cr>
 endif
