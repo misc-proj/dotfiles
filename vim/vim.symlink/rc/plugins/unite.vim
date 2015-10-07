@@ -156,11 +156,11 @@ nnoremap <silent> [unite]o :<c-u>Unite -buffer-name=outline -auto-highlight -ver
 " ctrl-sd: (S)earch word in current (d)irectory (prompt for word)
 nmap <c-s><c-d> [unite]g
 nmap [unite]/ [unite]g
-nnoremap <silent> [unite]g :<c-u>UniteWithInput grep:.<cr>
+nnoremap <silent> [unite]g :<c-u>Unite grep:.<cr>
 
 " ctrl-ss: (S)earch word under cur(s)or in current directory
 nmap <c-s><c-s> [unite]]
-nnoremap <silent> [unite]] :<c-u>UniteWithCursorWord -no-start-insert grep:.<cr>
+nnoremap <silent> [unite]] :<c-u>Unite grep:.::<c-r><c-w><cr>
 
 " ctrl-sg: Reopen last grep window
 nmap <c-s><c-g> [unite]G
@@ -217,7 +217,7 @@ let g:unite_source_rec_max_cache_files = 99999
 
 autocmd MyAutoCmd BufEnter *
 \   if empty(&buftype)
-\|    nnoremap <buffer> <C-]> :<c-u>UniteWithCursorWord -buffer-name=tag -no-start-insert -immediately tag<cr>
+\|    nnoremap <buffer> <c-]> :<c-u>UniteWithCursorWord -immediately tag<cr>
 \| endif
 
 " custom Unite settings
