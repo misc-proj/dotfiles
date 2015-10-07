@@ -133,9 +133,9 @@ nnoremap <silent> [unite]s :<c-u>Unite -quick-match buffer<cr>
 " ctrl-p: Find files
 nmap <c-p> [unite]p
 if has("nvim")
-  nnoremap <silent> [unite]p :<c-u>Unite -resume -buffer-name=project -auto-resize -no-restore -input= -start-insert -hide-source-names -unique file directory file_rec/neovim:!<cr>
+  nnoremap <silent> [unite]p :<c-u>Unite -resume -buffer-name=project -auto-resize -no-restore -input= -start-insert -hide-source-names -unique file_rec/neovim:!<cr>
 else
-  nnoremap <silent> [unite]p :<c-u>Unite -resume -buffer-name=project -auto-resize -no-restore -input= -start-insert -hide-source-names -unique file directory file_rec/async:!<cr>
+  nnoremap <silent> [unite]p :<c-u>Unite -resume -buffer-name=project -auto-resize -no-restore -input= -start-insert -hide-source-names -unique file_rec/async:!<cr>
 endif
 
 " [unite]f: Find files non-recursively with option to create new file
@@ -200,7 +200,7 @@ let g:neomru#filename_format = ":~:."
 let g:neomru#time_format = ""
 
 if executable("ag")
-  let g:unite_source_rec_async_command = ["ag", "--nocolor", "--nogroup", "-g", ""]
+  let g:unite_source_rec_async_command = ["ag", "--follow", "--nocolor", "--nogroup", "-g", ""]
 endif
 
 if executable("sift")
