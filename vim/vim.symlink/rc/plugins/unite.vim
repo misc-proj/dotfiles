@@ -7,21 +7,55 @@ endif
 
 if neobundle#tap("unite.vim")
   function! neobundle#hooks.on_post_source(bundle)
-    " use the fuzzy matcher for everything
-    call unite#filters#matcher_default#use(["matcher_fuzzy"])
-    call unite#filters#sorter_default#use(["sorter_rank"])
-    call unite#set_profile("files", "context.smartcase", 1)
+    function! airline#extensions#unite#apply(...)
+      if &ft == 'unite'
+        call a:1.add_section('airline_a', ' Unite ')
+        call a:1.add_section('airline_b', ' %{get(unite#get_context(), "buffer_name", "")} ')
+        call a:1.add_section('airline_c', ' ')
+        return 1
+      endif
+    endfunction
 
+    hi link uniteInputPrompt Special
+
+    "  \   'start_insert': 1,
+    "  \   'update_time': 200,
     call unite#custom#profile("default", "context", {
-      \   "start_insert": 1,
       \   "prompt": "» ",
       \   "direction": "botright",
-      \   "update_time": 200,
       \   "cursor_line_highlight": "PmenuSel",
       \ })
 
+    call unite#custom#profile("source/grep", "context", {
+      \ "buffer_name" : "grep",
+      \ "no_quit" : 0
+      \ })
+
+    call unite#custom#profile("source/buffer", "context", {
+      \ "buffer_name" : "buffers",
+      \ "start_insert" : 1
+      \ })
+
+    call unite#custom#profile("source/tag", "context", {
+      \ "buffer_name" : "tag",
+      \ "start_insert" : 1,
+      \ "resume" : 1,
+      \ "input" : ""
+      \ })
+
+    call unite#custom#profile("source/neomru/file", "context", {
+      \ "buffer_name" : "mru",
+      \ "start_insert" : 1
+      \ })
+
+    call unite#custom#profile("source/neomru/directory", "context", {
+      \ "buffer_name" : "dirs",
+      \ "start_insert" : 1,
+      \ "default_action" : "cd"
+      \ })
+
     " set up some custom ignores
-    call unite#custom_source("file_rec,file_rec/async,file_mru,file,buffer,grep",
+    call unite#custom_source("file_rec,file_rec/async,file_rec/neovim,file_mru,file,buffer,grep,directory",
       \ "ignore_pattern", join([
         \ '\.git/',
         \ '\.hg/',
@@ -61,105 +95,113 @@ if neobundle#tap("unite.vim")
         \ ], '\|')
     \ )
 
+    " use the fuzzy matcher for everything
+    call unite#filters#matcher_default#use(["matcher_fuzzy"])
+    call unite#filters#sorter_default#use(["sorter_rank"])
+    call unite#set_profile("files", "context.smartcase", 1)
+
+    let s:file_recs = "file,directory,file_rec,file_rec/neovim,file_rec/async,tag"
+    let s:sorter = has("ruby") ? "sorter_selecta" : "sorter_rank"
+
+    call unite#custom#source("tag", "sorters", ["sorter_rank"])
+    call unite#custom#source(s:file_recs, "sorters", [s:sorter])
+    call unite#custom#source(s:file_recs, "matchers", ["converter_relative_word", "matcher_fuzzy"])
+    call unite#custom#source("neomru/file", "matchers", ["converter_relative_word", "matcher_project_files", "matcher_fuzzy"])
   endfunction
 
   call neobundle#untap()
 endif
 
-NeoBundleLazy "Shougo/neomru.vim",               {"autoload":{"unite_sources":["file_mru","directory_mru"]}}                          " unite.vim MRU sources, depends on Shougo/unite.vim
 NeoBundleLazy "osyo-manga/unite-airline_themes", {"autoload":{"unite_sources":"airline_themes"}}                                      " unite airline themes, duh
 NeoBundleLazy "ujihisa/unite-colorscheme",       {"autoload":{"unite_sources":"colorscheme"}}                                         " unite plugin for changing your colorscheme
-NeoBundleLazy "tsukkee/unite-tag",               {"autoload":{"unite_sources":["tag","tag/file"]}}                                    " unite plugin for selecting tags or selecting files including tags
-NeoBundleLazy "Shougo/unite-outline",            {"autoload":{"unite_sources":"outline"}}                                             " unite source which provides the buffer with an outline view
 NeoBundleLazy "Shougo/unite-help",               {"autoload":{"unite_sources":"help"}}                                                " unite plugin for help
 NeoBundleLazy "Shougo/unite-session",            {"autoload":{"unite_sources":["session","session/new"]}}                             " unite source which nominates sessions
 NeoBundleLazy "thinca/vim-unite-history",        {"autoload":{"unite_sources":["history/command","history/search","history/yank"]}}   " unite source for history of command/search
 NeoBundleLazy "Shougo/neossh.vim",               {"autoload":{"unite_sources":"ssh"}}                                                 " unite source which nominates files over ssh
-NeoBundle     "rstacruz/vim-fastunite"                                                                                                " search for files fast
+NeoBundle     "Shougo/neomru.vim"                                                                                                     " unite.vim mru sources, depends on shougo/unite.vim
+NeoBundle     "Shougo/unite-outline"                                                                                                  " unite source which provides the buffer with an outline view
+NeoBundle     "tsukkee/unite-tag"                                                                                                     " unite plugin for selecting tags or selecting files including tags
 
 " map space to the prefix for Unite
 nnoremap [unite] <nop>
 nmap <space> [unite]
 
-nmap     <f1> [unite]h
-nnoremap <f4> :UniteSessionSave
-
-" nnoremap <leader>nbu  :Unite neobundle/update     -vertical -no-start-insert<cr>
-" nnoremap <leader>nbua :Unite neobundle/update:all -vertical -no-start-insert<cr>
+" gb: quick buffer open
+nmap gb [unite]s
+nnoremap <silent> [unite]s :<c-u>Unite -quick-match buffer<cr>
 
 " ctrl-p: Find files
-nmap <c-p> [unite]f
+nmap <c-p> [unite]p
+if has("nvim")
+  nnoremap <silent> [unite]p :<c-u>Unite -resume -buffer-name=project -auto-resize -no-restore -input= -start-insert -hide-source-names -unique file directory file_rec/neovim:!<cr>
+else
+  nnoremap <silent> [unite]p :<c-u>Unite -resume -buffer-name=project -auto-resize -no-restore -input= -start-insert -hide-source-names -unique file directory file_rec/async:!<cr>
+endif
 
-" ctrl-n Find files with option to create new
-" nmap <c-n> [unite]n
+" [unite]f: Find files non-recursively with option to create new file
+nnoremap <silent> [unite]f :<c-u>Unite -resume -buffer-name=files -auto-resize -no-restore -input= -start-insert -hide-source-names -unique file file/new<cr>
 
 " ctrl-o: Find MRU and buffers
 nmap <c-o> [unite]b
-
-" ctrl-e: Find (e)verything
-"nmap <c-e> [unite]<space>
-
-" ctrl-d: Command history using Unite
-"nmap <c-d> [unite];
-
-" ctrl-y: Yanks
-"nmap <c-y> [unite]y
-
-" ctrl-\: Quick outline
-nmap <silent> <c-\> [unite]o
-
-" ctrl-sg: Reopen last grep window
-nnoremap <c-s><c-g> :UniteResume -buffer-name=grep<cr>
-
-" ctrl-ss: (S)earch word under cur(s)or in current directory
-nnoremap <c-s><c-s> :Unite -buffer-name=grep grep:.::<c-r><c-w><cr>
-
-" ctrl-sd: (S)earch word in current (d)irectory (prompt for word)
-nnoremap <c-s><c-d> :Unite -buffer-name=grep grep:.<cr>
-
-" ctrl-sf: Quickly (s)earch in (f)ile
-nmap <c-s><c-f> [unite]l
+nnoremap <silent> [unite]b :<c-u>Unite buffer<cr>
 
 " ctrl-c: (C)hange (c)urrent directory
 nmap <c-c> [unite]d
+nnoremap <silent> [unite]d :<c-u>Unite -auto-resize neomru/directory<cr>
 
-" ctrl-/: A more powerful '/' TODO(jrubin)
-"nmap <c-_> [unite]l
+" ctrl-\: Quick outline
+nmap <silent> <c-\> [unite]o
+nnoremap <silent> [unite]o :<c-u>Unite -buffer-name=outline -auto-highlight -vertical -winwidth=30 outline<cr>
+
+" ctrl-sd: (S)earch word in current (d)irectory (prompt for word)
+nmap <c-s><c-d> [unite]g
+nmap [unite]/ [unite]g
+nnoremap <silent> [unite]g :<c-u>UniteWithInput grep:.<cr>
+
+" ctrl-ss: (S)earch word under cur(s)or in current directory
+nmap <c-s><c-s> [unite]]
+nnoremap <silent> [unite]] :<c-u>UniteWithCursorWord -no-start-insert grep:.<cr>
+
+" ctrl-sg: Reopen last grep window
+nmap <c-s><c-g> [unite]G
+nnoremap <silent> [unite]G :<c-u>UniteResume grep<cr>
+
+" f1: Show help
+nmap <f1> [unite]h
+nnoremap <silent> [unite]h :<c-u>Unite -buffer-name=help -auto-resize help<cr>
+
+" ctrl-sf: Quickly (s)earch in (f)ile
+nmap <c-s><c-f> [unite]l
+nnoremap <silent> [unite]l :<c-u>Unite -buffer-name=search_file -start-insert -auto-resize line<cr>
 
 " ctrl-space: Quick scratch buffer
 nmap <c-space> [unite]j
+nnoremap <silent> [unite]j :<c-u>Unite -buffer-name=junk -start-insert -auto-resize junkfile junkfile/new<cr>
 
-" quick buffer open
-nmap gb [unite]s
+nnoremap <f4> :UniteSessionSave
 
-nnoremap <silent> [unite]<space> :Unite -buffer-name=mixed       -toggle -auto-resize          file_rec/async:! buffer file_mru bookmark<cr>
-nnoremap <silent> [unite]r       :Unite -buffer-name=register                                  register<cr>
-nnoremap <silent> [unite]f       :Unite -buffer-name=files       -toggle -auto-resize          file_rec/async:!<cr>
-nnoremap <silent> [unite]n       :Unite -buffer-name=files       -toggle -auto-resize          file_rec/async:! file/new<cr>
-nnoremap <silent> [unite]e       :Unite -buffer-name=recent                                    file_mru<cr>
-nnoremap <silent> [unite]y       :Unite -buffer-name=yank                                      history/yank<cr>
-nnoremap <silent> [unite]l       :Unite -buffer-name=search_file -auto-resize                  line<cr>
-nnoremap <silent> [unite]b       :Unite -buffer-name=buffers     -auto-resize                  buffer<cr>
-nnoremap <silent> [unite]/       :Unite -buffer-name=grep        -no-quit                      grep:.<cr>
-nnoremap <silent> [unite]m       :Unite -buffer-name=mappings    -auto-resize                  mapping<cr>
-nnoremap <silent> [unite];       :Unite -buffer-name=history     -default-action=edit          history/command command<cr>
-nnoremap <silent> [unite]d       :Unite -buffer-name=change-cwd  -default-action=cd            directory_mru directory_rec/async:!<cr>
-nnoremap <silent> [unite]s       :Unite -quick-match buffer<cr>
+nnoremap <silent> [unite]r :<c-u>Unite -auto-resize neomru/file<cr>
+nnoremap <silent> [unite]t :<c-u>Unite -input= tag<cr>
+nnoremap <silent> [unite]e :<c-u>Unite -buffer-name=register register<cr>
+nnoremap <silent> [unite]y :<c-u>Unite -buffer-name=yank -start-insert history/yank<cr>
+nnoremap <silent> [unite]m :<c-u>Unite -buffer-name=mappings -auto-resize -start-insert mapping<cr>
+nnoremap <silent> [unite]; :<c-u>Unite -buffer-name=history -default-action=edit -start-insert history/command command<cr>
+nnoremap <silent> [unite]a :<c-u>Unite -buffer-name=airline_themes -winheight=10 -auto-preview airline_themes<cr>
+nnoremap <silent> [unite]c :<c-u>Unite -buffer-name=colorschemes -winheight=10 -auto-preview colorscheme<cr>
 
-nnoremap <silent> [unite]a       :Unite -buffer-name=airline_themes -winheight=10 -auto-preview airline_themes<cr>
-nnoremap <silent> [unite]c       :Unite -buffer-name=colorschemes   -winheight=10 -auto-preview colorscheme<cr>
-nnoremap <silent> [unite]t       :Unite -buffer-name=tag            -auto-resize tag tag/file<cr>
-nnoremap <silent> [unite]o       :Unite -buffer-name=outline        -vertical outline<cr>
-nnoremap <silent> [unite]h       :Unite -buffer-name=help           -auto-resize help<cr>
-nnoremap <silent> [unite]j       :Unite -buffer-name=junk           -auto-resize junkfile junkfile/new<cr>
-nnoremap <silent> [unite]p       :Unite -buffer-name=sessions       session<cr>
+" nnoremap <silent> [unite]p :<c-u>Unite -buffer-name=sessions session<cr>
 
 let g:unite_data_directory=GetCacheDir("unite")
+let g:unite_source_tag_max_fname_length = 70
 let g:unite_source_history_yank_enable=1     " enable history yank source
 
 let g:neomru#file_mru_limit = 1000
 let g:neomru#filename_format = ":~:."
 let g:neomru#time_format = ""
+
+if executable("ag")
+  let g:unite_source_rec_async_command = ["ag", "--nocolor", "--nogroup", "-g", ""]
+endif
 
 if executable("sift")
   let g:unite_source_grep_command = "sift"
@@ -167,11 +209,16 @@ if executable("sift")
   let g:unite_source_grep_recursive_opt = "--recursive"
 elseif executable("ag")
   let g:unite_source_grep_command = "ag"
-  let g:unite_source_grep_default_opts = "--noheading --nocolor --nogroup --line-numbers -S"
+  let g:unite_source_grep_default_opts = "--vimgrep"
   let g:unite_source_grep_recursive_opt = ""
 endif
 
 let g:unite_source_rec_max_cache_files = 99999
+
+autocmd MyAutoCmd BufEnter *
+\   if empty(&buftype)
+\|    nnoremap <buffer> <C-]> :<c-u>UniteWithCursorWord -buffer-name=tag -no-start-insert -immediately tag<cr>
+\| endif
 
 " custom Unite settings
 autocmd MyAutoCmd FileType unite call s:unite_settings()
@@ -196,6 +243,8 @@ function! s:unite_settings()  " {{{
   nmap <buffer> '       <plug>(unite_quick_match_default_action)
   nmap <buffer> <c-r>   <plug>(unite_redraw)
   imap <buffer> <c-r>   <plug>(unite_redraw)
+  nmap <buffer> <c-R>   <plug>(unite_restart)
+  imap <buffer> <c-R>   <plug>(unite_restart)
 
   inoremap <buffer> <expr> <c-d> unite#do_action("delete")
   nnoremap <buffer> <expr> <c-d> unite#do_action("delete")
