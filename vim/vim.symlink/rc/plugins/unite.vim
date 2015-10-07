@@ -6,7 +6,7 @@ if v:version < 703
 endif
 
 if neobundle#tap("unite.vim")
-  function! neobundle#hooks.on_source(bundle)
+  function! neobundle#hooks.on_post_source(bundle)
     " use the fuzzy matcher for everything
     call unite#filters#matcher_default#use(["matcher_fuzzy"])
     call unite#filters#sorter_default#use(["sorter_rank"])
@@ -75,6 +75,7 @@ NeoBundleLazy "Shougo/unite-help",               {"autoload":{"unite_sources":"h
 NeoBundleLazy "Shougo/unite-session",            {"autoload":{"unite_sources":["session","session/new"]}}                             " unite source which nominates sessions
 NeoBundleLazy "thinca/vim-unite-history",        {"autoload":{"unite_sources":["history/command","history/search","history/yank"]}}   " unite source for history of command/search
 NeoBundleLazy "Shougo/neossh.vim",               {"autoload":{"unite_sources":"ssh"}}                                                 " unite source which nominates files over ssh
+NeoBundle     "rstacruz/vim-fastunite"                                                                                                " search for files fast
 
 " map space to the prefix for Unite
 nnoremap [unite] <nop>
@@ -87,7 +88,7 @@ nnoremap <f4> :UniteSessionSave
 " nnoremap <leader>nbua :Unite neobundle/update:all -vertical -no-start-insert<cr>
 
 " ctrl-p: Find files
-" nmap <c-p> [unite]f
+nmap <c-p> [unite]f
 
 " ctrl-n Find files with option to create new
 " nmap <c-n> [unite]n
