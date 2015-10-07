@@ -52,7 +52,6 @@ set wildignore+=
       \*.zip,
       \*.pdf,
       \*/.Trash/**,
-      \*/.git/**,
       \*/.hg/**,
       \*/.svn/**,
       \*/.idea/**,
