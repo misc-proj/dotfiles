@@ -243,8 +243,6 @@ function! s:unite_settings()  " {{{
   nmap <buffer> '       <plug>(unite_quick_match_default_action)
   nmap <buffer> <c-r>   <plug>(unite_redraw)
   imap <buffer> <c-r>   <plug>(unite_redraw)
-  nmap <buffer> <c-R>   <plug>(unite_restart)
-  imap <buffer> <c-R>   <plug>(unite_restart)
 
   inoremap <buffer> <expr> <c-d> unite#do_action("delete")
   nnoremap <buffer> <expr> <c-d> unite#do_action("delete")
