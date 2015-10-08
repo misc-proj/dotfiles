@@ -18,7 +18,7 @@ endif
 
 if has("gui_running")
   if has("gui_macvim")
-    set transparency=1
+    set transparency=0
     set guifont=Inconsolata\ for\ Powerline:h12
   elseif has("gui_gtk")
     set guifont=Inconsolata\ for\ Powerline\ Medium\ 10
