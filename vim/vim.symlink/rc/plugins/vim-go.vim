@@ -11,6 +11,7 @@ if $GOPATH != ""
   autocmd MyAutoCmd FileType go nmap <buffer> <leader>r <plug>(go-run)
   autocmd MyAutoCmd FileType go nmap <buffer> <leader>b <plug>(go-build)
   autocmd MyAutoCmd FileType go nmap <buffer> <leader>t <plug>(go-test)
+  autocmd MyAutoCmd FileType go nmap <buffer> <leader>e <plug>(go-rename)
   " autocmd MyAutoCmd FileType go nmap <buffer> <leader>ds <plug>(go-def-split)
   " autocmd MyAutoCmd FileType go nmap <buffer> <leader>dv <plug>(go-def-vertical)
   " autocmd MyAutoCmd FileType go nmap <buffer> <leader>dt <plug>(go-def-tab)
