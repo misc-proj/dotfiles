@@ -197,6 +197,10 @@ inoremap <c-g> <Right>
 " ctrl-k: Move cursor up
 "inoremap <expr> <c-k> pumvisible() ? "\<c-e>\<Up>" : "\<Up>"
 
+inoremap <expr> <esc>  pumvisible() ? "\<c-e>" : "\<esc>"
+inoremap <expr> <down> pumvisible() ? "\<c-n>" : "\<down>"
+inoremap <expr> <up>   pumvisible() ? "\<c-p>" : "\<up>"
+
 " ctrl-c: Inserts line below
 inoremap <c-c> <c-o>o
 

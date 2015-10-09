@@ -43,6 +43,10 @@ NeoBundleLazy "mmalecki/vim-node.js", {"autoload":{"filetypes":["javascript"]}} 
 NeoBundle "tpope/vim-rails"   " ruby on rails power tools
 NeoBundle "tpope/vim-bundler" " lightweight support for ruby's bundler
 
+" haskell
+NeoBundleLazy "eagletmt/ghcmod-vim", {"autoload": {"filetypes": ["haskell"]}}
+NeoBundleLazy "bitc/vim-hdevtools", {"autoload": {"filetypes": ["haskell"]}}
+
 " snippets & autocomplete
 NeoBundle "honza/vim-snippets" " contains snippets files for various programming languages
 

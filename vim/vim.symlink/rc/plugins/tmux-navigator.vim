@@ -5,10 +5,10 @@ if exists("$TMUX")
   autocmd MyAutoCmd FileType vimfiler nmap <buffer> <c-l> :TmuxNavigateRight<cr>
   autocmd MyAutoCmd FileType vimfiler nmap <buffer> <c-j> :TmuxNavigateDown<cr>
 else
-  nmap <silent> <c-h> :wincmd h<cr>
-  nmap <silent> <c-j> :wincmd j<cr>
-  nmap <silent> <c-k> :wincmd k<cr>
-  nmap <silent> <c-l> :wincmd l<cr>
+  nmap <c-h> <c-w>h
+  nmap <c-j> <c-w>j
+  nmap <c-k> <c-w>k
+  nmap <c-l> <c-w>l
 
   autocmd MyAutoCmd FileType vimfiler nmap <buffer> <c-l> :wincmd l<cr>
   autocmd MyAutoCmd FileType vimfiler nmap <buffer> <c-j> :wincmd j<cr>
