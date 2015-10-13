@@ -1,5 +1,5 @@
 " displays tags in a window, ordered by scope http://majutsushi.github.com/tagbar/
-NeoBundleLazy "majutsushi/tagbar", {"autoload":{"commands":"TagbarToggle"}}
+NeoBundle "majutsushi/tagbar"
 
 " if using go please install the gotags program using the following
 " go install github.com/jstemmer/gotags
@@ -16,5 +16,4 @@ let g:tagbar_type_go = {
   \ "ctagsargs" : "-sort -silent"
   \ }
 
-" nnoremap <silent> <leader>tt :TagbarToggle<cr>
-nnoremap <silent> <leader>2  :TagbarToggle<cr>
+nnoremap <silent> <leader>2 :TagbarToggle<cr>
