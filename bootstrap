@@ -26,21 +26,6 @@ fail () {
   exit
 }
 
-setup_gitconfig () {
-  if ! [ -f git/gitconfig.symlink ]; then
-    info 'setup gitconfig'
-
-    user ' - What is your git user name?'
-    read -e git_authorname
-    user ' - What is your git user email?'
-    read -e git_authoremail
-
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" git/gitconfig.symlink.example > git/gitconfig.symlink
-
-    success 'gitconfig'
-  fi
-}
-
 link_files () {
   ln -s $1 $2
   success "linked $1 to $2"
@@ -108,26 +93,7 @@ install_dotfiles () {
   done
 }
 
-init_neobundle () {
-  if command -v vim > /dev/null 2>&1; then
-    vim +NeoBundleInstall +qall
-  else
-    echo "ERROR: vim is not installed" 1>&2
-  fi
-}
-
-setup_gitconfig
-
-info "installing dependencies"
-echo
-if . ./functions/dot; then
-  success "dependencies installed"
-else
-  fail "error installing dependencies"
-fi
-
 install_dotfiles
-init_neobundle
 
 echo ''
 echo '  All installed!'

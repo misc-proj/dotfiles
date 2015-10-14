@@ -5,10 +5,6 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-fpath=($ZSH/functions $fpath)
-
-source $ZSH/system/path.zsh
-
 # Disable color and theme in dumb terminals.
 if [[ "$TERM" == 'dumb' ]]; then
   zstyle ':prezto:*:*' color 'no'
@@ -59,8 +55,6 @@ update-bundles() {(
 if [ -r "$bundle_init" ]; then
   source $bundle_init
 fi
-
-autoload -U $ZSH/functions/*(:t)
 
 autoload -U zcalc zsh-mime-setup
 zsh-mime-setup

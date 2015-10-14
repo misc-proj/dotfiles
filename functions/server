@@ -1,3 +1,0 @@
-PORT=${1}
-if [ -z "${PORT}" ]; then PORT=8000; fi
-open "http://localhost:${PORT}" && python -m SimpleHTTPServer $PORT

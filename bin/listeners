@@ -1,2 +1,0 @@
-#!/bin/sh
-lsof -nPiTCP | grep LISTEN

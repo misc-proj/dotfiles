@@ -1,8 +1,0 @@
-if (( $+commands[boot2docker] )); then
-  ip=$(boot2docker ip 2>/dev/null)
-  if [ $? -ne 0 ]; then
-    return
-  fi
-
-  echo "export DOCKER_HOST=tcp://$ip:$DOCKER_PORT"
-fi

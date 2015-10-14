@@ -124,3 +124,6 @@
 [submodule "zsh/bundles/jimmijj/zsh-syntax-highlighting"]
 	path = zsh/bundles/jimmijj/zsh-syntax-highlighting
 	url = https://github.com/jimmijj/zsh-syntax-highlighting
+[submodule "zsh/bundles/joshuarubin/zsh-custom"]
+	path = zsh/bundles/joshuarubin/zsh-custom
+	url = https://github.com/joshuarubin/zsh-custom

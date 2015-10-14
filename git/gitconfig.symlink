@@ -1,8 +1,8 @@
 [hub]
   protocol = https
 [user]
-  name = AUTHORNAME
-  email = AUTHOREMAIL
+	name = Joshua Rubin
+	email = jrubin@zvelo.com
 [alias]
   sts = status
   st = status
