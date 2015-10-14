@@ -1,5 +1,5 @@
 - shell:
-    - [git submodule update --init --recursive --merge, Installing/Updating submodules]
+    - [git submodule update --init --recursive, Installing submodules]
 
 - clean:
     - '~'
