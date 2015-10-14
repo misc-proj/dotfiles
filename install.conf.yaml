@@ -1,27 +1,67 @@
 - shell:
-    - [git submodule update --init --recursive, Installing submodules]
+    - [git submodule update --init --recursive --merge, Installing/Updating submodules]
 
 - clean:
-    '~'
+    - '~'
 
 - link:
-    ~/.gitconfig:     git/gitconfig
-    ~/.gitignore:     git/gitignore
-    ~/.editrc:        vimify/editrc
-    ~/.inputrc:       vimify/inputrc
-    ~/.tmux:          tmux
-    ~/.tmux.conf:     tmux/tmux.conf
-    ~/.tmux-osx.conf: tmux/tmux-osx.conf
-    ~/.screenrc:      screen/screenrc
-    ~/.sift.conf:     sift/sift.conf
-    ~/.vim:           vim
-    ~/.nvim:          vim
-    ~/.vimrc:         vim/vimrc
-    ~/.nvimrc:        vim/vimrc
-    ~/.dir_colors:    zsh/dir_colors
-    ~/.zlogin:        zsh/zlogin
-    ~/.zlogout:       zsh/zlogout
-    ~/.zprofile:      zsh/zprofile
-    ~/.zshenv:        zsh/zshenv
-    ~/.zshrc:         zsh/zshrc
-    ~/.zpreztorc:     zsh/zpreztorc
+    ~/.gitconfig:
+        relink: true
+        path: git/gitconfig
+    ~/.gitignore:
+        relink: true
+        path: git/gitignore
+    ~/.editrc:
+        relink: true
+        path: vimify/editrc
+    ~/.inputrc:
+        relink: true
+        path: vimify/inputrc
+    ~/.tmux:
+        relink: true
+        path: tmux
+    ~/.tmux.conf:
+        relink: true
+        path: tmux/tmux.conf
+    ~/.tmux-osx.conf:
+        relink: true
+        path: tmux/tmux-osx.conf
+    ~/.screenrc:
+        relink: true
+        path: screen/screenrc
+    ~/.sift.conf:
+        relink: true
+        path: sift/sift.conf
+    ~/.vim:
+        relink: true
+        path: vim
+    ~/.nvim:
+        relink: true
+        path: vim
+    ~/.vimrc:
+        relink: true
+        path: vim/vimrc
+    ~/.nvimrc:
+        relink: true
+        path: vim/vimrc
+    ~/.dir_colors:
+        relink: true
+        path: zsh/dir_colors
+    ~/.zlogin:
+        relink: true
+        path: zsh/zlogin
+    ~/.zlogout:
+        relink: true
+        path: zsh/zlogout
+    ~/.zprofile:
+        relink: true
+        path: zsh/zprofile
+    ~/.zshenv:
+        relink: true
+        path: zsh/zshenv
+    ~/.zshrc:
+        relink: true
+        path: zsh/zshrc
+    ~/.zpreztorc:
+        relink: true
+        path: zsh/zpreztorc
