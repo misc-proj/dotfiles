@@ -1,6 +1,5 @@
-#### joe made this: https://goel.io/joe
+### https://raw.github.com/github/gitignore/ad500c8a491fc51b00b10e1d57c1d10e1f677eb8/Global/OSX.gitignore
 
-#####=== OSX ===#####
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -11,9 +10,13 @@ Icon
 # Thumbnails
 ._*
 
-# Files that might appear on external disk
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
 .Spotlight-V100
+.TemporaryItems
 .Trashes
+.VolumeIcon.icns
 
 # Directories potentially created on remote AFP share
 .AppleDB
@@ -22,7 +25,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-#####=== Linux ===#####
+
+### https://raw.github.com/github/gitignore/ad500c8a491fc51b00b10e1d57c1d10e1f677eb8/Global/Linux.gitignore
+
 *~
 
 # KDE directory preferences
@@ -31,7 +36,9 @@ Temporary Items
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
 
-#####=== Windows ===#####
+
+### https://raw.github.com/github/gitignore/ad500c8a491fc51b00b10e1d57c1d10e1f677eb8/Global/Windows.gitignore
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -51,21 +58,32 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-#####=== Mercurial ===#####
-/.hg/*
-*/.hg/*
-.hgignore
 
-#####=== SVN ===#####
+### https://raw.github.com/github/gitignore/ad500c8a491fc51b00b10e1d57c1d10e1f677eb8/Global/Mercurial.gitignore
+
+.hg/
+.hgignore
+.hgsigs
+.hgsub
+.hgsubstate
+.hgtags
+
+
+### https://raw.github.com/github/gitignore/ad500c8a491fc51b00b10e1d57c1d10e1f677eb8/Global/SVN.gitignore
+
 .svn/
 
-#####=== CVS ===#####
+
+### https://raw.github.com/github/gitignore/ad500c8a491fc51b00b10e1d57c1d10e1f677eb8/Global/CVS.gitignore
+
 /CVS/*
 */CVS/*
 .cvsignore
 */.cvsignore
 
-#####=== Vim ===#####
+
+### https://raw.github.com/github/gitignore/ad500c8a491fc51b00b10e1d57c1d10e1f677eb8/Global/Vim.gitignore
+
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
 *.un~
@@ -73,7 +91,9 @@ Session.vim
 .netrwhist
 *~
 
-#####=== SublimeText ===#####
+
+### https://raw.github.com/github/gitignore/ad500c8a491fc51b00b10e1d57c1d10e1f677eb8/Global/SublimeText.gitignore
+
 # cache files for sublime text
 *.tmlanguage.cache
 *.tmPreferences.cache
@@ -89,11 +109,15 @@ Session.vim
 # sftp configuration file
 sftp-config.json
 
-#####=== Tags ===#####
+
+### https://raw.github.com/github/gitignore/ad500c8a491fc51b00b10e1d57c1d10e1f677eb8/Global/Tags.gitignore
+
 # Ignore tags created by etags, ctags, gtags (GNU global) and cscope
 TAGS
+.TAGS
 !TAGS/
 tags
+.tags
 !tags/
 gtags.files
 GTAGS
@@ -103,5 +127,6 @@ cscope.files
 cscope.out
 cscope.in.out
 cscope.po.out
+
 
 
