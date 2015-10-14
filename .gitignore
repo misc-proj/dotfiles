@@ -1,4 +1,4 @@
-/tmux/tmux.symlink/plugins/
-/tmux/tmux.symlink/resurrect/
-/tmux/tmux.symlink/sidebar/
-!/tmux/tmux.symlink/plugins/tpm
+/tmux/plugins/
+/tmux/resurrect/
+/tmux/sidebar/
+!/tmux/plugins/tpm

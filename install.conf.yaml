@@ -1,0 +1,26 @@
+- clean:
+    '~'
+
+- link:
+    ~/.gitconfig:     git/gitconfig
+    ~/.gitignore:     git/gitignore
+    ~/.editrc:        vimify/editrc
+    ~/.inputrc:       vimify/inputrc
+    ~/.tmux:          tmux
+    ~/.tmux.conf:     tmux/tmux.conf
+    ~/.tmux-osx.conf: tmux/tmux-osx.conf
+    ~/.screenrc:      screen/screenrc
+    ~/.sift.conf:     sift/sift.conf
+    ~/.vim:           vim
+    ~/.nvim:          vim
+    ~/.vimrc:         vim/vimrc
+    ~/.nvimrc:        vim/vimrc
+    ~/.dir_colors:    zsh/dir_colors
+    ~/.zlogin:        zsh/zlogin
+    ~/.zlogout:       zsh/zlogout
+    ~/.zprofile:      zsh/zprofile
+    ~/.zshenv:        zsh/zshenv
+    ~/.zshrc:         zsh/zshrc
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
