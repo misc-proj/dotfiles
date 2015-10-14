@@ -1,3 +1,6 @@
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+
 - clean:
     '~'
 
@@ -22,6 +25,3 @@
     ~/.zshenv:        zsh/zshenv
     ~/.zshrc:         zsh/zshrc
     ~/.zpreztorc:     zsh/zpreztorc
-
-- shell:
-    - [git submodule update --init --recursive, Installing submodules]
