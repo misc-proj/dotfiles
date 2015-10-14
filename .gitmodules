@@ -4,9 +4,6 @@
 [submodule "nodenv/node-build"]
   path = nodenv/node-build
   url = git@github.com:joshuarubin/node-build.git
-[submodule "vim/vim.symlink/bundle/neobundle.vim"]
-	path = vim/vim.symlink/bundle/neobundle.vim
-	url = https://github.com/Shougo/neobundle.vim
 [submodule "tmux/tmux.symlink/plugins/tpm"]
 	path = tmux/tmux.symlink/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
