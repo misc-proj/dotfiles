@@ -30,7 +30,6 @@ source $ZSH/zsh/bundles/joshuarubin/zsh-typescript/typescript.plugin.zsh
 source $ZSH/zsh/bundles/Tarrasch/zsh-command-not-found/command-not-found.plugin.zsh
 source $ZSH/zsh/bundles/Tarrasch/zsh-mcd/mcd.plugin.zsh
 source $ZSH/zsh/bundles/jimmijj/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-source $ZSH/zsh/bundles/zsh-users/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-gnu-utility/gnu-utility.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-utility/utility.plugin.zsh
 source $ZSH/zsh/bundles/joshuarubin/zsh-grc/grc.plugin.zsh
@@ -68,7 +67,6 @@ fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-typescript
 fpath+=$ZSH/zsh/bundles/Tarrasch/zsh-command-not-found
 fpath+=$ZSH/zsh/bundles/Tarrasch/zsh-mcd
 fpath+=$ZSH/zsh/bundles/jimmijj/zsh-syntax-highlighting
-fpath+=$ZSH/zsh/bundles/zsh-users/zsh-history-substring-search
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-gnu-utility
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-utility
 fpath+=$ZSH/zsh/bundles/joshuarubin/zsh-grc
