@@ -5,11 +5,11 @@
   path = nodenv/node-build
   url = git@github.com:joshuarubin/node-build.git
 [submodule "tmux/tmux.symlink/plugins/tpm"]
-	path = tmux/tmux.symlink/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
+  path = tmux/tmux.symlink/plugins/tpm
+  url = https://github.com/tmux-plugins/tpm
 [submodule "zsh"]
-	path = zsh
-	url = git@github.com:joshuarubin/dotzsh.git
+  path = zsh
+  url = git@github.com:joshuarubin/dotzsh.git
 [submodule "vim"]
-	path = vim
-	url = git@github.com:joshuarubin/dotvim.git
+  path = vim
+  url = git@github.com:joshuarubin/dotvim.git
