@@ -65,3 +65,6 @@
     ~/.zpreztorc:
         relink: true
         path: zsh/zpreztorc
+    ~/Library/Preferences/com.googlecode.iterm2.plist:
+        relink: true
+        path: iterm2/iterm2.plist
