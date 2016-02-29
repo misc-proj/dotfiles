@@ -1,5 +1,7 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+    - [mkdir -p ~/.config]
+    - [mkdir -p ~/Library/Preferences]
 
 - clean:
     - '~'
