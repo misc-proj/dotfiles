@@ -34,6 +34,12 @@
     ~/.sift.conf:
         relink: true
         path: sift/sift.conf
+    ~/.agignore:
+        relink: true
+        path: ag/agignore
+    ~/.ctags:
+        relink: true
+        path: ctags/ctags
     ~/.vim:
         relink: true
         path: vim
