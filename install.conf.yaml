@@ -46,6 +46,12 @@
     ~/.nvim:
         relink: true
         path: vim
+    ~/.fasdrc:
+        relink: true
+        path: fasd/fasdrc
+    ~/.fzf.conf:
+        relink: true
+        path: fzf/fzf.conf
     ~/.config/nvim:
         relink: true
         path: vim
