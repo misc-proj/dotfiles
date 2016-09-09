@@ -1,6 +1,11 @@
 [user]
 	name = Joshua Rubin
 	email = jrubin@zvelo.com
+	signingkey = BFD64727
+[commit]
+	gpgsign = true
+[credential]
+	helper = osxkeychain
 [alias]
 	sts = status
 	st = status
@@ -17,11 +22,17 @@
 	branch = auto
 	ui = true
 	grep = auto
+[color "diff-highlight"]
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+	oldNormal = red bold
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
+	pager = diff-so-fancy | less --tabs=1,5 -RFX
 [apply]
-  whitespace = nowarn
+	whitespace = nowarn
 [mergetool]
 	keepBackup = false
 [difftool]
