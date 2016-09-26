@@ -2,3 +2,10 @@
 /tmux/resurrect/
 /tmux/sidebar/
 !/tmux/plugins/tpm
+/vim/bundle/*/
+!/vim/bundle/neobundle.vim/
+/vim/.cache/
+/vim/spell/
+/vim/bundle/NeoBundle.lock
+/zsh/bundle.init
+/zsh/bundles/

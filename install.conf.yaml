@@ -37,6 +37,9 @@
     ~/.agignore:
         relink: true
         path: ag/agignore
+    ~/.ignore:
+        relink: true
+        path: rg/ignore
     ~/.ctags:
         relink: true
         path: ctags/ctags
