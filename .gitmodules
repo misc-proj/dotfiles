@@ -10,3 +10,6 @@
 [submodule "zsh"]
 	path = zsh
 	url = git@github.com:joshuarubin/dotzsh.git
+[submodule "fzf"]
+	path = fzf
+	url = https://github.com/junegunn/fzf.git

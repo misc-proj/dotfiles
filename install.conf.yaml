@@ -30,19 +30,19 @@
         path: tmux/tmux-osx.conf
     ~/.screenrc:
         relink: true
-        path: screen/screenrc
+        path: screenrc
     ~/.sift.conf:
         relink: true
-        path: sift/sift.conf
+        path: sift.conf
     ~/.agignore:
         relink: true
-        path: ag/agignore
+        path: agignore
     ~/.ignore:
         relink: true
-        path: rg/ignore
+        path: rgignore
     ~/.ctags:
         relink: true
-        path: ctags/ctags
+        path: ctags
     ~/.vim:
         relink: true
         path: vim
@@ -51,10 +51,13 @@
         path: vim
     ~/.fasdrc:
         relink: true
-        path: fasd/fasdrc
+        path: fasdrc
+    ~/.fzf:
+        relink: true
+        path: fzf
     ~/.fzf.conf:
         relink: true
-        path: fzf/fzf.conf
+        path: fzf.conf
     ~/.config/nvim:
         relink: true
         path: vim
@@ -87,4 +90,4 @@
         path: zsh/zpreztorc
     ~/Library/Preferences/com.googlecode.iterm2.plist:
         relink: true
-        path: iterm2/iterm2.plist
+        path: iterm2.plist
