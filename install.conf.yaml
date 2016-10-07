@@ -88,6 +88,12 @@
     ~/.zpreztorc:
         relink: true
         path: zsh/zpreztorc
+    ~/.bashrc:
+        relink: true
+        path: bash/bashrc
+    ~/.bash_profile:
+        relink: true
+        path: bash/bash_profile
     ~/Library/Preferences/com.googlecode.iterm2.plist:
         relink: true
         path: iterm2.plist
