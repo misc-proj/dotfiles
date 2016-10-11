@@ -97,3 +97,6 @@
     ~/Library/Preferences/com.googlecode.iterm2.plist:
         relink: true
         path: iterm2.plist
+    ~/.hyper.js:
+        relink: true
+        path: hyper.js
