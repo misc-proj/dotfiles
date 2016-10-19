@@ -1,5 +1,7 @@
 module.exports = {
   config: {
+    copyOnSelect: true,
+
     // default font size in pixels for all tabs
     fontSize: 12,
 
