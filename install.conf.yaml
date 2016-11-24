@@ -1,5 +1,6 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+    - [mkdir -p ~/.kwm]
     - [mkdir -p ~/.config]
     - [mkdir -p ~/Library/Preferences]
 
@@ -100,3 +101,9 @@
     ~/.hyper.js:
         relink: true
         path: hyper.js
+    ~/.khdrc:
+        relink: true
+        path: khdrc
+    ~/.kwm/kwmrc:
+        relink: true
+        path: kwmrc
