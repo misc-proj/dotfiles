@@ -11,7 +11,7 @@ khd mode prefix restore default
 khd mode prefix color 0xFF458588
 
 # Activate prefix mode
-ctrl - s                 :    khd -e "mode activate prefix"
+# ctrl - s                 :    khd -e "mode activate prefix"
 
 # Quit Kwm
 cmd + alt + ctrl - q     :    kwmc quit

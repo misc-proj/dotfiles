@@ -107,3 +107,6 @@
     ~/.kwm/kwmrc:
         relink: true
         path: kwmrc
+    ~/.zplug:
+        relink: true
+        path: zsh/zplug
