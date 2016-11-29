@@ -9,16 +9,16 @@ module.exports = {
     fontFamily: '"Hasklig", "Inconsolata for Powerline", Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color (hex)
-    cursorColor: '#c7c7c7',
+    cursorColor: '#02fdff',
 
     // color of the text
-    foregroundColor: '#c8c8c8',
+    foregroundColor: '#c5c8c6',
 
     // terminal background color
-    backgroundColor: '#323333',
+    backgroundColor: '#232c31',
 
     // border color (window, tabs)
-    borderColor: '#3f3f3f',
+    borderColor: '#3D464B',
 
     // custom css to embed in the main window
     css: '',
@@ -32,22 +32,22 @@ module.exports = {
     // some color overrides. see http://bit.ly/29k1iU2 for
     // the full list
     colors: [
-      '#252525',
-      '#be7472',
-      '#719772',
-      '#999872',
-      '#719abd',
-      '#727499',
-      '#719899',
-      '#7f7f7f',
-      '#565656',
-      '#ff9a00',
-      '#98bb99',
-      '#fffdbd',
-      '#a0bedf',
-      '#999abd',
-      '#70bcbd',
-      '#ffffff'
+      '#2d3c46',
+      '#a54242',
+      '#8c9440',
+      '#de935f',
+      '#5f819d',
+      '#85678f',
+      '#5e8d87',
+      '#6c7a80',
+      '#425059',
+      '#cc6666',
+      '#b5bd67',
+      '#f0c674',
+      '#81a2be',
+      '#b294ba',
+      '#8abeb7',
+      '#c5c8c6'
     ]
   },
 
@@ -57,8 +57,7 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: [
-  ],
+  plugins: [],
 
   // in development, you can create a directory under
   // `~/.hyperterm_plugins/local/` and include it here
