@@ -1,119 +1,51 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [mkdir -p ~/.kwm]
-    - [mkdir -p ~/.config]
-    - [mkdir -p ~/Library/Preferences]
-    - [mkdir -p ~/Library/Application Support/Übersicht]
 
 - clean:
     - '~'
+    - '~/.config'
+    - '~/Library/Preferences'
+    - '~/Library/Application Support/Übersicht'
 
 - link:
-    ~/.gitconfig:
-        relink: true
-        path: git/gitconfig
-    ~/.gitignore:
-        relink: true
-        path: git/gitignore
-    ~/.editrc:
-        relink: true
-        path: vimify/editrc
-    ~/.inputrc:
-        relink: true
-        path: vimify/inputrc
-    ~/.tmux:
-        relink: true
-        path: tmux
-    ~/.tmux.conf:
-        relink: true
-        path: tmux/tmux.conf
-    ~/.tmux-osx.conf:
-        relink: true
-        path: tmux/tmux-osx.conf
-    ~/.screenrc:
-        relink: true
-        path: screenrc
-    ~/.sift.conf:
-        relink: true
-        path: sift.conf
-    ~/.agignore:
-        relink: true
-        path: agignore
-    ~/.ignore:
-        relink: true
-        path: rgignore
-    ~/.ctags:
-        relink: true
-        path: ctags
-    ~/.vim:
-        relink: true
-        path: vim
-    ~/.nvim:
-        relink: true
-        path: vim
-    ~/.fasdrc:
-        relink: true
-        path: fasdrc
-    ~/.fzf:
-        relink: true
-        path: fzf
-    ~/.fzf.conf:
-        relink: true
-        path: fzf.conf
-    ~/.config/nvim:
-        relink: true
-        path: vim
-    ~/.vimrc:
-        relink: true
-        path: vim/vimrc
-    ~/.nvimrc:
-        relink: true
-        path: vim/vimrc
-    ~/.dir_colors:
-        relink: true
-        path: zsh/dir_colors
-    ~/.zlogin:
-        relink: true
-        path: zsh/zlogin
-    ~/.zlogout:
-        relink: true
-        path: zsh/zlogout
-    ~/.zprofile:
-        relink: true
-        path: zsh/zprofile
-    ~/.zshenv:
-        relink: true
-        path: zsh/zshenv
-    ~/.zshrc:
-        relink: true
-        path: zsh/zshrc
-    ~/.zpreztorc:
-        relink: true
-        path: zsh/zpreztorc
-    ~/.bashrc:
-        relink: true
-        path: bash/bashrc
-    ~/.bash_profile:
-        relink: true
-        path: bash/bash_profile
-    ~/Library/Preferences/com.googlecode.iterm2.plist:
-        relink: true
-        path: iterm2.plist
-    ~/.hyper.js:
-        relink: true
-        path: hyper.js
-    ~/.khdrc:
-        relink: true
-        path: khdrc
-    ~/.kwm/kwmrc:
-        relink: true
-        path: kwmrc
-    ~/.zplug:
-        relink: true
-        path: zsh/zplug
-    ~/.htoprc:
-        relink: true
-        path: htoprc
-    ~/Library/Application Support/Übersicht/widgets:
-        relink: true
-        path: widgets
+    ~/Library/Application Support/Übersicht/widgets: widgets
+    ~/Library/Preferences/com.googlecode.iterm2.plist: iterm2.plist
+    ~/.config/nvim: vim
+    ~/.kwm/kwmrc: kwmrc
+    ~/.agignore: agignore
+    ~/.bashrc: bash/bashrc
+    ~/.bash_profile: bash/bash_profile
+    ~/.ctags: ctags
+    ~/.dir_colors: zsh/dir_colors
+    ~/.editrc: vimify/editrc
+    ~/.fasdrc: fasdrc
+    ~/.fzf: fzf
+    ~/.fzf.conf: fzf.conf
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore: git/gitignore
+    ~/.htoprc: htoprc
+    ~/.hyper.js: hyper.js
+    ~/.ignore: rgignore
+    ~/.inputrc: vimify/inputrc
+    ~/.khdrc: khdrc
+    ~/.nvim: vim
+    ~/.nvimrc: vim/vimrc
+    ~/.screenrc: screenrc
+    ~/.sift.conf: sift.conf
+    ~/.tmux: tmux
+    ~/.tmux.conf: tmux/tmux.conf
+    ~/.tmux-osx.conf: tmux/tmux-osx.conf
+    ~/.vim: vim
+    ~/.vimrc: vim/vimrc
+    ~/.zlogin: zsh/zlogin
+    ~/.zlogout: zsh/zlogout
+    ~/.zplug: zsh/zplug
+    ~/.zpreztorc: zsh/zpreztorc
+    ~/.zprofile: zsh/zprofile
+    ~/.zshenv: zsh/zshenv
+    ~/.zshrc: zsh/zshrc
