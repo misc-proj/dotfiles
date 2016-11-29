@@ -39,7 +39,7 @@ kwmc config mouse-drag off
 # kwmc config mouse-drag mod shift+ctrl
 
 # Allow window focus to wrap-around
-kwmc config cycle-focus on
+kwmc config cycle-focus off
 
 # Override default settings for space 1 on screen 0
 #    kwmc config space 0 1 mode monocle
