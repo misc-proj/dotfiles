@@ -1,9 +1,11 @@
 # Set default values for screen padding
 # kwmc config padding 40 20 20 20
-kwmc config padding 33 8 8 8
+# top bottom left right
+kwmc config padding 27 2 2 2
 
 # Set default values for container gaps
-kwmc config gap 8 8
+# horiz vert
+kwmc config gap 2 2
 
 # Default tiling mode for Kwm (bsp | monocle | float)
 kwmc config tiling bsp
