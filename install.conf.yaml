@@ -110,3 +110,6 @@
     ~/.zplug:
         relink: true
         path: zsh/zplug
+    ~/.htoprc:
+        relink: true
+        path: htoprc

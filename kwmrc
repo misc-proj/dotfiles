@@ -1,11 +1,11 @@
 # Set default values for screen padding
 # kwmc config padding 40 20 20 20
 # top bottom left right
-kwmc config padding 27 2 2 2
+kwmc config padding 25 0 0 0
 
 # Set default values for container gaps
 # horiz vert
-kwmc config gap 2 2
+kwmc config gap 0 0
 
 # Default tiling mode for Kwm (bsp | monocle | float)
 kwmc config tiling bsp
@@ -80,14 +80,14 @@ kwmc rule owner="iTerm2" properties={role="AXDialog"}
 #    kwmc rule owner="iTunes" properties={display="1"}
 
 # Enable border for focused window
-kwmc config border focused on
+kwmc config border focused off
 kwmc config border focused size 2
 # kwmc config border focused color 0xFFBDD322
 kwmc config border focused color 0xDDD5C4A1
 kwmc config border focused radius 6
 
 # Enable border for marked window
-kwmc config border marked on
+kwmc config border marked off
 kwmc config border marked size 2
 # kwmc config border marked color 0xFFCC5577
 kwmc config border marked color 0xDD7f7f7f
