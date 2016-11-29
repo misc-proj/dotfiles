@@ -70,6 +70,8 @@ cmd + ctrl - k            :    kwmc window -f north
 cmd + ctrl - 1            :    kwmc display -f 0
 cmd + ctrl - 2            :    kwmc display -f 1
 cmd + ctrl - 3            :    kwmc display -f 2
+cmd + ctrl - p            :    kwmc display -f prev
+cmd + ctrl - n            :    kwmc display -f next
 
 # Swap Focused Window
 ctrl + alt - h           :    kwmc window -s west
