@@ -24,7 +24,12 @@ module.exports = {
     css: '',
 
     // custom css to embed in the terminal window
-    termCSS: '',
+    termCSS: `
+      x-screen x-row {
+        font-variant-ligatures: initial;
+      }
+    `,
+
 
     // custom padding (css format, i.e.: `top right bottom left`)
     padding: '0px 0px',
