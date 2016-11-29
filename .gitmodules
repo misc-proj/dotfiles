@@ -13,3 +13,6 @@
 [submodule "fzf"]
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule "widgets/nerdbar.widget"]
+	path = widgets/nerdbar.widget
+	url = https://github.com/joshuarubin/nerdbar.widget.git

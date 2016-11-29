@@ -3,6 +3,7 @@
     - [mkdir -p ~/.kwm]
     - [mkdir -p ~/.config]
     - [mkdir -p ~/Library/Preferences]
+    - [mkdir -p ~/Library/Application Support/Übersicht]
 
 - clean:
     - '~'
@@ -113,3 +114,6 @@
     ~/.htoprc:
         relink: true
         path: htoprc
+    ~/Library/Application Support/Übersicht/widgets:
+        relink: true
+        path: widgets
