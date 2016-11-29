@@ -31,11 +31,10 @@ kwmc config mouse-follows-focus on
 #
 # Allows a window to be resized by dragging
 # when a modifier key and right-click is held down.
-kwmc config mouse-drag on
+kwmc config mouse-drag off
 
 # The modifier keys to be held down to initiate mouse-drag
-kwmc config mouse-drag mod shift+ctrl
-# kwmc config mouse-drag mod shift
+# kwmc config mouse-drag mod shift+ctrl
 
 # Allow window focus to wrap-around
 kwmc config cycle-focus on
