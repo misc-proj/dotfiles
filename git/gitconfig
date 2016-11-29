@@ -48,3 +48,10 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	required = true
+[sendemail]
+	from = Joshua Rubin <jrubin@zvelo.com>
+	smtpserver = smtp.gmail.com
+	smtpuser = jrubin@zvelo.com
+	smtpencryption = tls
+	chainreplyto = false
+	smtpserverport = 587
