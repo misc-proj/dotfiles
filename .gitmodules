@@ -16,3 +16,6 @@
 [submodule "widgets/nerdbar.widget"]
 	path = widgets/nerdbar.widget
 	url = https://github.com/joshuarubin/nerdbar.widget.git
+[submodule "hammerspoon/anycomplete"]
+	path = hammerspoon/anycomplete
+	url = https://github.com/nathancahill/anycomplete.git

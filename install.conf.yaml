@@ -30,6 +30,7 @@
     ~/.fzf.conf: fzf.conf
     ~/.gitconfig: git/gitconfig
     ~/.gitignore: git/gitignore
+    ~/.hammerspoon: hammerspoon
     ~/.htoprc: htoprc
     ~/.hyper.js: hyper.js
     ~/.ignore: rgignore
