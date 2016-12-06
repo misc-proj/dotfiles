@@ -5,6 +5,7 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
+    - [tic -x terminfo, Adding terminfo entries]
 
 - clean:
     - '~'
