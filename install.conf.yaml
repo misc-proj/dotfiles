@@ -18,6 +18,7 @@
     ~/Library/Application Support/Übersicht/widgets: widgets
     ~/Library/Preferences/com.googlecode.iterm2.plist: iterm2.plist
     ~/.config/nvim: vim
+    ~/.config/kak: kak
     ~/.karabiner.d/configuration/karabiner.json: karabiner.json
     ~/.kwm/kwmrc: kwmrc
     ~/.agignore: agignore
