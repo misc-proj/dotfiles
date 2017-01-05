@@ -42,6 +42,8 @@
     ~/.node-build: node/node-build
     ~/.nvim: vim
     ~/.nvimrc: vim/vimrc
+    ~/.rbenv: ruby/rbenv
+    ~/.rbenv/plugins/ruby-build: ruby/ruby-build
     ~/.screenrc: screenrc
     ~/.sift.conf: sift.conf
     ~/.tmux: tmux

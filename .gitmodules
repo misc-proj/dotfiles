@@ -25,3 +25,9 @@
 [submodule "node/node-build"]
 	path = node/node-build
 	url = https://github.com/OiNutter/node-build.git
+[submodule "ruby/rbenv"]
+	path = ruby/rbenv
+	url = https://github.com/rbenv/rbenv.git
+[submodule "ruby/ruby-build"]
+	path = ruby/ruby-build
+	url = https://github.com/rbenv/ruby-build.git
