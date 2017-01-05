@@ -38,6 +38,8 @@
     ~/.ignore: rgignore
     ~/.inputrc: vimify/inputrc
     ~/.khdrc: khdrc
+    ~/.nodenv: node/nodenv
+    ~/.node-build: node/node-build
     ~/.nvim: vim
     ~/.nvimrc: vim/vimrc
     ~/.screenrc: screenrc
@@ -47,10 +49,8 @@
     ~/.tmux-osx.conf: tmux/tmux-osx.conf
     ~/.vim: vim
     ~/.vimrc: vim/vimrc
+    ~/.zim: zsh/zim
     ~/.zlogin: zsh/zlogin
-    ~/.zlogout: zsh/zlogout
-    ~/.zplug: zsh/zplug
-    ~/.zpreztorc: zsh/zpreztorc
     ~/.zprofile: zsh/zprofile
     ~/.zshenv: zsh/zshenv
     ~/.zshrc: zsh/zshrc

@@ -3,13 +3,13 @@
 	url = https://github.com/anishathalye/dotbot
 [submodule "tmux"]
 	path = tmux
-	url = git@github.com:joshuarubin/dottmux.git
+	url = https://github.com/joshuarubin/dottmux.git
 [submodule "vim"]
 	path = vim
-	url = git@github.com:joshuarubin/dotvim.git
+	url = https://github.com/joshuarubin/dotvim.git
 [submodule "zsh"]
 	path = zsh
-	url = git@github.com:joshuarubin/dotzsh.git
+	url = https://github.com/joshuarubin/dotzsh.git
 [submodule "fzf"]
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
@@ -19,3 +19,9 @@
 [submodule "hammerspoon/anycomplete"]
 	path = hammerspoon/anycomplete
 	url = https://github.com/nathancahill/anycomplete.git
+[submodule "node/nodenv"]
+	path = node/nodenv
+	url = https://github.com/OiNutter/nodenv.git
+[submodule "node/node-build"]
+	path = node/node-build
+	url = https://github.com/OiNutter/node-build.git
