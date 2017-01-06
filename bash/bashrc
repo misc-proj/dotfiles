@@ -1,2 +1,1 @@
 [ -f $HOME/.gvm/scripts/gvm ] && source "$HOME/.gvm/scripts/gvm"
-[ -f $HOME/.rvm/scripts/rvm ] && source "$HOME/.rvm/scripts/rvm"
