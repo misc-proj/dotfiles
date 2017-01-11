@@ -6,6 +6,7 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [tic -x terminfo, Adding terminfo entries]
+    - [touch ~/.hushlogin, Setting hushlogin]
 
 - clean:
     - '~'
@@ -17,7 +18,6 @@
 - link:
     ~/Applications/Alacritty.app/Contents/MacOS/Alacritty: Alacritty
     ~/Library/Application Support/Übersicht/widgets: widgets
-    ~/Library/Preferences/com.googlecode.iterm2.plist: iterm2.plist
     ~/.config/alacritty/alacritty.yml: alacritty.yml
     ~/.config/nvim: vim
     ~/.config/kak: kak
