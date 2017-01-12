@@ -1,11 +1,3 @@
-[user]
-	name = Joshua Rubin
-	email = jrubin@zvelo.com
-	signingkey = BFD64727
-[commit]
-	gpgsign = true
-[credential]
-	helper = osxkeychain
 [alias]
 	sts = status
 	st = status
@@ -16,11 +8,11 @@
 	co = checkout
 	br = branch
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	patch = --no-pager diff --no-color
 [color]
 	diff = auto
 	status = auto
 	branch = auto
-	ui = true
 	grep = auto
 [color "diff-highlight"]
 	oldHighlight = red bold 52
@@ -30,7 +22,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
-	pager = diff-so-fancy | less --tabs=1,5 -RFX
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [apply]
 	whitespace = nowarn
 [mergetool]
@@ -48,10 +40,3 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	required = true
-[sendemail]
-	from = Joshua Rubin <jrubin@zvelo.com>
-	smtpserver = smtp.gmail.com
-	smtpuser = jrubin@zvelo.com
-	smtpencryption = tls
-	chainreplyto = false
-	smtpserverport = 587
