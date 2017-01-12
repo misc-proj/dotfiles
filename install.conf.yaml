@@ -12,12 +12,8 @@
     - '~'
     - '~/.config'
     - '~/.karabiner.d/configuration'
-    - '~/Library/Preferences'
-    - '~/Library/Application Support/Übersicht'
 
 - link:
-    ~/Applications/Alacritty.app/Contents/MacOS/Alacritty: Alacritty
-    ~/Library/Application Support/Übersicht/widgets: widgets
     ~/.config/alacritty/alacritty.yml: alacritty.yml
     ~/.config/nvim: vim
     ~/.config/kak: kak
