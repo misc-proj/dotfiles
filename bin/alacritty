@@ -1,0 +1,2 @@
+#!/bin/sh
+exec nohup /usr/local/bin/alacritty "$@" > /dev/null 2>&1 &
