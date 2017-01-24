@@ -17,7 +17,7 @@
     ~/.config/alacritty/alacritty.yml: alacritty.yml
     ~/.config/nvim: vim
     ~/.config/kak: kak
-    ~/.karabiner.d/configuration/karabiner.json: karabiner.json
+    ~/.config/karabiner/karabiner.json: karabiner.json
     ~/.kwm/kwmrc: kwmrc
     ~/.agignore: agignore
     ~/.bashrc: bash/bashrc
