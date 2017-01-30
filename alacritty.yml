@@ -48,12 +48,19 @@ font:
 # Should display the render timer
 render_timer: false
 
+# Use custom cursor colors. If true, display the cursor in the cursor.foreground
+# and cursor.background colors, otherwise invert the colors of the cursor.
+custom_cursor_colors: true
+
 # Colors (Tomorrow Night Bright)
 colors:
   # Default colors
   primary:
     background: '0x232c31'
     foreground: '0xc5c8c6'
+  cursor:
+    background: '0x02fdff'
+    foreground: '0x232c31'
 
   # Normal colors
   normal:
@@ -200,5 +207,8 @@ mouse_bindings:
 
 # Shell
 #
-# You can set this to a path to your favorite shell, e.g. /bin/fish
-shell: login_shell
+# You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
+# Entries in shell.args are passed unmodified as arguments to the shell.
+#
+shell:
+ program: login_shell
