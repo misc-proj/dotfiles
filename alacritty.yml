@@ -219,6 +219,10 @@ mouse:
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
+visual_bell:
+  animation: EaseOutExpo
+  duration: 150
+
 # Shell
 #
 # You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
