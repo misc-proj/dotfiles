@@ -1,4 +1,9 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator
+# Window dimensions in character columns and lines
+# (changes require restart)
+dimensions:
+  columns: 80
+  lines: 40
 
 # The FreeType rasterizer needs to know the device DPI for best results
 # (changes require restart)
@@ -206,6 +211,13 @@ key_bindings:
 # - Copy (TODO)
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
+
+mouse:
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
 # Shell
 #
