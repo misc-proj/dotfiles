@@ -1,4 +1,17 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator
+
+# Any items in the `env` entry below will be added as
+# environment variables. Some entries may override variables
+# set by alacritty it self.
+env:
+  # TERM env customization. Default is xterm-256color
+  # Note: the default TERM value `xterm-256color` does not
+  # specify all features alacritty supports. This does pose
+  # a few issues with programs relying on terminfo and the
+  # `tput` command
+  TERM: xterm-256color
+  ALACRITTY_PROGRAM: Alacritty.app
+
 # Window dimensions in character columns and lines
 # (changes require restart)
 dimensions:
@@ -66,8 +79,8 @@ colors:
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    background: '0x02fdff'
-    foreground: '0x232c31'
+    text: '0x02fdff'
+    cursor: '0x232c31'
 
   # Normal colors
   normal:
@@ -115,7 +128,7 @@ colors:
 #
 visual_bell:
   animation: EaseOutExpo
-  duration: 150
+  duration: 0
 
 # Key bindings
 #
@@ -190,6 +203,7 @@ key_bindings:
   - { key: F11,                     chars: "\x1b[23~"                    }
   - { key: F12,                     chars: "\x1b[24~"                    }
   - { key: Back,                    chars: "\x7f"                        }
+  - { key: Back,     mods: Alt,     chars: "\x1b\x7f"                    }
   - { key: Insert,                  chars: "\x1b[2~"                     }
   - { key: Delete,                  chars: "\x1b[3~",  mode: AppKeypad   }
   - { key: Delete,                  chars: "\x1b[3~",  mode: ~AppKeypad  }
@@ -219,10 +233,15 @@ mouse:
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
+hide_cursor_when_typing: true
+
 # Shell
 #
 # You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
 # Entries in shell.args are passed unmodified as arguments to the shell.
 #
 shell:
- program: login_shell
+  program: login
+  args:
+    - -fqp
+    - jrubin
