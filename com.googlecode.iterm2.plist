@@ -42894,11 +42894,11 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>1826 346 599 459 0 0 2560 1440 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>597 821 958 433 0 0 3360 1867 </string>
+	<string>262 426 796 473 0 0 1920 1177 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>0 588 960 587 0 0 1920 1200 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>441 296 572 427 0 0 3360 1867 </string>
+	<string>0 457 1280 720 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>-450 -350 490 376 0 0 1680 1028 </string>
 	<key>NeverWarnAboutShortLivedSessions_241240AF-B474-48C0-AA85-3B324E79FB0F</key>
@@ -60372,7 +60372,7 @@
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
-	<true/>
+	<false/>
 	<key>RightCommand</key>
 	<integer>8</integer>
 	<key>RightOption</key>
@@ -60388,7 +60388,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-03-01T03:49:58Z</date>
+	<date>2017-03-21T02:59:29Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -60454,7 +60454,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.20170227-nightly</string>
+	<string>3.1.20170320-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
