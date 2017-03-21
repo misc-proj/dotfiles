@@ -1,1 +1,2 @@
 [ -f $HOME/.gvm/scripts/gvm ] && source "$HOME/.gvm/scripts/gvm"
+PATH="$HOME/go/bin:${PATH}"
