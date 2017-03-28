@@ -211,6 +211,8 @@ key_bindings:
   - { key: J,  mods: Control|Shift, chars: "\x01J"                       }
   - { key: K,  mods: Control|Shift, chars: "\x01K"                       }
   - { key: L,  mods: Control|Shift, chars: "\x01L"                       }
+  - { key: P,  mods: Alt,           chars: "\x1bp"                       }
+  - { key: P,  mods: Alt|Shift,     chars: "\x1bP"                       }
 
 # Mouse bindings
 #
